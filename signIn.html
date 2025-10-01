@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing into VS Code, Gitlens, and Actions</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+        
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+        
+        h4 {
+            color: #222222;
+            margin-top: 1.2em;
+        }
+        
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        
+        li {
+            margin-bottom: 0.3em;
+        }
+        
+        a {
+            color: #555555;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            border: 1px solid #eeeeee;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: #000000;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+        
+        .summary-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .summary-card h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Signing into VS Code, Gitlens, and Actions</h1>
+    
+    <p>It is possible to use VS Code without signing it, but many tools and extensions require it. You will use your Github account to sign in for each item. Once you do this, you should stay signed in unless you manually sign out.</p>
+    
+    <h2>Summary</h2>
+    
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>VS Code Sign-In Benefits</h3>
+            <ul>
+                <li>Access to AI features and Copilot</li>
+                <li>Automatic extension installation</li>
+                <li>GitHub Copilot Chat integration</li>
+                <li>Synchronized settings across devices</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Extensions That Require Sign-In</h3>
+            <ul>
+                <li>GitHub Copilot (AI code assistance)</li>
+                <li>GitLens (Git supercharged)</li>
+                <li>GitHub Actions (workflow automation)</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Authentication Process</h3>
+            <ul>
+                <li>Sign in to VS Code with GitHub</li>
+                <li>Authorize extensions in browser</li>
+                <li>Grant repository access</li>
+                <li>One-time setup per extension</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>End Result</h3>
+            <ul>
+                <li>Full access to development tools</li>
+                <li>AI-powered coding assistance</li>
+                <li>Enhanced Git workflow features</li>
+                <li>Automated deployment capabilities</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    
+    <h2>Part 1 - Sign In to VS Code & Github Copilot</h2>
+    
+    <p>Signing in will give you access to advanced tools in VS Code and will also automatically install the Github Copilot and Github Copilot Chat Extensions.</p>
+    
+    <h3>Step 1 - Click Sign In</h3>
+    
+    <p>Use the Account menu to sign in.</p>
+    
+    <img src="signIn/01_SignInForAI.png" alt="Sign in to use AI features - clicking the account menu">
+    
+    <ul>
+        <li>Click the Account menu in the bottom left</li>
+        <li>Select 'Sign in to use AI features…'</li>
+    </ul>
+    
+    <h3>Step 2 - Select to Sign In with Github</h3>
+    
+    <p>You can sign in to VS Code with a variety of accounts, but you should always choose to use your Github account to keep things organized</p>
+    
+    <img src="signIn/02_ContinueWithGithub.png" alt="Continue with Github dialog">
+    
+    <ul>
+        <li>From the popup, choose 'Continue with Github'</li>
+    </ul>
+    
+    <h3>Step 3 - Authorize in the Browser</h3>
+    
+    <p>If you are already signed into your Github account online, it will ask you Authorize. If not it will ask you sign in first.</p>
+    
+    <img src="signIn/browserAuth.png" alt="Github authorization page in browser">
+    
+    <ul>
+        <li>Click Continue</li>
+    </ul>
+    
+    <h3>Step 4 - Check that you now have Copilot Extensions</h3>
+    
+    <p>These steps will install both Copilot extensions and attach them to your Github account.</p>
+    
+    <img src="signIn/copilotExtensions.png" alt="Github Copilot extensions installed">
+    
+    <h2>Part 2 - Sign In to Gitlens</h2>
+    
+    <h3>Step 1 - Select it from the Account Menu</h3>
+    
+    <p>To connect Gitlens to your Github account, you need to sign in and authorize it</p>
+    
+    <img src="signIn/03_signInGitlens.png" alt="Sign in with Github to use GitLens option">
+    
+    <ul>
+        <li>Click your Account menu</li>
+        <li>Select Sign In with Github to use GitLens - Git supercharged</li>
+    </ul>
+    
+    <h3>Step 2 - Authorize in the browser</h3>
+    
+    <p>If you are already signed into your Github account online, it will ask you Authorize. If not it will ask you sign in first.</p>
+    
+    <img src="Workshop2/signIn/browserAuth.png" alt="Github authorization page in browser for GitLens">
+    
+    <ul>
+        <li>Click Continue</li>
+    </ul>
+    
+    <h2>Part 3 - Allow Access for Github Actions</h2>
+    
+    <p>We need to authorize the Github Actions extension, so that it can access our account and repos.</p>
+    
+    <h3>Step 1 - Select it from the Account Menu</h3>
+    
+    <p>For security, you must explicitly grant the extension access to your account.</p>
+    
+    <img src="signIn/04_accessActions.png" alt="Grant access to Github for Github Actions option">
+    
+    <ul>
+        <li>Click your Account menu</li>
+        <li>Select Grant access to Github for Github Actions…</li>
+    </ul>
+    
+    <h3>Step 2 - Confirm the account to connect</h3>
+    
+    <p>Select your Github account id from the command palette</p>
+    
+    <img src="signIn/05_chooseAccount.png" alt="Choose Github account from command palette">
+    
+</body>
+</html>

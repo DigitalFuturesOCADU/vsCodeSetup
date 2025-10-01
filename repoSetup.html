@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up a Github Repo for Development and Webhosting</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+        
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+        
+        h4 {
+            color: #222222;
+            margin-top: 1.2em;
+        }
+        
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        
+        li {
+            margin-bottom: 0.3em;
+        }
+        
+        a {
+            color: #555555;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            border: 1px solid #eeeeee;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: #000000;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+        
+        .summary-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+        }
+        
+        .summary-card h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+        
+        .links-section {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            border-left: 4px solid #888888;
+            margin: 1em 0;
+        }
+        
+        .links-section strong {
+            color: #000000;
+        }
+
+        .url-pattern {
+            background-color: #f8f8f8;
+            padding: 1em;
+            border-radius: 6px;
+            border: 1px solid #dddddd;
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        .step-intro {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            margin: 1em 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Setting up a Github Repo for Development and Webhosting</h1>
+
+    <p>We will be using Github for two functions simultaneously:</p>
+    <ul>
+        <li>Backup of version management of the code written</li>
+        <li>Acting as the web hosting service</li>
+    </ul>
+
+    <h2>Summary</h2>
+    
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>What You'll Create</h3>
+            <ul>
+                <li>A new GitHub repository</li>
+                <li>A live website hosted on GitHub Pages</li>
+                <li>A local development folder on your computer</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Repository Settings</h3>
+            <ul>
+                <li>Public repository with README</li>
+                <li>GitHub Pages enabled</li>
+                <li>GitHub Actions for deployment</li>
+                <li>Static HTML workflow configured</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Local Setup</h3>
+            <ul>
+                <li>Repository cloned to your computer</li>
+                <li>Folder opened in VS Code</li>
+                <li>Ready for development workflow</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>End Result</h3>
+            <ul>
+                <li>Live website URL: <code>username.github.io/repo-name</code></li>
+                <li>Automatic deployment when you commit changes</li>
+                <li>Version control for your code</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Part 1 – Setting up a new Repo for Development</h2>
+
+    <h3>Step 1 – Create a Repo on Github</h3>
+
+    <p>A repository (repo) is the basic unit of Github. This is the place where all of the code you write will be synced to online. There are many different things you can do with a repository, so it requires several settings to be set to make it optimized for mobile development.</p>
+
+    <img src="repoImages/01_newRepoButton.png" alt="New Repository Button">
+
+    <ol>
+        <li>Go to <a href="https://github.com">github.com</a> (sign in if you aren't already)</li>
+        <li>Click <strong>New</strong> Button</li>
+        <li>Fill out the properties:
+            <ul>
+                <li>Name</li>
+                <li>Description</li>
+                <li>Be sure it is <strong>public</strong></li>
+                <li>Turn on <strong>Add README</strong></li>
+            </ul>
+        </li>
+        <li>Click <strong>Create Repository</strong></li>
+    </ol>
+
+    <img src="repoImages/02_createRepo.png" alt="Create Repository">
+
+    <h3>Step 2 – Enable Github Pages in the Repo</h3>
+
+    <p>In addition to using Github to manage our code development, we will also be using it as a webhost for the developed web apps.</p>
+
+    <img src="repoImages/06_settingsPages.png" alt="Settings Pages">
+
+    <ol>
+        <li>Open the url of the repository you created</li>
+        <li>Click:
+            <ul>
+                <li><strong>Settings</strong> at the top of the page</li>
+                <li><strong>Pages</strong> on the left</li>
+                <li>Under <strong>Build and deployment</strong> click <strong>Source</strong> dropdown and choose <strong>Github Actions</strong></li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Step 3 – Set up the Github Action</h3>
+
+    <p>Using a Github Action instead of 'Deploy from branch' builds the updated code much faster with reduced caching issues.</p>
+
+    <img src="repoImages/07_statichtml_configure.png" alt="Static HTML Configure">
+
+    <ol>
+        <li>Once you select Github Actions from the dropdown it will give you 2 options</li>
+        <li>Under <strong>Static HTML</strong>, choose <strong>Configure</strong></li>
+    </ol>
+
+    <h3>Step 4 – Commit the Changes to the Repo</h3>
+
+    <p>To implement this change to the Pages build process, you must commit the static.yml file to the repo.</p>
+
+    <img src="repoImages/08_staticCommit.png" alt="Static Commit">
+
+    <ol>
+        <li>When the file opens:
+            <ul>
+                <li>Do not make any changes to the file</li>
+                <li>Press the <strong>Commit changes...</strong> button in the top right</li>
+            </ul>
+        </li>
+    </ol>
+
+    <img src="repoImages/09_staticCommit_dialog.png" alt="Static Commit Dialog">
+
+    <ol start="2">
+        <li>When the Commit changes dialog opens:
+            <ul>
+                <li>Create a Commit message (or use the generated one)</li>
+                <li>Click the <strong>Commit changes</strong> button</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Step 5 – Confirm the url of your Pages site</h3>
+
+    <p>After you commit the changes, it will start create your webspace for this repo. Pages hosted through github are created with this naming pattern:</p>
+
+    <div class="url-pattern">
+        <code>https://your-github-name.github.io/name-of-your-repository/</code>
+    </div>
+
+    <p>You can confirm that it worked by going back to <strong>Settings → Pages</strong> and seeing that it confirms the site</p>
+
+    <img src="repoImages/10_siteIsLive.png" alt="Site Is Live">
+
+    <h2>Part 2 – Clone the Repo to your Computer</h2>
+
+    <h3>Step 1 – Clone the repo from the website</h3>
+
+    <p>'Cloning' refers to the action of downloading the repo onto your computer so that it can synchronize the files. You can also clone repos that you didn't create, but there is a specific capability when cloning from your own account.</p>
+
+    <img src="repoImages/03_cloneRepo.png" alt="Clone Repository">
+
+    <ol>
+        <li>On the Repo page Click the <strong>Code</strong> Button and choose <strong>Open with Github Desktop</strong></li>
+        <li>This will download the repo to your computer and open Github Desktop</li>
+    </ol>
+
+    <h3>Step 2 – Complete the clone using Github Desktop</h3>
+
+    <p>Github Desktop is used to complete this process of creating a local repo folder on your computer.</p>
+
+    <img src="repoImages/04_cloneRepoDesktop.png" alt="Clone Repository Desktop">
+
+    <ol>
+        <li>When Github Desktop opens, simply click the <strong>Clone</strong> button</li>
+        <li>At this point the repo is synced locally to its folder on your computer. Unless you specify somewhere else, that is typically:
+            <ul>
+                <li><strong>Windows:</strong> <code>/My Documents/Github/Repo Name</code></li>
+                <li><strong>MacOS:</strong> <code>/Documents/Github/Repo Name</code></li>
+            </ul>
+        </li>
+        <li>If the folder is created in this location, you can close Github Desktop</li>
+    </ol>
+
+    <h3>Step 3 – Open the local repo folder in VS Code</h3>
+
+    <p>Now that the folder is created, you need to open it in VS Code to start coding.</p>
+
+    <img src="repoImages/05b_OpenFolder.png" alt="Open Folder">
+
+    <ol>
+        <li>To open it in VS Code either navigate <strong>File → Open Folder</strong> or use the <strong>Open Folder</strong> Button</li>
+    </ol>
+
+</body>
+</html>

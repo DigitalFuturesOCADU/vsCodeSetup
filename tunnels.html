@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up VS Code Tunnels for Remote Access</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+
+        h4 {
+            color: #222222;
+            margin-top: 1.2em;
+        }
+
+        ul, ol {
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+
+        a {
+            color: #555555;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            border: 1px solid #eeeeee;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #000000;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .summary-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .summary-card h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+
+        .links-section {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            border-left: 4px solid #888888;
+            margin: 1em 0;
+        }
+
+        .links-section strong {
+            color: #000000;
+        }
+
+        .url-pattern {
+            background-color: #f8f8f8;
+            padding: 1em;
+            border-radius: 6px;
+            border: 1px solid #dddddd;
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        .step-intro {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            margin: 1em 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Setting up VS Code Tunnels for Remote Access</h1>
+
+    <p>VS Code tunnels allow you to securely access your locally running development server from any device with an internet connection. This is particularly useful for testing your P5.js projects on mobile devices or sharing your work with others.</p>
+
+    <h2>Summary</h2>
+
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>What You'll Set Up</h3>
+            <ul>
+                <li>Secure remote access to local development server</li>
+                <li>Public URLs for your P5.js projects</li>
+                <li>Cross-device testing capabilities</li>
+            </ul>
+        </div>
+
+        <div class="summary-card">
+            <h3>Requirements</h3>
+            <ul>
+                <li>VS Code with tunnel support</li>
+                <li>GitHub account for authentication</li>
+                <li>Live Server running locally</li>
+                <li>Active development project</li>
+            </ul>
+        </div>
+
+        <div class="summary-card">
+            <h3>Access Methods</h3>
+            <ul>
+                <li>Direct URL links</li>
+                <li>QR codes for mobile devices</li>
+                <li>Authentication-based access</li>
+                <li>Secure tunnel connections</li>
+            </ul>
+        </div>
+
+        <div class="summary-card">
+            <h3>Use Cases</h3>
+            <ul>
+                <li>Mobile responsive testing</li>
+                <li>Sharing work with others</li>
+                <li>Cross-device compatibility</li>
+                <li>Remote collaboration</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Part 1 - Setting up the Tunnel</h2>
+
+    <h3>Step 1 - Access the Tunnel Menu</h3>
+
+    <p>Open VS Code and access the tunnel options from the bottom left corner.</p>
+
+    <img src="tunnels/01_tunnelMenu.png" alt="Accessing the tunnel menu">
+
+    <ul>
+        <li>Click the tunnel icon in the bottom left corner</li>
+        <li>Select your tunnel options</li>
+    </ul>
+
+    <h3>Step 2 - Turn On Tunnel for Current Session</h3>
+
+    <p>Enable tunneling for your current VS Code session.</p>
+
+    <img src="tunnels/02_onForSession.png" alt="Turning on tunnel for session">
+
+    <ul>
+        <li>Choose "Turn on Tunnel for Current Session"</li>
+        <li>This will start the tunneling process</li>
+    </ul>
+
+    <h3>Step 3 - Sign In to GitHub</h3>
+
+    <p>You'll need to authenticate with your GitHub account to create the tunnel.</p>
+
+    <img src="tunnels/03_signIn.png" alt="Signing in to GitHub">
+
+    <ul>
+        <li>Sign in with your GitHub account when prompted</li>
+        <li>This enables secure tunnel creation</li>
+    </ul>
+
+    <h2>Part 2 - Configuring Port Forwarding</h2>
+
+    <h3>Step 1 - Ensure Live Server is Running</h3>
+
+    <p>Make sure your P5.js project is running with Live Server.</p>
+
+    <img src="tunnels/04_LiveServerRunning.png" alt="Live Server running">
+
+    <ul>
+        <li>Your project should be running on a local port (typically 5500)</li>
+        <li>Live Server extension should be active</li>
+    </ul>
+
+    <h3>Step 2 - Open the Ports Tab</h3>
+
+    <p>Access the ports panel to manage forwarded ports.</p>
+
+    <img src="tunnels/05_portsTab.png" alt="Opening the ports tab">
+
+    <ul>
+        <li>Click on the "Ports" tab in the terminal panel</li>
+        <li>This shows all active ports</li>
+    </ul>
+
+    <h3>Step 3 - Forward the Port</h3>
+
+    <p>Forward your local development port through the tunnel.</p>
+
+    <img src="tunnels/06_portNumber.png" alt="Selecting port number">
+
+    <ul>
+        <li>Find your Live Server port (usually 5500)</li>
+        <li>Right-click and select "Forward Port"</li>
+    </ul>
+
+    <h3>Step 4 - Allow Access</h3>
+
+    <p>Grant permission for the port forwarding.</p>
+
+    <img src="tunnels/07_allow.png" alt="Allowing port access">
+
+    <ul>
+        <li>Click "Allow" when prompted</li>
+        <li>This enables external access to your port</li>
+    </ul>
+
+    <h3>Step 5 - Confirm Account Access</h3>
+
+    <p>Confirm that you want to allow tunnel access.</p>
+
+    <img src="tunnels/08_confirmAccount.png" alt="Confirming account access">
+
+    <ul>
+        <li>Confirm your GitHub account permissions</li>
+        <li>This finalizes the tunnel setup</li>
+    </ul>
+
+    <h2>Part 3 - Accessing Your Tunnelled Site</h2>
+
+    <h3>Step 1 - Get the Public URL</h3>
+
+    <p>Your local server now has a public URL accessible from anywhere.</p>
+
+    <img src="tunnels/09_publicPort.png" alt="Public port URL">
+
+    <ul>
+        <li>Copy the public URL shown in the ports panel</li>
+        <li>This URL can be accessed from any device</li>
+    </ul>
+
+    <h3>Step 2 - Handle Future Prompts</h3>
+
+    <p>You can choose to not show certain prompts in the future.</p>
+
+    <img src="tunnels/10_DontShow.png" alt="Don't show again option">
+
+    <ul>
+        <li>Check "Don't show again" for future sessions</li>
+        <li>This streamlines the process</li>
+    </ul>
+
+    <h3>Step 3 - Open the Link</h3>
+
+    <p>Access your tunnelled site from any browser.</p>
+
+    <img src="tunnels/11_openLink.png" alt="Opening the public link">
+
+    <ul>
+        <li>Click the globe icon or copy the URL</li>
+        <li>Open in any web browser</li>
+    </ul>
+
+    <h3>Step 4 - Alternative Access Methods</h3>
+
+    <p>You can also access via authentication link or QR code.</p>
+
+    <img src="tunnels/12_authLink.png" alt="Authentication link">
+
+    <ul>
+        <li>Use the authentication link for direct access</li>
+    </ul>
+
+    <img src="tunnels/13_qrLink.png" alt="QR code access">
+
+    <ul>
+        <li>Scan the QR code with your mobile device</li>
+        <li>Perfect for testing on phones and tablets</li>
+    </ul>
+
+    <h2>Important Notes</h2>
+
+    <ul>
+        <li>Tunnels are temporary and expire when you close VS Code</li>
+        <li>Keep your GitHub account secure as it controls tunnel access</li>
+        <li>Use tunnels responsibly and only share URLs with trusted individuals</li>
+        <li>This is perfect for testing responsive designs and mobile interactions</li>
+    </ul>
+
+</body>
+</html>

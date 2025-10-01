@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding P5 locally using your Repo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+
+        h4 {
+            color: #222222;
+            margin-top: 1.2em;
+        }
+
+        ul, ol {
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+
+        a {
+            color: #555555;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        code {
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            border: 1px solid #eeeeee;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #000000;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .summary-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .summary-card h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+
+        .links-section {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            border-left: 4px solid #888888;
+            margin: 1em 0;
+        }
+
+        .links-section strong {
+            color: #000000;
+        }
+
+        .url-pattern {
+            background-color: #f8f8f8;
+            padding: 1em;
+            border-radius: 6px;
+            border: 1px solid #dddddd;
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        .step-intro {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            margin: 1em 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Coding P5 locally using your Repo</h1>
+
+    <h2>Summary</h2>
+    
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>What You'll Create</h3>
+            <ul>
+                <li>A complete P5.js project structure</li>
+                <li>HTML and JavaScript files ready for coding</li>
+                <li>Local development environment</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>VS Code Workflow</h3>
+            <ul>
+                <li>Command Palette for project creation</li>
+                <li>Live Server for real-time preview</li>
+                <li>Integrated terminal access</li>
+                <li>Extension-powered development</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Development Setup</h3>
+            <ul>
+                <li>Local web server running</li>
+                <li>Browser developer tools access</li>
+                <li>Automatic file watching</li>
+                <li>Error console visibility</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Version Control</h3>
+            <ul>
+                <li>Git commit workflow</li>
+                <li>Sync with GitHub repository</li>
+                <li>Live website deployment</li>
+                <li>Version history tracking</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Important commands and locations in VS Code</h2>
+
+    <h3>Command Palette</h3>
+
+    <p>This is where you execute specific commands inside VS code.</p>
+
+    <ul>
+        <li>To open it
+            <ul>
+                <li>View -&gt; Command Palette</li>
+                <li>Hotkeys
+                    <ul>
+                        <li>Windows : Ctrl + Shift + P</li>
+                        <li>MacOS : Cmd + Shift + P</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Terminal</h3>
+
+    <p>VS Code also has access to your Terminal inside the software. This is used for a variety of tasks within the development cycle.</p>
+
+    <ul>
+        <li>To open it
+            <ul>
+                <li>View -&gt; Terminal</li>
+                <li>Hotkeys
+                    <ul>
+                        <li>Windows : Ctrl + `</li>
+                        <li>MacOS : Ctrl + `</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Part 1 - Create a new p5 project inside your Repo</h2>
+
+    <p>It is important that you have already completed the steps of setting up a repo and cloning it to your computer. This guide assumes you have opened that folder in VS Code.</p>
+
+    <h3>Step 1 - Execute 'Create P5 Project'</h3>
+
+    <p>Open the Command Pallette and use 'Create P5 Project'</p>
+
+    <img src="p5Setup/01_cp5Create.png" alt="Create P5 Project command in Command Palette">
+
+    <ul>
+        <li>Open the Command Pallette</li>
+        <li>Start typing 'p5'</li>
+        <li>This will bring up the 'Create P5 Project' command</li>
+        <li>Click it</li>
+    </ul>
+
+    <h3>Step 2 - Name the Project</h3>
+
+    <p>Give the project a name. This will be shown as the title in the index file</p>
+
+    <img src="p5Setup/02_nameIt.png" alt="Naming the P5 project">
+
+    <ul>
+        <li>Give it a name</li>
+        <li>Press Enter</li>
+        <li>This will generate
+            <ul>
+                <li>Index.html file with p5 sourced</li>
+                <li>Sketch.js file that is linked to the index file</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Step 3 - Update the P5 Version</h3>
+
+    <p>This isn't always necessary, but it is generally a good idea to update the p5 version to the current one.</p>
+
+    <img src="p5Setup/03_updateVersion.png" alt="Updating P5 version in index.html">
+
+    <ul>
+        <li>Inside the index file edit the link to point to a more current version of p5</li>
+    </ul>
+
+    <h2>Part 2 - Set up a live preview of what the site will look like</h2>
+
+    <p>Similar to the p5 web editor, you need to have a view of what your code will look like. To do this we need to launch a webserver on your local machine to host the code. This will update automatically each time you save the index file</p>
+
+    <h3>Step 1 - Open your index file with Live Server</h3>
+
+    <p>This uses the Live Server extension to simplify the process of creating a server</p>
+
+    <img src="p5Setup/04_openLS.png" alt="Opening index.html with Live Server">
+
+    <ul>
+        <li>Right Click on index.html</li>
+        <li>Select Open with Live Server</li>
+        <li>This will open a web browser running your index page</li>
+    </ul>
+
+    <img src="p5Setup/05_showPage.png" alt="P5 project running in browser">
+
+    <h3>Step 2 - Open the web console</h3>
+
+    <p>To see errors or any console.log command outputs, you need to open the console in the browser. After this step you are ready to start coding</p>
+
+    <img src="p5Setup/06_accessDT.png" alt="Accessing Developer Tools in Chrome">
+
+    <ul>
+        <li>Click the 3 dots</li>
+        <li>More Tools</li>
+        <li>Developer Tools</li>
+        <li>This will open the console</li>
+    </ul>
+
+    <img src="p5Setup/07_showConsole.png" alt="Developer console showing P5 output">
+
+    <h2>Part 3 - Saving your progress using Git</h2>
+
+    <p>Once you start making progress on your code, you'll want to save particular versions of the code. However, you won't be changing the filename, you will be creating new commit points using Git.</p>
+
+    <h3>Step 1 - Open the Source Control panel and name your message</h3>
+
+    <p>This panel contains all of the tools to interact with Git and your repo. Instead of giving the file a new name, you will write a message that describes the current state of the project</p>
+
+    <img src="p5Setup/08_commitMessage.png" alt="Committing changes with descriptive message">
+
+    <ul>
+        <li>Open the Source Control panel</li>
+        <li>Write a commit message in the box
+            <ul>
+                <li>Be descriptive of the current state</li>
+            </ul>
+        </li>
+        <li>Press Commit</li>
+        <li>You have now saved the current state of your project</li>
+    </ul>
+
+    <h3>Step 2 - Sync the current state with Github</h3>
+
+    <p>Making the commit saves the current state locally, but you also want to synchronize it with your online Github repo.</p>
+
+    <img src="p5Setup/09_syncChange.png" alt="Syncing changes to GitHub">
+
+    <ul>
+        <li>Press Sync Changes to upload it to Github</li>
+        <li>You can now see the changes reflected in your repo online</li>
+    </ul>
+
+    <img src="p5Setup/10_onlineRepo.png" alt="Repository showing committed changes online">
+
+    <h3>Step 3 - View the hosted version of the website</h3>
+
+    <p>Because we set up the Repo with Pages, each time you sync the code, it also builds a version of the site at its url.</p>
+
+    <div class="url-pattern">
+        <code>https://&lt;github username&gt;.github.io/&lt;name of your repo&gt;</code>
+    </div>
+
+    <img src="p5Setup/11_viewOnline.png" alt="Viewing the live website hosted on GitHub Pages">
+
+</body>
+</html>

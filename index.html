@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Development Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .intro {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+            margin: 1.5em 0;
+        }
+
+        .guide-section {
+            margin: 2em 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .guide-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-color: #aaaaaa;
+        }
+
+        .guide-card h3 {
+            margin-top: 0;
+            color: #000000;
+            font-size: 1.2em;
+        }
+
+        .guide-card p {
+            color: #555555;
+            margin: 0.5em 0 1em 0;
+            font-size: 0.95em;
+            flex-grow: 1;
+        }
+
+        .guide-link {
+            display: inline-block;
+            color: #ffffff;
+            background-color: #555555;
+            text-decoration: none;
+            padding: 0.6em 1.2em;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .guide-link:hover {
+            background-color: #000000;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #888888;
+            font-size: 0.9em;
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 1px solid #eeeeee;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+                gap: 1em;
+            }
+
+            .guide-card {
+                padding: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Development Setup Guide</h1>
+
+    <h2>General Setup</h2>
+    <p>Start here to install and configure your core development tools and authenticate your accounts.</p>
+
+    <div class="guide-grid">
+        <div class="guide-card">
+            <h3>Installing Core Software and Extensions</h3>
+            <p>Download and install VS Code, GitHub Desktop, Git, and essential VS Code extensions for P5.js development.</p>
+            <a href="vsCodeInstallSetup.html" class="guide-link">View Guide →</a>
+        </div>
+
+        <div class="guide-card">
+            <h3>Signing into VS Code, GitLens, and Actions</h3>
+            <p>Authenticate your GitHub account with VS Code and essential extensions to enable advanced features and AI assistance.</p>
+            <a href="signIn.html" class="guide-link">View Guide →</a>
+        </div>
+
+        <div class="guide-card">
+            <h3>Authorize Copilot Pro</h3>
+            <p>Set up your OCADU student account to access GitHub Copilot Pro features for enhanced AI-powered coding assistance.</p>
+            <a href="copilotAuth.html" class="guide-link">View Guide →</a>
+        </div>
+    </div>
+
+    <h2>Coding Environment Setup</h2>
+    <p>Configure your repositories and local development workflow for creating and deploying P5.js projects.</p>
+
+    <div class="guide-grid">
+        <div class="guide-card">
+            <h3>Setting up a GitHub Repo</h3>
+            <p>Create a GitHub repository with GitHub Pages enabled for automatic deployment and version control of your projects.</p>
+            <a href="repoSetup.html" class="guide-link">View Guide →</a>
+        </div>
+
+        <div class="guide-card">
+            <h3>Coding P5 Locally Using Your Repo</h3>
+            <p>Learn the complete workflow for creating, developing, and deploying P5.js projects from your local machine to GitHub Pages.</p>
+            <a href="localP5.html" class="guide-link">View Guide →</a>
+        </div>
+
+        <div class="guide-card">
+            <h3>Setting up VS Code Tunnels</h3>
+            <p>Enable remote access to your local development server for testing on mobile devices and sharing your work with others.</p>
+            <a href="tunnels.html" class="guide-link">View Guide →</a>
+        </div>
+    </div>
+
+    <h2>Browser Tools</h2>
+    <p>Master essential browser developer tools for debugging and testing your web applications.</p>
+
+    <div class="guide-grid">
+        <div class="guide-card">
+            <h3>Chrome Developer Tools</h3>
+            <p>Learn to use Chrome's developer console, device simulation, and debugging tools for mobile web development.</p>
+            <a href="chromeTools.html" class="guide-link">View Guide →</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer">
+        <p>OCAD University - Digital Futures - Mobile Development</p>
+        <p>For questions or issues, please contact your instructor.</p>
+    </div>
+
+</body>
+</html>

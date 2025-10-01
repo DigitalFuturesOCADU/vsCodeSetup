@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Tools for mobile web development</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        h1 {
+            color: #000000;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+        }
+        
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        
+        h3 {
+            color: #222222;
+            margin-top: 1.5em;
+        }
+        
+        h4 {
+            color: #222222;
+            margin-top: 1.2em;
+        }
+        
+        ul, ol {
+            padding-left: 1.5em;
+        }
+        
+        li {
+            margin-bottom: 0.3em;
+        }
+        
+        a {
+            color: #555555;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            border: 1px solid #eeeeee;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: #000000;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin: 2em 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+        
+        .summary-card {
+            background-color: #f8f8f8;
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid #dddddd;
+        }
+        
+        .summary-card h3 {
+            margin-top: 0;
+            color: #000000;
+        }
+        
+        .links-section {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            border-left: 4px solid #888888;
+            margin: 1em 0;
+        }
+        
+        .links-section strong {
+            color: #000000;
+        }
+
+        .hotkey-section {
+            background-color: #f8f8f8;
+            padding: 1em;
+            border-radius: 6px;
+            border: 1px solid #dddddd;
+            margin: 1em 0;
+        }
+
+        .hotkey-section h4 {
+            margin-top: 0;
+            color: #000000;
+        }
+
+        .tool-intro {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 6px;
+            margin: 1em 0;
+            border-left: 4px solid #888888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chrome Tools for mobile web development</h1>
+
+    <p>Chrome has several tools built in that help with developing apps for mobile devices. It is not the only browser that can do this, but it is simple to use.</p>
+
+    <h2>Part 1 – Creating QR codes for URLs</h2>
+
+    <p>One of the basic methods we use for opening urls on mobile is via QR code. There are endless websites that can perform this task, but it is convenient that it is built into Chrome.</p>
+
+    <img src="ChromeTools/01_createQRcode.png" alt="Create QR Code">
+
+    <ol>
+        <li>Click the <strong>3 dots</strong> in the top right to open the menu</li>
+        <li>Navigate to:
+            <ul>
+                <li><strong>Cast, Save, and Share</strong></li>
+                <li><strong>Create QR Code</strong></li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Part 2 – Using the Debug Console</h2>
+
+    <p>When developing locally, you need access to the debug console to see errors and any <code>console.log()</code> messages you create. We will use the console built into Chrome for this task.</p>
+
+    <h3>Step 1 – Open the Dev Tools</h3>
+
+    <p>Chrome has an entire suite of tools built in that are helpful for developing on the web. They can be accessed either via the Settings menu or via hotkeys.</p>
+
+    <img src="ChromeTools/02_DevToolsOpen.png" alt="Developer Tools Open">
+
+    <h4>Method 1: Via Menu</h4>
+    <ol>
+        <li>Click the <strong>3 dots</strong> in the top right to open the menu</li>
+        <li>Navigate to:
+            <ul>
+                <li><strong>More Tools</strong></li>
+                <li><strong>Developer Tools</strong></li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="hotkey-section">
+        <h4>Method 2: Keyboard Shortcuts</h4>
+        <ul>
+            <li><strong>MacOS:</strong> <code>Cmd + Option + J</code></li>
+            <li><strong>Windows:</strong> <code>Ctrl + Shift + J</code></li>
+        </ul>
+    </div>
+
+    <img src="ChromeTools/03_DevConsole.png" alt="Developer Console">
+
+    <p>Once the Developer Tools are open, you'll have access to the Console tab where you can:</p>
+    <ul>
+        <li>View JavaScript errors and warnings</li>
+        <li>See output from <code>console.log()</code> statements</li>
+        <li>Execute JavaScript commands directly</li>
+        <li>Debug your mobile web applications</li>
+    </ul>
+
+</body>
+</html>
