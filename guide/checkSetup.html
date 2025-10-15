@@ -186,6 +186,19 @@
             margin-right: 8px;
         }
 
+        .home-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #666666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .home-link:hover {
+            color: #000000;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -202,257 +215,399 @@
     </style>
 </head>
 <body>
+    <a href="index.html" class="home-link">← Back to Home</a>
+    
     <h1>Check Your Setup</h1>
+
+    <div class="info-box">
+        <p><span class="symbol">ℹ️</span><strong>Quick Verification:</strong> Run one command to check your entire development setup!</p>
+    </div>
 
     <h2>Summary</h2>
     
     <div class="summary-grid">
         <div class="summary-card">
-            <h3>What You'll Install</h3>
+            <h3>What You'll Need</h3>
             <ul>
-                <li>Node.js runtime environment</li>
-                <li>npm package manager</li>
-                <li>Verification script tool</li>
+                <li>VS Code installed</li>
+                <li>Node.js & npm installed</li>
+                <li>Access to VS Code Terminal</li>
             </ul>
         </div>
         
         <div class="summary-card">
             <h3>What Gets Verified</h3>
             <ul>
-                <li>VS Code installation</li>
-                <li>Required extensions</li>
+                <li>VS Code installation & PATH</li>
+                <li>5 Required extensions</li>
                 <li>Git configuration</li>
-                <li>Repository setup</li>
+                <li>Repository setup (optional)</li>
                 <li>Node.js environment</li>
             </ul>
         </div>
         
         <div class="summary-card">
-            <h3>End Result</h3>
+            <h3>What You Get</h3>
             <ul>
-                <li>Automated setup verification</li>
-                <li>Detailed status report</li>
-                <li>Clear error identification</li>
-                <li>Manual checklist for remaining items</li>
+                <li>🎨 Color-coded status report</li>
+                <li>🔴🟡🟢 Criticality levels</li>
+                <li>💡 Fix instructions for issues</li>
+                <li>☐ Manual verification checklist</li>
             </ul>
         </div>
     </div>
 
     <hr>
 
-    <h2>Part 1 - Installing Node.js</h2>
+    <h2>Step 1 - Open VS Code Terminal</h2>
 
-    <h3>What is Node.js?</h3>
+    <h3>What is the Terminal?</h3>
 
-    <p>Node.js is a JavaScript runtime that allows you to run JavaScript code outside of a web browser. We'll use it to run a verification script that checks if your development environment is properly configured.</p>
+    <p>The Terminal (also called Command Line) is a text-based interface where you can run commands. VS Code has a built-in terminal that makes it easy to run commands without leaving your editor.</p>
 
-    <h3>Step 1 - Download Node.js</h3>
+    <h3>How to Open the Terminal in VS Code</h3>
 
-    <p>Visit the official Node.js website and download the LTS (Long Term Support) version for your operating system.</p>
+    <p>There are three ways to open the Terminal in VS Code:</p>
 
-    <div class="links-section">
-        <strong>Download Link:</strong>
-        <ul>
-            <li><a href="https://nodejs.org/" target="_blank">Node.js Official Website</a></li>
-        </ul>
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>Method 1: Keyboard Shortcut</h3>
+            <ul>
+                <li><strong>Mac:</strong> <code>Control + `</code> (backtick key)</li>
+                <li><strong>Windows:</strong> <code>Ctrl + `</code> (backtick key)</li>
+            </ul>
+            <p style="margin-top: 10px;"><em>The backtick key (`) is usually above Tab, left of the number 1</em></p>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Method 2: Menu</h3>
+            <ul>
+                <li>Click <strong>Terminal</strong> in the top menu</li>
+                <li>Select <strong>New Terminal</strong></li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Method 3: Command Palette</h3>
+            <ul>
+                <li>Press <code>Cmd+Shift+P</code> (Mac) or <code>Ctrl+Shift+P</code> (Windows)</li>
+                <li>Type "terminal"</li>
+                <li>Select <strong>Terminal: Create New Terminal</strong></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="info-box">
-        <span class="symbol">ℹ️</span>
-        <strong>Tip:</strong> Choose the LTS version (currently v20.x or v22.x). This is the recommended version for most users.
+    <div class="success-box">
+        <p><span class="symbol">✓</span><strong>Success!</strong> When the terminal opens, you'll see a panel at the bottom of VS Code with a command prompt ready for input.</p>
     </div>
 
-    <h3>Step 2 - Install Node.js</h3>
+    <hr>
 
-    <p><strong>For macOS:</strong></p>
-    <ol>
-        <li>Open the downloaded <code>.pkg</code> file</li>
-        <li>Follow the installation wizard</li>
-        <li>Accept the license agreement</li>
-        <li>Use default installation settings</li>
-        <li>Enter your password when prompted</li>
-    </ol>
+    <h2>Step 2 - Ensure Node.js is Installed</h2>
 
-    <p><strong>For Windows:</strong></p>
-    <ol>
-        <li>Open the downloaded <code>.msi</code> file</li>
-        <li>Follow the installation wizard</li>
-        <li>Accept the license agreement</li>
-        <li>Use default installation settings (includes npm and PATH configuration)</li>
-        <li>Click "Install" and wait for completion</li>
-    </ol>
+    <h3>Check if Node.js is Already Installed</h3>
 
-    <h3>Step 3 - Verify Node.js Installation</h3>
-
-    <p>Open a new terminal window (or Command Prompt on Windows) and run:</p>
+    <p>Before installing, let's check if Node.js is already on your system. In your VS Code terminal, type:</p>
 
     <pre><code>node --version</code></pre>
 
-    <p>You should see a version number like <code>v20.11.0</code> or similar.</p>
+    <p>If you see a version number (like <code>v20.11.0</code>), <strong>Node.js is already installed!</strong> You can skip to Step 3.</p>
 
-    <p>Also verify npm (Node Package Manager) is installed:</p>
+    <h3>If Node.js is NOT Installed</h3>
 
-    <pre><code>npm --version</code></pre>
+    <p>If you see an error like "command not found" or "not recognized", you need to install Node.js:</p>
 
-    <p>You should see a version number like <code>10.2.4</code> or similar.</p>
+    <ol>
+        <li>Visit <a href="https://nodejs.org/" target="_blank"><strong>nodejs.org</strong></a></li>
+        <li>Download the <strong>LTS version</strong> (Long Term Support) - the green button</li>
+        <li>Run the installer and use all default settings</li>
+        <li><strong>Important:</strong> Close and reopen VS Code after installation</li>
+        <li>Open a new terminal and verify: <code>node --version</code></li>
+    </ol>
+
+    <div class="info-box">
+        <span class="symbol">ℹ️</span>
+        <strong>Why Node.js?</strong> Node.js includes npm (Node Package Manager), which lets us run the verification tool without installing it permanently.
+    </div>
+
+    <hr>
+
+    <h2>Step 3 - Run the Setup Verification</h2>
+
+    <h3>The Simple One-Line Command</h3>
+
+    <p>Now for the magic! In your VS Code terminal, run this single command:</p>
+
+    <pre><code>npx ocadu-vscode-setup</code></pre>
+
+    <div class="info-box">
+        <span class="symbol">ℹ️</span>
+        <strong>What is npx?</strong> npx comes with npm and lets you run packages without installing them. The verification script runs directly from the internet!
+    </div>
+
+    <h3>What Happens Next</h3>
+
+    <p>When you run the command:</p>
+
+    <ol>
+        <li><strong>First time only:</strong> npm will download the verification package (takes 2-3 seconds)</li>
+        <li>The script will automatically check your entire setup</li>
+        <li>You'll see a color-coded report in the terminal</li>
+        <li>The whole process takes about 10-15 seconds</li>
+    </ol>
 
     <div class="success-box">
         <span class="symbol">✓</span>
         <strong>Success!</strong> If you see version numbers for both commands, Node.js is properly installed.
     </div>
 
+        <strong>No installation required!</strong> Every time you run <code>npx ocadu-vscode-setup</code>, you get the latest version automatically.
+    </div>
+
     <hr>
 
-    <h2>Part 2 - Running the Verification Script</h2>
+    <h2>Step 4 - Understanding the Results</h2>
 
     <h3>What Does the Script Check?</h3>
 
     <p>The verification script automatically checks:</p>
     <ul>
-        <li><strong>Software Installation:</strong> VS Code, Git, Node.js</li>
-        <li><strong>VS Code Extensions:</strong> GitLens, p5js Snippets, P5 Project Creator, Live Server, GitHub Actions</li>
+        <li><strong>Node.js & npm:</strong> Confirms they're installed and working</li>
+        <li><strong>VS Code Installation:</strong> Checks if VS Code is installed and accessible</li>
+        <li><strong>VS Code Extensions (5 required):</strong> GitLens, p5js Snippets, P5 Project Creator, Live Server, GitHub Actions</li>
         <li><strong>Git Configuration:</strong> Username, email, OCADU email check</li>
-        <li><strong>Repository Status:</strong> Git repository, remote configuration, uncommitted changes</li>
-        <li><strong>Manual Checklist:</strong> Items that require manual verification</li>
+        <li><strong>Repository Status (optional):</strong> Git repository, remote configuration, uncommitted changes</li>
+        <li><strong>Manual Checklist:</strong> Items you need to verify yourself</li>
     </ul>
 
-    <h3>Step 1 - Navigate to Your Project Directory</h3>
+    <h3>Reading the Color-Coded Output</h3>
 
-    <p>Open a terminal in VS Code (Terminal → New Terminal) or use your system terminal. Navigate to your project repository:</p>
+    <p>The terminal output uses colors to help you quickly understand your setup status:</p>
 
-    <pre><code>cd path/to/your/repository</code></pre>
-
-    <div class="info-box">
-        <span class="symbol">ℹ️</span>
-        <strong>Note:</strong> Replace <code>path/to/your/repository</code> with the actual path to your project folder. If you're already in VS Code, the integrated terminal should automatically open in your project folder.
+    <div class="summary-grid">
+        <div class="summary-card" style="border-left: 4px solid #4caf50;">
+            <h3 style="color: #4caf50;">✓ Green Checkmarks</h3>
+            <p>These items passed! Everything is working correctly for these checks.</p>
+        </div>
+        
+        <div class="summary-card" style="border-left: 4px solid #f44336;">
+            <h3 style="color: #f44336;">✗ Red X Marks</h3>
+            <p>These items failed and need attention. Read the fix instructions below each one.</p>
+        </div>
+        
+        <div class="summary-card" style="border-left: 4px solid #ff9800;">
+            <h3 style="color: #ff9800;">⚠ Yellow Warnings</h3>
+            <p>These items may need attention but aren't critical to functionality.</p>
+        </div>
     </div>
 
-    <h3>Step 2 - Run the Verification Script</h3>
+    <h3>Understanding Criticality Levels</h3>
 
-    <p>Run the verification script using npx (no download required):</p>
+    <p>Every failure includes a criticality level to help you prioritize what to fix:</p>
 
-    <pre><code>npx @digitalfutures/vscode-setup-check</code></pre>
-
-    <p>For help and documentation, run:</p>
-
-    <pre><code>npx @digitalfutures/vscode-setup-check --help</code></pre>
-
-    <div class="info-box">
-        <span class="symbol">ℹ️</span>
-        <strong>What is npx?</strong> npx runs Node.js packages directly from npm without installing them. This means you always get the latest version of the verification script.
+    <div class="summary-grid">
+        <div class="summary-card" style="border-left: 4px solid #f44336;">
+            <h3>🔴 CRITICAL</h3>
+            <p><strong>Must fix these!</strong> Development won't work properly without them.</p>
+            <ul>
+                <li>Git not installed</li>
+                <li>P5 Project Creator missing</li>
+                <li>Live Server missing</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card" style="border-left: 4px solid #ff9800;">
+            <h3>🟡 IMPORTANT</h3>
+            <p><strong>Recommended to fix.</strong> Things will mostly work, but you'll have a better experience if fixed.</p>
+            <ul>
+                <li>VS Code not in PATH</li>
+                <li>GitLens not installed</li>
+                <li>Remote repository not set</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card" style="border-left: 4px solid #4caf50;">
+            <h3>🟢 OPTIONAL</h3>
+            <p><strong>Nice to have.</strong> Won't affect your development workflow.</p>
+            <ul>
+                <li>GitHub Actions extension</li>
+                <li>Not using OCADU email</li>
+                <li>Uncommitted changes</li>
+            </ul>
+        </div>
     </div>
-
-    <div class="info-box">
-        <span class="symbol">💡</span>
-        <strong>Tip:</strong> You can run this command from any directory - it will check your development environment wherever you are. For repository-specific checks, run it from inside your project folder.
-    </div>
-
-    <h3>Step 3 - Review the Results</h3>
-
-    <p>The script will display a detailed report with color-coded results:</p>
-
-    <ul>
-        <li><strong style="color: #4caf50;">✓ Green checkmarks:</strong> Items that passed verification</li>
-        <li><strong style="color: #f44336;">✗ Red X marks:</strong> Items that failed and need attention</li>
-        <li><strong style="color: #ff9800;">⚠ Yellow warnings:</strong> Items that may need attention but aren't critical</li>
-    </ul>
-
-    <h4>Understanding Criticality Levels</h4>
-
-    <p>Each failed check includes a criticality level to help you prioritize fixes:</p>
-
-    <ul>
-        <li><strong style="color: #f44336;">🔴 CRITICAL:</strong> Must be fixed for development to work properly</li>
-        <li><strong style="color: #ff9800;">🟡 IMPORTANT:</strong> Recommended for full functionality, but may not be essential</li>
-        <li><strong style="color: #4caf50;">🟢 OPTIONAL:</strong> Nice to have, but not required for development</li>
-    </ul>
-
-    <div class="info-box">
-        <span class="symbol">💡</span>
-        <strong>Important:</strong> If you only have <strong>IMPORTANT</strong> or <strong>OPTIONAL</strong> failures, your system is likely working correctly! For example, VS Code not being in PATH is flagged as IMPORTANT, but if you can open VS Code normally, your setup is fine.
-    </div>
-
-    <p>The script checks each section:</p>
-
-    <ol>
-        <li><strong>Node.js Installation</strong> - Confirms Node.js and npm are installed</li>
-        <li><strong>VS Code Installation</strong> - Checks if VS Code is accessible from the command line</li>
-        <li><strong>VS Code Extensions</strong> - Verifies all 5 required extensions are installed</li>
-        <li><strong>Git Installation & Configuration</strong> - Checks Git setup and user configuration</li>
-        <li><strong>Local Repository</strong> - Validates your repository structure and status</li>
-        <li><strong>Manual Verification Checklist</strong> - Lists items you need to verify manually</li>
-        <li><strong>Summary Report</strong> - Shows overall completion percentage</li>
-    </ol>
-
-    <h3>Step 4 - Fix Any Issues (If Needed)</h3>
-
-    <p>The script provides detailed fix instructions for each failed check. If you see failures:</p>
-
-    <ol>
-        <li><strong>Check the criticality level</strong> - Focus on CRITICAL items first</li>
-        <li><strong>Read the "How to fix" instructions</strong> - Each failure includes specific steps or commands</li>
-        <li><strong>Run the provided commands</strong> - Many fixes are just one terminal command</li>
-        <li><strong>Follow the guide links</strong> - Detailed instructions in the referenced guides</li>
-        <li><strong>Run the script again</strong> - Verify your fixes worked</li>
-    </ol>
 
     <div class="success-box">
         <span class="symbol">✅</span>
-        <strong>Good News:</strong> If the summary says "Your system is working correctly!", you can proceed with development even if some checks failed. Those items are optional improvements, not requirements.
+        <strong>Important:</strong> If you only have <strong>IMPORTANT</strong> or <strong>OPTIONAL</strong> failures, your system is working! You can proceed with development. The script will tell you "Your system is working correctly!"
     </div>
 
-    <div class="links-section">
-        <strong>Setup Guide References:</strong>
-        <ul>
-            <li><a href="vsCodeInstallSetup.html">Installing Core Software and Extensions</a></li>
-            <li><a href="signIn.html">Signing In to VS Code</a></li>
-            <li><a href="repoSetup.html">Setting Up Your Repository</a></li>
-            <li><a href="localP5.html">Local P5 Development Workflow</a></li>
-        </ul>
+    <h3>The Verification Report Sections</h3>
+
+    <p>The script checks your setup in this order:</p>
+
+    <ol>
+        <li><strong>Node.js Installation</strong> - Confirms Node.js and npm are installed</li>
+        <li><strong>VS Code Installation</strong> - Checks if VS Code is installed and in PATH</li>
+        <li><strong>VS Code Extensions</strong> - Verifies all 5 required extensions:
+            <ul>
+                <li>GitLens (Git supercharged)</li>
+                <li>p5js Snippets</li>
+                <li>P5 Project Creator</li>
+                <li>Live Server</li>
+                <li>GitHub Actions</li>
+            </ul>
+        </li>
+        <li><strong>Git Installation & Configuration</strong> - Checks Git and user settings</li>
+        <li><strong>Local Repository</strong> - Validates repository structure (if in a Git folder)</li>
+        <li><strong>Manual Verification Checklist</strong> - Items you verify yourself</li>
+        <li><strong>Summary Report</strong> - Overall completion percentage and criticality breakdown</li>
+    </ol>
+
+    <hr>
+
+    <h2>Step 5 - Fix Issues (If Any)</h2>
+
+    <h3>How to Fix Failed Checks</h3>
+
+    <p>Every failure includes <strong>💡 How to fix</strong> instructions. Follow these steps:</p>
+
+    <ol>
+        <li><strong>Focus on CRITICAL items first</strong> (🔴) - These must be fixed</li>
+        <li><strong>Read the fix instructions</strong> - They appear right below each failure</li>
+        <li><strong>Copy and run the commands</strong> - Many fixes are one-line terminal commands</li>
+        <li><strong>Follow guide links if needed</strong> - Detailed help is available</li>
+        <li><strong>Run the script again</strong> - Verify your fixes: <code>npx ocadu-vscode-setup</code></li>
+    </ol>
+
+    <h3>Example: Installing a Missing Extension</h3>
+
+    <p>If the script says "P5 Project Creator is NOT installed", you'll see:</p>
+
+    <pre><code>Quick install: Run this command in terminal:
+  code --install-extension ultamatum.p5-project-creator
+
+Or install manually:
+  1. Open VS Code
+  2. Press Cmd+Shift+X (Mac) or Ctrl+Shift+X (Windows)
+  3. Search for "P5 Project Creator"
+  4. Click Install</code></pre>
+
+    <p>Just copy the <code>code --install-extension</code> command, paste it in your VS Code terminal, and press Enter!</p>
+
+    <div class="success-box">
+        <span class="symbol">✅</span>
+        <strong>Remember:</strong> If the final summary says "Your system is working correctly!", you're good to go even if some optional items failed!
     </div>
 
-    <h3>Step 5 - Complete the Manual Checklist</h3>
+    <hr>
 
-    <p>The script will display a checklist of items that cannot be automatically verified. Go through each item and confirm:</p>
+    <h2>Step 6 - Complete the Manual Checklist</h2>
+
+    <p>At the end of the report, you'll see a manual verification checklist. These items can't be checked automatically, so you need to verify them yourself:</p>
 
     <ul>
-        <li>GitHub account created and signed in</li>
-        <li>GitHub Desktop and Mobile app installed</li>
-        <li>Extensions authorized in VS Code</li>
-        <li>GitHub Copilot Pro activated</li>
-        <li>GitHub Pages and Actions configured</li>
-        <li>Development tools functioning (Live Server, Tunnels, DevTools)</li>
+        <li>☐ GitHub account created with @ocadu.ca email</li>
+        <li>☐ Signed into VS Code with GitHub account</li>
+        <li>☐ GitHub Desktop installed and signed in</li>
+        <li>☐ GitHub Mobile app installed on phone</li>
+        <li>☐ GitLens extension authorized in VS Code</li>
+        <li>☐ GitHub Actions extension authorized in VS Code</li>
+        <li>☐ GitHub Copilot Pro subscription activated</li>
+        <li>☐ Two-factor authentication enabled on GitHub</li>
+        <li>☐ GitHub repository created with Pages enabled</li>
+        <li>☐ GitHub Actions workflow configured</li>
+        <li>☐ Can create P5.js project using Command Palette</li>
+        <li>☐ Live Server can launch local development server</li>
+        <li>☐ VS Code Tunnel works for mobile testing</li>
+        <li>☐ Chrome DevTools accessible (F12 or Cmd+Option+I)</li>
     </ul>
+
+    <p>Go through each item and refer to the specific guides for help with any you haven't completed yet.</p>
+
+    <hr>
+
+    <h2>Helpful Resources</h2>
+
+    <div class="links-section">
+        <strong>Setup Guide References - For Detailed Instructions:</strong>
+        <ul>
+            <li><a href="vsCodeInstallSetup.html">Installing VS Code, Git, and Extensions</a></li>
+            <li><a href="signIn.html">Signing In to VS Code and Extensions</a></li>
+            <li><a href="copilotAuth.html">Setting Up GitHub Copilot Pro</a></li>
+            <li><a href="repoSetup.html">Creating and Configuring Your Repository</a></li>
+            <li><a href="localP5.html">P5.js Local Development Workflow</a></li>
+            <li><a href="tunnels.html">VS Code Tunnels for Mobile Testing</a></li>
+            <li><a href="chromeTools.html">Chrome Developer Tools</a></li>
+        </ul>
+    </div>
 
     <hr>
 
     <h2>Troubleshooting Common Issues</h2>
 
-    <h3>"VS Code not found" Error</h3>
+    <h3>Command Not Found: npx</h3>
 
-    <p>If the script can't find VS Code:</p>
-    <ul>
-        <li><strong>macOS:</strong> Open VS Code, press <code>Cmd+Shift+P</code>, type "shell command", and select "Install 'code' command in PATH"</li>
-        <li><strong>Windows:</strong> Make sure you checked "Add to PATH" during VS Code installation. You may need to reinstall VS Code.</li>
-    </ul>
+    <p>If you see "command not found: npx":</p>
+    <ol>
+        <li>Node.js is not installed or not in your PATH</li>
+        <li>Install Node.js from <a href="https://nodejs.org/" target="_blank">nodejs.org</a></li>
+        <li><strong>Important:</strong> Close and reopen VS Code after installing</li>
+        <li>Open a new terminal and try again</li>
+    </ol>
 
-    <h3>"Git not found" Error</h3>
+    <h3>"VS Code is NOT installed" (but it IS installed!)</h3>
+
+    <p>If the script can't find VS Code but you know it's installed:</p>
+    
+    <p><strong>On Mac:</strong></p>
+    <ol>
+        <li>Open VS Code</li>
+        <li>Press <code>Cmd+Shift+P</code> to open Command Palette</li>
+        <li>Type "shell command"</li>
+        <li>Select <strong>"Shell Command: Install 'code' command in PATH"</strong></li>
+        <li>Close and reopen your terminal</li>
+        <li>Run the verification script again</li>
+    </ol>
+
+    <p><strong>On Windows:</strong></p>
+    <ol>
+        <li>During VS Code installation, make sure "Add to PATH" is checked</li>
+        <li>If already installed, you may need to reinstall with this option</li>
+        <li>Download from <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
+    </ol>
+
+    <div class="info-box">
+        <span class="symbol">💡</span>
+        <strong>Note:</strong> The script can find VS Code even if it's not in PATH, so this is usually an IMPORTANT (not CRITICAL) issue.
+    </div>
+
+    <h3>"Git is NOT installed"</h3>
 
     <p>If Git is not installed:</p>
+    
+    <p><strong>On Mac:</strong></p>
+    <pre><code>xcode-select --install</code></pre>
+    <p>This installs Xcode Command Line Tools which includes Git.</p>
+
+    <p><strong>On Windows:</strong></p>
+    <ol>
+        <li>Download from <a href="https://git-scm.com/downloads" target="_blank">git-scm.com/downloads</a></li>
+        <li>Run the installer with default settings</li>
+        <li>Close and reopen VS Code</li>
+    </ol>
+
+    <h3>"Current directory is NOT a Git repository"</h3>
+
+    <p>This warning appears if you're not inside a Git repository folder. This is OPTIONAL - you can run the script from anywhere!</p>
+    
+    <p>If you want repository checks:</p>
     <ul>
-        <li><strong>macOS:</strong> Git should come with Xcode Command Line Tools. Run <code>xcode-select --install</code> in terminal</li>
-        <li><strong>Windows:</strong> Download and install Git from <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></li>
+        <li>Navigate to your project folder first</li>
+        <li>Or create a repository following the <a href="repoSetup.html">Repository Setup Guide</a></li>
     </ul>
 
-    <h3>"Not a Git repository" Warning</h3>
-
-    <p>This means you're not running the script from inside a Git repository. Either:</p>
-    <ul>
-        <li>Navigate to your project repository folder first</li>
-        <li>Or create a new repository following the <a href="repoSetup.html">Repository Setup Guide</a></li>
-    </ul>
-
-    <h3>Extensions Not Found</h3>
+    <h3>Missing Extensions</h3>
 
     <p>If extensions aren't detected:</p>
     <ol>
@@ -493,8 +648,38 @@
 
     <hr>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" style="font-size: 1.1em;">← Back to Setup Guides</a>
+    <h2>Quick Reference</h2>
+
+    <div class="command-box">
+        <strong>The Only Command You Need to Remember:</strong><br><br>
+        <span class="command">npx ocadu-vscode-setup</span>
+    </div>
+
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>Open Terminal in VS Code</h3>
+            <p><strong>Mac:</strong> <code>Control + `</code></p>
+            <p><strong>Windows:</strong> <code>Ctrl + `</code></p>
+            <p><em>Or use menu: Terminal → New Terminal</em></p>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Get Help</h3>
+            <pre style="margin: 10px 0;"><code>npx ocadu-vscode-setup --help</code></pre>
+            <p>Shows detailed documentation</p>
+        </div>
+        
+        <div class="summary-card">
+            <h3>Run From Anywhere</h3>
+            <p>You can run the verification script from any folder. It works everywhere!</p>
+            <p>For repository checks, navigate to your project first.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+        <a href="index.html" style="font-size: 1.1em; border-bottom: 2px solid #333;">← Back to Setup Guides</a>
     </div>
 
 </body>
