@@ -1,0 +1,30 @@
+{
+  "name": "ocadu-vscode-setup",
+  "version": "1.0.0",
+  "description": "Verification script for VS Code mobile development setup - OCAD University Digital Futures",
+  "main": "index.js",
+  "bin": {
+    "ocadu-vscode-setup": "index.js"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "vscode",
+    "setup",
+    "verification",
+    "development-environment",
+    "ocad",
+    "digital-futures",
+    "education"
+  ],
+  "author": "OCAD University - Digital Futures",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalFuturesOCADU/vsCodeSetup.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

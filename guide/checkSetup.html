@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Setup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f5f5f5;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #333;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #666;
+        }
+
+        h3 {
+            color: #4a4a4a;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        p, li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #1a1a1a;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: #f8f8f8;
+            padding: 0;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #2c3e50;
+            text-decoration: none;
+            border-bottom: 1px solid #999;
+        }
+
+        a:hover {
+            color: #000;
+            border-bottom-color: #333;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        .links-section {
+            background-color: #e8e8e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .links-section strong {
+            color: #1a1a1a;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .summary-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .summary-card h3 {
+            color: #1a1a1a;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .summary-card ul {
+            margin-left: 20px;
+        }
+
+        .summary-card li {
+            margin-bottom: 8px;
+        }
+
+        .command-box {
+            background-color: #2d2d2d;
+            color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .command-box .prompt {
+            color: #4ec9b0;
+        }
+
+        .command-box .command {
+            color: #dcdcaa;
+        }
+
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .symbol {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Your Setup</h1>
+
+    <h2>Summary</h2>
+    
+    <div class="summary-grid">
+        <div class="summary-card">
+            <h3>What You'll Install</h3>
+            <ul>
+                <li>Node.js runtime environment</li>
+                <li>npm package manager</li>
+                <li>Verification script tool</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>What Gets Verified</h3>
+            <ul>
+                <li>VS Code installation</li>
+                <li>Required extensions</li>
+                <li>Git configuration</li>
+                <li>Repository setup</li>
+                <li>Node.js environment</li>
+            </ul>
+        </div>
+        
+        <div class="summary-card">
+            <h3>End Result</h3>
+            <ul>
+                <li>Automated setup verification</li>
+                <li>Detailed status report</li>
+                <li>Clear error identification</li>
+                <li>Manual checklist for remaining items</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Part 1 - Installing Node.js</h2>
+
+    <h3>What is Node.js?</h3>
+
+    <p>Node.js is a JavaScript runtime that allows you to run JavaScript code outside of a web browser. We'll use it to run a verification script that checks if your development environment is properly configured.</p>
+
+    <h3>Step 1 - Download Node.js</h3>
+
+    <p>Visit the official Node.js website and download the LTS (Long Term Support) version for your operating system.</p>
+
+    <div class="links-section">
+        <strong>Download Link:</strong>
+        <ul>
+            <li><a href="https://nodejs.org/" target="_blank">Node.js Official Website</a></li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <span class="symbol">ℹ️</span>
+        <strong>Tip:</strong> Choose the LTS version (currently v20.x or v22.x). This is the recommended version for most users.
+    </div>
+
+    <h3>Step 2 - Install Node.js</h3>
+
+    <p><strong>For macOS:</strong></p>
+    <ol>
+        <li>Open the downloaded <code>.pkg</code> file</li>
+        <li>Follow the installation wizard</li>
+        <li>Accept the license agreement</li>
+        <li>Use default installation settings</li>
+        <li>Enter your password when prompted</li>
+    </ol>
+
+    <p><strong>For Windows:</strong></p>
+    <ol>
+        <li>Open the downloaded <code>.msi</code> file</li>
+        <li>Follow the installation wizard</li>
+        <li>Accept the license agreement</li>
+        <li>Use default installation settings (includes npm and PATH configuration)</li>
+        <li>Click "Install" and wait for completion</li>
+    </ol>
+
+    <h3>Step 3 - Verify Node.js Installation</h3>
+
+    <p>Open a new terminal window (or Command Prompt on Windows) and run:</p>
+
+    <pre><code>node --version</code></pre>
+
+    <p>You should see a version number like <code>v20.11.0</code> or similar.</p>
+
+    <p>Also verify npm (Node Package Manager) is installed:</p>
+
+    <pre><code>npm --version</code></pre>
+
+    <p>You should see a version number like <code>10.2.4</code> or similar.</p>
+
+    <div class="success-box">
+        <span class="symbol">✓</span>
+        <strong>Success!</strong> If you see version numbers for both commands, Node.js is properly installed.
+    </div>
+
+    <hr>
+
+    <h2>Part 2 - Running the Verification Script</h2>
+
+    <h3>What Does the Script Check?</h3>
+
+    <p>The verification script automatically checks:</p>
+    <ul>
+        <li><strong>Software Installation:</strong> VS Code, Git, Node.js</li>
+        <li><strong>VS Code Extensions:</strong> GitLens, p5js Snippets, P5 Project Creator, Live Server, GitHub Actions</li>
+        <li><strong>Git Configuration:</strong> Username, email, OCADU email check</li>
+        <li><strong>Repository Status:</strong> Git repository, remote configuration, uncommitted changes</li>
+        <li><strong>Manual Checklist:</strong> Items that require manual verification</li>
+    </ul>
+
+    <h3>Step 1 - Navigate to Your Project Directory</h3>
+
+    <p>Open a terminal in VS Code (Terminal → New Terminal) or use your system terminal. Navigate to your project repository:</p>
+
+    <pre><code>cd path/to/your/repository</code></pre>
+
+    <div class="info-box">
+        <span class="symbol">ℹ️</span>
+        <strong>Note:</strong> Replace <code>path/to/your/repository</code> with the actual path to your project folder. If you're already in VS Code, the integrated terminal should automatically open in your project folder.
+    </div>
+
+    <h3>Step 2 - Run the Verification Script</h3>
+
+    <p>Run the verification script using npx (no download required):</p>
+
+    <pre><code>npx @digitalfutures/vscode-setup-check</code></pre>
+
+    <p>For help and documentation, run:</p>
+
+    <pre><code>npx @digitalfutures/vscode-setup-check --help</code></pre>
+
+    <div class="info-box">
+        <span class="symbol">ℹ️</span>
+        <strong>What is npx?</strong> npx runs Node.js packages directly from npm without installing them. This means you always get the latest version of the verification script.
+    </div>
+
+    <div class="info-box">
+        <span class="symbol">💡</span>
+        <strong>Tip:</strong> You can run this command from any directory - it will check your development environment wherever you are. For repository-specific checks, run it from inside your project folder.
+    </div>
+
+    <h3>Step 3 - Review the Results</h3>
+
+    <p>The script will display a detailed report with color-coded results:</p>
+
+    <ul>
+        <li><strong style="color: #4caf50;">✓ Green checkmarks:</strong> Items that passed verification</li>
+        <li><strong style="color: #f44336;">✗ Red X marks:</strong> Items that failed and need attention</li>
+        <li><strong style="color: #ff9800;">⚠ Yellow warnings:</strong> Items that may need attention but aren't critical</li>
+    </ul>
+
+    <h4>Understanding Criticality Levels</h4>
+
+    <p>Each failed check includes a criticality level to help you prioritize fixes:</p>
+
+    <ul>
+        <li><strong style="color: #f44336;">🔴 CRITICAL:</strong> Must be fixed for development to work properly</li>
+        <li><strong style="color: #ff9800;">🟡 IMPORTANT:</strong> Recommended for full functionality, but may not be essential</li>
+        <li><strong style="color: #4caf50;">🟢 OPTIONAL:</strong> Nice to have, but not required for development</li>
+    </ul>
+
+    <div class="info-box">
+        <span class="symbol">💡</span>
+        <strong>Important:</strong> If you only have <strong>IMPORTANT</strong> or <strong>OPTIONAL</strong> failures, your system is likely working correctly! For example, VS Code not being in PATH is flagged as IMPORTANT, but if you can open VS Code normally, your setup is fine.
+    </div>
+
+    <p>The script checks each section:</p>
+
+    <ol>
+        <li><strong>Node.js Installation</strong> - Confirms Node.js and npm are installed</li>
+        <li><strong>VS Code Installation</strong> - Checks if VS Code is accessible from the command line</li>
+        <li><strong>VS Code Extensions</strong> - Verifies all 5 required extensions are installed</li>
+        <li><strong>Git Installation & Configuration</strong> - Checks Git setup and user configuration</li>
+        <li><strong>Local Repository</strong> - Validates your repository structure and status</li>
+        <li><strong>Manual Verification Checklist</strong> - Lists items you need to verify manually</li>
+        <li><strong>Summary Report</strong> - Shows overall completion percentage</li>
+    </ol>
+
+    <h3>Step 4 - Fix Any Issues (If Needed)</h3>
+
+    <p>The script provides detailed fix instructions for each failed check. If you see failures:</p>
+
+    <ol>
+        <li><strong>Check the criticality level</strong> - Focus on CRITICAL items first</li>
+        <li><strong>Read the "How to fix" instructions</strong> - Each failure includes specific steps or commands</li>
+        <li><strong>Run the provided commands</strong> - Many fixes are just one terminal command</li>
+        <li><strong>Follow the guide links</strong> - Detailed instructions in the referenced guides</li>
+        <li><strong>Run the script again</strong> - Verify your fixes worked</li>
+    </ol>
+
+    <div class="success-box">
+        <span class="symbol">✅</span>
+        <strong>Good News:</strong> If the summary says "Your system is working correctly!", you can proceed with development even if some checks failed. Those items are optional improvements, not requirements.
+    </div>
+
+    <div class="links-section">
+        <strong>Setup Guide References:</strong>
+        <ul>
+            <li><a href="vsCodeInstallSetup.html">Installing Core Software and Extensions</a></li>
+            <li><a href="signIn.html">Signing In to VS Code</a></li>
+            <li><a href="repoSetup.html">Setting Up Your Repository</a></li>
+            <li><a href="localP5.html">Local P5 Development Workflow</a></li>
+        </ul>
+    </div>
+
+    <h3>Step 5 - Complete the Manual Checklist</h3>
+
+    <p>The script will display a checklist of items that cannot be automatically verified. Go through each item and confirm:</p>
+
+    <ul>
+        <li>GitHub account created and signed in</li>
+        <li>GitHub Desktop and Mobile app installed</li>
+        <li>Extensions authorized in VS Code</li>
+        <li>GitHub Copilot Pro activated</li>
+        <li>GitHub Pages and Actions configured</li>
+        <li>Development tools functioning (Live Server, Tunnels, DevTools)</li>
+    </ul>
+
+    <hr>
+
+    <h2>Troubleshooting Common Issues</h2>
+
+    <h3>"VS Code not found" Error</h3>
+
+    <p>If the script can't find VS Code:</p>
+    <ul>
+        <li><strong>macOS:</strong> Open VS Code, press <code>Cmd+Shift+P</code>, type "shell command", and select "Install 'code' command in PATH"</li>
+        <li><strong>Windows:</strong> Make sure you checked "Add to PATH" during VS Code installation. You may need to reinstall VS Code.</li>
+    </ul>
+
+    <h3>"Git not found" Error</h3>
+
+    <p>If Git is not installed:</p>
+    <ul>
+        <li><strong>macOS:</strong> Git should come with Xcode Command Line Tools. Run <code>xcode-select --install</code> in terminal</li>
+        <li><strong>Windows:</strong> Download and install Git from <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></li>
+    </ul>
+
+    <h3>"Not a Git repository" Warning</h3>
+
+    <p>This means you're not running the script from inside a Git repository. Either:</p>
+    <ul>
+        <li>Navigate to your project repository folder first</li>
+        <li>Or create a new repository following the <a href="repoSetup.html">Repository Setup Guide</a></li>
+    </ul>
+
+    <h3>Extensions Not Found</h3>
+
+    <p>If extensions aren't detected:</p>
+    <ol>
+        <li>Open VS Code</li>
+        <li>Click the Extensions icon in the sidebar (or press <code>Cmd+Shift+X</code> / <code>Ctrl+Shift+X</code>)</li>
+        <li>Search for and install each missing extension</li>
+        <li>Run the verification script again</li>
+    </ol>
+
+    <hr>
+
+    <h2>Understanding the Results</h2>
+
+    <h3>What Does a Perfect Setup Look Like?</h3>
+
+    <p>A fully configured setup will show:</p>
+    <ul>
+        <li>All automated checks passing (green checkmarks)</li>
+        <li>90-100% completion rate</li>
+        <li>Only manual checklist items remaining</li>
+        <li>No red error messages</li>
+    </ul>
+
+    <h3>When Should I Run This Script?</h3>
+
+    <ul>
+        <li><strong>After Initial Setup:</strong> Run once after completing all setup guides</li>
+        <li><strong>After Installing New Software:</strong> Verify the installation was successful</li>
+        <li><strong>When Troubleshooting:</strong> Identify what might be misconfigured</li>
+        <li><strong>Before Starting a New Project:</strong> Ensure everything is ready to go</li>
+        <li><strong>After System Updates:</strong> Confirm nothing broke during updates</li>
+    </ul>
+
+    <div class="success-box">
+        <span class="symbol">🎉</span>
+        <strong>Congratulations!</strong> Once all checks pass and you've completed the manual checklist, you're ready to start mobile development with VS Code!
+    </div>
+
+    <hr>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" style="font-size: 1.1em;">← Back to Setup Guides</a>
+    </div>
+
+</body>
+</html>
