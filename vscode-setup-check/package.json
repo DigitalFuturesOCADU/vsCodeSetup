@@ -1,6 +1,6 @@
 {
   "name": "ocadu-vscode-setup",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Read-only setup check for the OCAD U Digital Futures VS Code, GitHub and p5.js guide",
   "main": "index.js",
   "bin": {

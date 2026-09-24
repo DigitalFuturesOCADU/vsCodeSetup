@@ -35,6 +35,7 @@ The exit code is 1 if any MUST check fails, otherwise 0.
 
 ## Versions
 
+- 2.0.1, September 2026. The phone check no longer mentions tilt, since the starter sketch is blank.
 - 2.0.0, September 2026. Rewritten for the template workflow. GitLens, GitHub Actions and the
   old p5 extensions are no longer required. Adds the project, Pages and GitHub CLI checks.
 - 1.0.0, October 2025. Kept in the repo as `index-2025.js`.

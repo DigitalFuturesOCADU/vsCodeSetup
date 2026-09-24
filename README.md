@@ -62,13 +62,13 @@ python3 -m http.server 8000
 
 ## The check script
 
-`vscode-setup-check/` is published to npm as `ocadu-vscode-setup`. Version 2.0.0 is in this repo
-but **not published yet**. npm still serves 1.0.0, which looks for last year's extensions
-(GitLens and others).
+`vscode-setup-check/` is published to npm as `ocadu-vscode-setup`. Version 2 went live on
+2026-09-24 and is the `latest` tag, so both `npx ocadu-vscode-setup` and `npx ocadu-vscode-setup@2`
+run the new checks. The guide uses `@2` so a future breaking version 3 cannot surprise students.
 
-The guide tells students to run `npx ocadu-vscode-setup@2`. Pinning the major version is the
-safety catch: until 2.0.0 is published that command stops with a clear "no matching version"
-error instead of quietly running last year's checks. **Publish before students reach part 9.**
+To publish a new version, bump `version` in `package.json`, then run the commands below. npm now asks
+you to approve both the login and the publish in a browser with your authenticator. Tokens that skip
+two-factor authentication no longer work for publishing.
 
 ```bash
 cd vscode-setup-check

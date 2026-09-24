@@ -156,7 +156,7 @@ else {
 // ---------- by eye ----------
 head('Check these yourself');
 ['github.com asks for a code from your phone when you sign in (2FA)', 'The Accounts icon in VS Code shows your GitHub username',
-  'Settings, Pages in your repo says the source is GitHub Actions', 'Your github.io page opens on your phone and reacts to tilt'].forEach(t => console.log('  ☐ ' + t));
+  'Settings, Pages in your repo says the source is GitHub Actions', 'Your github.io page opens on your phone and shows your latest change'].forEach(t => console.log('  ☐ ' + t));
 
 console.log('\n' + bold('Result'));
 console.log('  Node ' + process.version + ' on ' + (isMac ? 'macOS' : isWin ? 'Windows' : process.platform) + dim('  (' + tally.ok + ' checks passed)'));
