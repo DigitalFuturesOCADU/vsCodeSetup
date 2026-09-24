@@ -1,328 +1,99 @@
-# VS Code Setup Verification System - Status & Next Steps
+# VS Code, GitHub and p5.js Setup Guide
 
-**Date:** October 15, 2025  
-**Repository:** vsCodeSetup  
-**Status:** Ready for publishing
+A step by step setup guide for OCAD University Digital Futures students. It takes someone who
+has only used the p5.js web editor to the point where they write code in VS Code, push it to
+GitHub, and open the result on their phone.
 
----
+**Live guide:** https://digitalfuturesocadu.github.io/vsCodeSetup/guide/
 
-## 📋 What This Repository Contains
+Updated September 2026 for VS Code 1.138. The October 2025 version is in the Git history.
 
-This repository contains a complete setup verification system for OCAD University Digital Futures students learning mobile development with VS Code, P5.js, Git, and GitHub.
+## What is in this repo
 
-### Files & Folders:
+| Path | What it is |
+|---|---|
+| `guide/index.html` | The whole guide. All content is plain HTML in this one file |
+| `guide/assets/guide.css` | Layout and type. Follows the p5js.org reference style used by the other course pages |
+| `guide/assets/guide.js` | Builds the sidebar, numbering, Mac / Windows switch, copy buttons and image zoom from the HTML |
+| `guide/img/` | Every screenshot the guide uses |
+| `guide/*.html` (others) | Last year's page names. Each one forwards to the matching section of the new guide, so old links still work |
+| `SCREENSHOTS.md` | Which screenshots are missing, which are reused from 2025, and how the new ones were made |
+| `vscode-setup-check/` | The `ocadu-vscode-setup` npm package. A read-only script that checks a student's machine |
+| `.github/workflows/static.yml` | Publishes this repo to GitHub Pages on every push to `main` |
 
-1. **`/guide/`** - Complete HTML setup guides
-   - `index.html` - Homepage with navigation to all guides
-   - `vsCodeInstallSetup.html` - VS Code, Git, GitHub Desktop, extensions installation
-   - `signIn.html` - VS Code and extension authentication
-   - `copilotAuth.html` - GitHub Copilot Pro setup for students
-   - `repoSetup.html` - GitHub repository and Pages configuration
-   - `localP5.html` - P5.js local development workflow
-   - `tunnels.html` - VS Code tunnels for mobile testing
-   - `chromeTools.html` - Browser developer tools guide
-   - `checkSetup.html` - Verification script usage guide
-   - `verifySetup.js` - Standalone verification script
-   - Image folders: `setupImages/`, `signIn/`, `copilotAuth/`, `tunnels/`, `p5Setup/`, `repoImages/`
+The starter project students copy is a separate repo: `atelier1-f26-simpleStart-p5`.
 
-2. **`/vscode-setup-check/`** - npm package for verification script
-   - `index.js` - Main verification script (npx-ready)
-   - `package.json` - npm package configuration
-   - `README.md` - Package documentation
-   - `PUBLISHING.md` - Publishing instructions
-   - `.npmignore` - Files to exclude from npm
+## Editing the guide
 
----
+Everything is in `guide/index.html`. There is no build step.
 
-## 🎯 Current Status
+```html
+<section class="topic" id="git" data-group="Core setup" data-nav="Install Git">   <!-- one sidebar entry -->
+  <header> <h1>…</h1> <p class="lede">…</p> </header>
+  <article class="step" id="git--check" data-nav="Check if you have Git">          <!-- one step under it -->
+    <h2>…</h2>
+    <ol class="do"> <li>…</li> </ol>                                                <!-- the actions, lettered a, b, c -->
+    <figure class="shot"><img src="img/…png" alt="…"><figcaption>…</figcaption></figure>
+  </article>
+</section>
+```
 
-### ✅ Completed:
-- [x] All HTML guides created with consistent styling
-- [x] Complete image assets integrated
-- [x] Standalone verification script working
-- [x] npm package structure created and tested
-- [x] Cross-platform support (Mac, Windows, Linux)
-- [x] Criticality levels for all checks (CRITICAL, IMPORTANT, OPTIONAL)
-- [x] Detailed fix instructions for each failed check
-- [x] Repository-agnostic design (works from any directory)
-- [x] Files moved to correct repository (vsCodeSetup)
+- **Add, remove or reorder** topics and steps freely. The sidebar, the numbers, "Part 3 of 15"
+  and the Back and Next links are all generated.
+- `data-optional` on a step shows an Optional tag on it.
+- `data-core` on a topic marks it as part of workflow 1. Nothing reads it at the moment. There is no
+  progress tracking: the tick boxes were removed at the instructor's request on 2026-09-21.
+- `<div class="os" data-os="mac">` and `data-os="win"` show content for one operating system only.
+- `<span data-part="git">part 4</span>` is a cross-reference that renumbers itself if topics move.
+- `<aside class="note">`, `class="warn"` and `class="tip"` are the three callout styles.
+- `<div class="cmd"><pre><code>…</code></pre></div>` is a command with a Copy button.
+- `<p class="needs-shot">` marks a missing screenshot. It is only visible with `?audit` in the address.
+- The template repo address appears in `guide/index.html` twice, once as a link and once in a `gh` command. Search for
+  `atelier1-f26-simpleStart-p5` if the template is renamed.
 
-### ⏳ Pending:
-- [ ] Commit and push files to vsCodeSetup repository
-- [ ] Publish npm package to npm registry
-- [ ] Update course materials with npx command
-- [ ] Test with students
+Writing style: short plain sentences, one action per lettered line, exact button names in
+`<b class="ui">`. Steps say what to click and what should happen next.
 
----
-
-## 🚀 Ready to Publish!
-
-### ✅ Package is Complete and Tested
-
-The verification script has been thoroughly tested and is ready for publishing. All files are in place:
-- ✓ `index.js` - Complete verification script (729 lines)
-- ✓ `package.json` - Configured with correct metadata
-- ✓ `README.md` - User documentation
-- ✓ `PUBLISHING.md` - Detailed publishing guide
-- ✓ `PUBLISH_NOW.md` - Quick start guide (⭐ READ THIS FIRST!)
-- ✓ `publish.sh` - Automated publish script
-- ✓ `.npmignore` - Excludes unnecessary files
-
-### Quick Publish (3 Steps)
-
-**See `vscode-setup-check/PUBLISH_NOW.md` for detailed instructions!**
+To preview locally, serve the repo root with any static server and open `/guide/`.
 
 ```bash
-# 1. Login to npm
-npm login
+python3 -m http.server 8000
+```
 
-# 2. Navigate to package
+## The check script
+
+`vscode-setup-check/` is published to npm as `ocadu-vscode-setup`. Version 2.0.0 is in this repo
+but **not published yet**. npm still serves 1.0.0, which looks for last year's extensions
+(GitLens and others).
+
+The guide tells students to run `npx ocadu-vscode-setup@2`. Pinning the major version is the
+safety catch: until 2.0.0 is published that command stops with a clear "no matching version"
+error instead of quietly running last year's checks. **Publish before students reach part 9.**
+
+```bash
 cd vscode-setup-check
-
-# 3. Publish (choose one):
-
-# Option A: Scoped package (requires @digitalfutures org)
-npm publish --access public
-
-# Option B: Use the automated script
-./publish.sh
-```
-
-**That's it!** Students can then run: `npx @digitalfutures/vscode-setup-check`
-
-### Alternative: Unscoped Package
-
-If you don't want to create an npm organization:
-
-1. Change `package.json` name to: `"ocadu-vscode-setup"`
-2. Run: `npm publish`
-3. Students run: `npx ocadu-vscode-setup`
-
-### After Publishing
-
-Update course materials with the npx command students should run.
-
----
-
-## 📖 How Students Will Use It
-
-### Simple One-Line Command:
-
-```bash
-npx @digitalfutures/vscode-setup-check
-```
-
-**No download required!** npx runs the script directly from npm.
-
-### What It Checks:
-
-✅ **Automated Checks:**
-- Node.js and npm installation
-- VS Code installation (finds it even if not in PATH)
-- 5 Required VS Code extensions:
-  - GitLens (IMPORTANT)
-  - p5js Snippets (IMPORTANT)
-  - P5 Project Creator (CRITICAL)
-  - Live Server (CRITICAL)
-  - GitHub Actions (OPTIONAL)
-- Git installation and configuration
-- Repository status (if run from a project folder)
-
-☐ **Manual Verification Checklist:**
-- GitHub account with OCADU email
-- VS Code signed in with GitHub
-- GitHub Desktop and Mobile apps
-- Extension authorization
-- GitHub Copilot Pro activated
-- Two-factor authentication
-- GitHub Pages and Actions configured
-- Development tools working
-
-### Output Features:
-
-- **Color-coded results:** Green ✓, Red ✗, Yellow ⚠
-- **Criticality levels:** 🔴 CRITICAL, 🟡 IMPORTANT, 🟢 OPTIONAL
-- **Fix instructions:** Step-by-step commands for each issue
-- **Guide links:** References to detailed setup guides
-- **Smart detection:** Finds VS Code even when not in PATH
-
----
-
-## 🔄 Updating the Package
-
-When you make changes to the verification script:
-
-```bash
-cd /Users/npmac/Documents/GitHub/vsCodeSetup/vscode-setup-check
-
-# Make your code changes in index.js
-
-# Bump the version
-npm version patch  # 1.0.0 -> 1.0.1
-# or
-npm version minor  # 1.0.0 -> 1.1.0
-# or
-npm version major  # 1.0.0 -> 2.0.0
-
-# Publish the update
+npm login
 npm publish
-
-# Commit the version bump
-cd ..
-git add vscode-setup-check/package.json
-git commit -m "Bump package version to X.X.X"
-git push
 ```
 
-Students automatically get the latest version next time they run `npx @digitalfutures/vscode-setup-check`
+The script needs Node.js, which students do not otherwise need for workflow 1. Part 9 of
+the guide, "How do I know everything is set up?", therefore offers four checks in order of
+effort: the laptop-to-phone test, a by-eye table, a prompt students paste into Copilot Chat in
+Agent mode so the agent runs the checks, and this script.
 
----
+`index-2025.js` is last year's script, kept for reference. It is not part of the package.
 
-## 📚 Documentation Structure
+## Things that are likely to change
 
-### For Students:
-1. **Start here:** `guide/index.html` - Navigate to all setup guides
-2. **After setup:** Run `npx @digitalfutures/vscode-setup-check`
-3. **If issues:** Follow fix instructions in script output
-4. **Detailed help:** Refer to specific guides linked in script
-
-### For Instructors:
-- `vscode-setup-check/PUBLISHING.md` - Publishing instructions
-- `vscode-setup-check/README.md` - Package documentation
-- This file - Overall status and workflow
-
----
-
-## 🛠️ Technical Details
-
-### Extension IDs (correct as of Oct 2025):
-- `eamodio.gitlens` - GitLens
-- `acidic9.p5js-snippets` - p5js Snippets
-- `ultamatum.p5-project-creator` - P5 Project Creator (not msawired.p5-vscode!)
-- `ritwickdey.liveserver` - Live Server
-- `github.vscode-github-actions` - GitHub Actions
-
-### VS Code Detection:
-Script checks these locations if not in PATH:
-- **macOS:** `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`
-- **Windows:** `%LOCALAPPDATA%\Programs\Microsoft VS Code\bin\code.cmd`
-- **Linux:** `/usr/bin/code`, `/usr/local/bin/code`
-
-### Requirements:
-- Node.js 16 or higher
-- Works on macOS, Windows, Linux
-- No installation required (npx)
-
----
-
-## ✅ Verification Script Features
-
-### Criticality System:
-Each check is classified by importance:
-
-- **🔴 CRITICAL** - Must be fixed for development to work
-  - Git installed
-  - Git user.name configured
-  - Git user.email configured
-  - P5 Project Creator extension
-  - Live Server extension
-
-- **🟡 IMPORTANT** - Recommended for full functionality
-  - VS Code in PATH
-  - GitLens extension
-  - p5js Snippets extension
-  - Remote repository configured
-
-- **🟢 OPTIONAL** - Nice to have, not required
-  - GitHub Actions extension
-  - OCADU email address
-  - Uncommitted changes
-  - Running from Git repository
-
-### Smart Messaging:
-- If only OPTIONAL items fail: "Your system is working correctly!"
-- If IMPORTANT items fail: "Some recommended items need attention"
-- If CRITICAL items fail: "CRITICAL issues found - these must be fixed!"
-
----
-
-## 📝 Publishing Checklist
-
-Before publishing, verify:
-
-- [ ] Tested script works on Mac: `cd vscode-setup-check && node index.js`
-- [ ] All extension IDs are correct (especially P5 Project Creator)
-- [ ] Help flag works: `node index.js --help`
-- [ ] Package.json has correct information
-- [ ] README.md is complete
-- [ ] Git repository is clean
-- [ ] npm account is ready
-- [ ] @digitalfutures organization exists on npm (or choose unscoped name)
-
-After publishing:
-
-- [ ] Test via npx: `npx @digitalfutures/vscode-setup-check`
-- [ ] Verify it runs correctly
-- [ ] Update course materials with npx command
-- [ ] Announce to students
-
----
-
-## 🐛 Known Issues & Solutions
-
-### Issue: Extension ID was wrong
-**Fixed:** Changed `msawired.p5-vscode` to `ultamatum.p5-project-creator`
-
-### Issue: VS Code not found when not in PATH
-**Fixed:** Added fallback to check standard installation locations on Mac, Windows, Linux
-
-### Issue: Script required specific directory structure
-**Fixed:** Made repository checks optional, works from any directory
-
-### Issue: No criticality levels
-**Fixed:** Added 3-tier system (CRITICAL, IMPORTANT, OPTIONAL)
-
-### Issue: No fix instructions
-**Fixed:** Each failure now includes step-by-step fix instructions
-
----
-
-## 📞 Support
-
-For questions or issues:
-- **Technical issues:** Check `vscode-setup-check/PUBLISHING.md`
-- **Extension IDs:** Listed above in Technical Details
-- **npm publishing:** See npm documentation or `vscode-setup-check/PUBLISHING.md`
-- **Student issues:** Students should run script and follow fix instructions
-
----
-
-## 🎓 Educational Use
-
-This system is designed for:
-- **Course:** Mobile Development with P5.js
-- **Institution:** OCAD University - Digital Futures
-- **Purpose:** Ensure students have correct development environment
-- **Benefit:** Reduces setup issues and support requests
-
----
-
-## 📄 License
-
-MIT License - Free to use and modify for educational purposes
-
----
-
-## ✨ Ready to Publish!
-
-Everything is prepared and tested. Just follow the **Next Steps** section above to:
-1. Commit to Git ✓
-2. Publish to npm ✓
-3. Test with students ✓
-
-**Questions before publishing?** Review `vscode-setup-check/PUBLISHING.md` for detailed instructions.
-
----
-
-**Last Updated:** October 15, 2025  
-**Status:** ✅ Ready for Production
+- **VS Code ships weekly.** Button wording drifts. The sign-in wording changed between
+  October 2025 and September 2026, for example.
+- **OpenCode free models.** Since 2026-09-17 the free Zen models are blocked outside OpenCode's
+  own app (the gateway answers 403 `FreeTierError`). Part 10 therefore sets up OpenCode Go only and
+  explains why in one note. If OpenCode reverses that, a Zen step could come back.
+- **The OpenCode Console.** New accounts land on a new console (tabs: Overview, Usage, Logs, Go, Models,
+  Keys...). Keys are made under Keys > your service account > Add API Key. The older console
+  (left-hand list with Zen, Go, API Keys) still exists for older accounts.
+- **GitHub Copilot Student.** The plan changed in March 2026 and again in June 2026. Part 12
+  describes it as of September 2026 (200 AI Credits a month, Auto model only) and links to GitHub's own pages.
+- **Action versions** in the template's `static.yml`: checkout v7, configure-pages v6,
+  upload-pages-artifact v5, deploy-pages v5.

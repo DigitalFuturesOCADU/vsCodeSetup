@@ -1,7 +1,7 @@
 {
   "name": "ocadu-vscode-setup",
-  "version": "1.0.0",
-  "description": "Verification script for VS Code mobile development setup - OCAD University Digital Futures",
+  "version": "2.0.0",
+  "description": "Read-only setup check for the OCAD U Digital Futures VS Code, GitHub and p5.js guide",
   "main": "index.js",
   "bin": {
     "ocadu-vscode-setup": "index.js"
@@ -26,5 +26,10 @@
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "homepage": "https://digitalfuturesocadu.github.io/vsCodeSetup/guide/"
 }

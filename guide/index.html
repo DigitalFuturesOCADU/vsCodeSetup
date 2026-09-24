@@ -1,223 +1,1487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Development Setup Guide</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-
-        h1 {
-            color: #000000;
-            border-bottom: 2px solid #cccccc;
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
-        }
-
-        h2 {
-            color: #000000;
-            border-bottom: 1px solid #cccccc;
-            padding-bottom: 0.3em;
-            margin-top: 2em;
-        }
-
-        h3 {
-            color: #222222;
-            margin-top: 1.5em;
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        .intro {
-            background-color: #f8f8f8;
-            padding: 1.5em;
-            border-radius: 8px;
-            border: 1px solid #dddddd;
-            margin: 1.5em 0;
-        }
-
-        .guide-section {
-            margin: 2em 0;
-        }
-
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5em;
-            margin: 1.5em 0;
-        }
-
-        .guide-card {
-            background-color: #f8f8f8;
-            padding: 1.5em;
-            border-radius: 8px;
-            border: 1px solid #dddddd;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: box-shadow 0.2s ease, border-color 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .guide-card:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-color: #aaaaaa;
-        }
-
-        .guide-card h3 {
-            margin-top: 0;
-            color: #000000;
-            font-size: 1.2em;
-        }
-
-        .guide-card p {
-            color: #555555;
-            margin: 0.5em 0 1em 0;
-            font-size: 0.95em;
-            flex-grow: 1;
-        }
-
-        .guide-link {
-            display: inline-block;
-            color: #ffffff;
-            background-color: #555555;
-            text-decoration: none;
-            padding: 0.6em 1.2em;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
-        }
-
-        .guide-link:hover {
-            background-color: #000000;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid #cccccc;
-            margin: 2em 0;
-        }
-
-        .footer {
-            text-align: center;
-            color: #888888;
-            font-size: 0.9em;
-            margin-top: 3em;
-            padding-top: 2em;
-            border-top: 1px solid #eeeeee;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            .guide-grid {
-                grid-template-columns: 1fr;
-                gap: 1em;
-            }
-
-            .guide-card {
-                padding: 1.2em;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setup Guide · p5.js on your laptop and your phone</title>
+  <meta name="description" content="Set up VS Code, GitHub and a p5.js starter project, then open your sketch on your phone.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ed225d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/guide.css">
 </head>
 <body>
-    <h1>Mobile Development Setup Guide</h1>
+<a class="skip" href="#main">Skip to the guide</a>
 
-    <h2>General Setup</h2>
-    <p>Start here to install and configure your core development tools and authenticate your accounts.</p>
+<div class="topbar">
+  <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="sidebar">Steps</button>
+  <div class="topbar-title"><b id="topbar-topic">Setup Guide</b><span id="topbar-step"></span></div>
+</div>
+<button type="button" class="backdrop" id="backdrop" aria-label="Close the list of steps" tabindex="-1"></button>
 
-    <div class="guide-grid">
-        <div class="guide-card">
-            <h3>Installing Core Software and Extensions</h3>
-            <p>Download and install VS Code, GitHub Desktop, Git, and essential VS Code extensions for P5.js development.</p>
-            <a href="vsCodeInstallSetup.html" class="guide-link">View Guide →</a>
-        </div>
-
-        <div class="guide-card">
-            <h3>Signing into VS Code, GitLens, and Actions</h3>
-            <p>Authenticate your GitHub account with VS Code and essential extensions to enable advanced features and AI assistance.</p>
-            <a href="signIn.html" class="guide-link">View Guide →</a>
-        </div>
-
-        <div class="guide-card">
-            <h3>Authorize Copilot Pro</h3>
-            <p>Set up your OCADU student account to access GitHub Copilot Pro features for enhanced AI-powered coding assistance.</p>
-            <a href="copilotAuth.html" class="guide-link">View Guide →</a>
-        </div>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Guide contents">
+  <div class="side-head">
+    <p class="side-title"><a href="#start">Setup Guide</a></p>
+    <p class="side-sub">VS Code, GitHub and p5.js on your phone</p>
+    <div class="os-toggle" role="group" aria-label="Show steps for">
+      <button type="button" data-os="mac" aria-pressed="false">Mac</button>
+      <button type="button" data-os="win" aria-pressed="false">Windows</button>
     </div>
+  </div>
+  <nav class="side-nav" id="nav" aria-label="Parts and steps"></nav>
+</aside>
 
-    <h2>Coding Environment Setup</h2>
-    <p>Configure your repositories and local development workflow for creating and deploying P5.js projects.</p>
+<main class="content" id="main"><div class="content-inner">
 
-    <div class="guide-grid">
-        <div class="guide-card">
-            <h3>Setting up a GitHub Repo</h3>
-            <p>Create a GitHub repository with GitHub Pages enabled for automatic deployment and version control of your projects.</p>
-            <a href="repoSetup.html" class="guide-link">View Guide →</a>
-        </div>
+<!-- =====================================================================
+     HOW THIS FILE WORKS
+     Each <section class="topic"> is one entry in the sidebar.
+     Each <article class="step"> inside it is one step under that entry.
+     data-group  = the sidebar heading the topic sits under
+     data-nav    = the short name shown in the sidebar
+     data-optional on a step = shown with an Optional tag
+     <div class="os" data-os="mac|win"> = only shown for that operating system
+     <p class="needs-shot"> = a missing screenshot. Only visible with ?audit in the address.
+     The sidebar, numbering and Back / Next links are generated. See assets/guide.js.
+     ===================================================================== -->
 
-        <div class="guide-card">
-            <h3>Coding P5 Locally Using Your Repo</h3>
-            <p>Learn the complete workflow for creating, developing, and deploying P5.js projects from your local machine to GitHub Pages.</p>
-            <a href="localP5.html" class="guide-link">View Guide →</a>
-        </div>
+<!-- ============================ START ============================ -->
+<section class="topic" id="start" data-group="Start" data-nav="Start here">
+  <header>
+    <h1>Code on your laptop. See it on your phone.</h1>
+    <p class="lede">So far you have written p5.js in the web editor. This guide moves the same setup onto your own computer. You write the code in VS Code. You save it to GitHub. GitHub gives you a web address you can open on your phone.</p>
+  </header>
 
-        <div class="guide-card">
-            <h3>Setting up VS Code Tunnels</h3>
-            <p>Enable remote access to your local development server for testing on mobile devices and sharing your work with others.</p>
-            <a href="tunnels.html" class="guide-link">View Guide →</a>
-        </div>
+  <div class="flow" aria-label="How the pieces connect">
+    <div class="box"><b>VS Code</b>You write and test your sketch on your laptop.</div>
+    <div class="arrow" aria-hidden="true">&rarr;</div>
+    <div class="box"><b>GitHub</b>You push your code. GitHub stores every version and publishes the page.</div>
+    <div class="arrow" aria-hidden="true">&rarr;</div>
+    <div class="box"><b>Your phone</b>You open the web address and the sketch runs there, where it can use the phone's sensors.</div>
+  </div>
+
+  <h2 style="font-size:24px;font-weight:500;margin-top:34px">What you need</h2>
+  <ul class="plain">
+    <li>Your laptop, and permission to install software on it.</li>
+    <li>Your phone.</li>
+    <li>Your OCAD U email address.</li>
+  </ul>
+
+  <h2 style="font-size:24px;font-weight:500;margin-top:28px">How to use this guide</h2>
+  <ul class="plain">
+    <li>Work through the parts in order. The list on the left shows every part and every step. On a phone, tap <b class="ui">Steps</b> at the top.</li>
+    <li>Choose <b class="ui">Mac</b> or <b class="ui">Windows</b> at the top of the list. The guide then only shows the steps for your computer.</li>
+    <li>Click any screenshot to make it bigger.</li>
+  </ul>
+
+  <h2 style="font-size:24px;font-weight:500;margin-top:28px">Two workflows</h2>
+  <table class="simple">
+    <thead><tr><th>Workflow</th><th>Where</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Code to phone.</b> GitHub, GitHub Desktop, VS Code and GitHub Pages. Clone the starter project, change it, push it, open it on your phone, and check it all works.</td><td>Parts 2 to 10</td><td>This is the one that matters. Finish it first.</td></tr>
+      <tr><td><b>2. Agents and models.</b> Optional. Add models to the Chat in VS Code, learn its modes, and apply for student access.</td><td>Parts 11 to 13</td><td>I will show it in class, but we will not work through it together. Give it a try on your own between Tuesday and Thursday.</td></tr>
+      <tr><td><b>Optional tools.</b> GitHub CLI and testing on your phone without publishing.</td><td>Parts 14 and 15</td><td>Later, if you want them.</td></tr>
+    </tbody>
+  </table>
+
+  <aside class="note"><span class="label">Used VS Code or GitHub before?</span><p>You may already have some of this. Do not start again from nothing. Read <a href="#vscode--already">Already have VS Code?</a> first, then use <a href="#check"><span data-part="check">part 10</span>, How do I know everything is set up?</a> to find out which parts you still need.</p></aside>
+
+  <aside class="tip"><span class="label">Stuck?</span><p>Go to <a href="#fix">Fix common problems</a>. If your problem is not there, bring the exact error message to class. A screenshot of the message is best.</p></aside>
+</section>
+
+<!-- ============================ GITHUB ACCOUNT ============================ -->
+<section class="topic" id="github-account" data-group="Workflow 1 · Code to phone" data-core data-nav="Create your GitHub account">
+  <header>
+    <h1>Create your GitHub account</h1>
+    <p class="lede">GitHub stores your code online and publishes your sketch as a web page. You also use this one account to sign in to VS Code and to Copilot.</p>
+    <ul class="chips"><li>About 10 minutes</li><li class="req">Needs your phone</li></ul>
+  </header>
+
+  <article class="step" id="github-account--sign-up" data-nav="Sign up">
+    <h2>Sign up with your OCAD U email</h2>
+    <p>If you already have a GitHub account, keep it. Add your OCAD U email to it in <a href="https://github.com/settings/emails" target="_blank" rel="noopener">Settings, Emails</a> and go to the next step.</p>
+    <ol class="do">
+      <li>Go to <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>.</li>
+      <li>Enter your OCAD U email address and a strong password.</li>
+      <li>Choose a username. Read the note below first.</li>
+      <li>GitHub emails you a code. Enter the code to verify your email.</li>
+    </ol>
+    <aside class="note"><span class="label">Your username is public</span><p>Your username becomes part of the web address of everything you publish, like <code>your-username.github.io</code>. Pick something short that you are happy to show in a portfolio. Lowercase letters, numbers and hyphens work best.</p></aside>
+    <p class="needs-shot">github-signup.png. The sign-up form at github.com/signup. GitHub blocks automated browsers on this page, so it needs a manual capture.</p>
+  </article>
+
+  <article class="step" id="github-account--2fa" data-nav="Turn on two-factor authentication">
+    <h2>Turn on two-factor authentication</h2>
+    <p>Two-factor authentication (2FA) means GitHub asks for a code from your phone as well as your password. GitHub requires it for anyone who publishes code. The student benefits application also requires it. Set it up now so it never blocks you later.</p>
+    <p>The most reliable method is an authenticator app. If you already use one, such as Google Authenticator, Microsoft Authenticator, 1Password or the Passwords app on an iPhone, use that.</p>
+    <ol class="do">
+      <li>Go to <a href="https://github.com/settings/security" target="_blank" rel="noopener">github.com/settings/security</a>. This is <b class="ui">Settings</b>, then <b class="ui">Password and authentication</b>.</li>
+      <li>Click <b class="ui">Enable two-factor authentication</b>.</li>
+      <li>Choose <b class="ui">Authenticator app</b>. GitHub shows a QR code.</li>
+      <li>Open your authenticator app on your phone. Add a new account and scan the QR code.</li>
+      <li>Type the 6 digit code from the app into GitHub.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/github-2fa.png" width="1234" height="810" alt="The two-factor methods section of GitHub's security settings, listing authenticator app, SMS, security keys and GitHub Mobile." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>The two-factor section of your security settings. You need at least one method set up.</figcaption>
+    </figure>
+    <aside class="tip"><span class="label">Text message instead?</span><p>GitHub also offers codes by text message (SMS), and it works in Canada. It is less reliable than an app, and it stops working if you change your number. Use the app if you can.</p></aside>
+  </article>
+
+  <article class="step" id="github-account--recovery" data-nav="Save your recovery codes">
+    <h2>Save your recovery codes</h2>
+    <p>Recovery codes are the only way back into your account if you lose your phone. GitHub will not let you finish until you save them.</p>
+    <ol class="do">
+      <li>Click <b class="ui">Download</b>. You get a small text file.</li>
+      <li>Keep the file somewhere that is not only your phone. Your OCAD U OneDrive or a password manager are good places.</li>
+      <li>Click <b class="ui">I have saved my recovery codes</b>.</li>
+    </ol>
+  </article>
+
+  <article class="step" id="github-account--mobile" data-nav="Add the GitHub Mobile app" data-optional>
+    <h2>Add the GitHub Mobile app</h2>
+    <p>With the app installed, GitHub can send a notification to your phone and you tap to approve the sign-in. It is a useful second method. It can only be added after the authenticator app or SMS is set up.</p>
+    <ol class="do">
+      <li>Install GitHub Mobile from the <a href="https://apps.apple.com/app/github/id1477376905" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.github.android" target="_blank" rel="noopener">Google Play</a>.</li>
+      <li>Sign in to the app and allow notifications.</li>
+    </ol>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>You can sign in at github.com with your password and a code from your phone.</li>
+    <li>Your recovery codes are saved somewhere safe.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ GITHUB DESKTOP ============================ -->
+<section class="topic" id="desktop" data-group="Workflow 1 · Code to phone" data-core data-nav="Install GitHub Desktop">
+  <header>
+    <h1>Install GitHub Desktop</h1>
+    <p class="lede">GitHub Desktop is GitHub's own app for your computer. In this workflow it does one important job. When you sign in, it tells Git your name and email for you, so you do not have to type commands to do it later. It is also a clear place to see the history of a project when something goes wrong.</p>
+    <ul class="chips"><li>About 5 minutes</li></ul>
+  </header>
+
+  <article class="step" id="desktop--check" data-nav="Check if you have it">
+    <h2>Check if you already have it</h2>
+    <div class="os" data-os="mac"><p>Look in your <b class="ui">Applications</b> folder for <b>GitHub Desktop</b>, or press <kbd>Cmd</kbd> + <kbd>Space</kbd> and type <code>GitHub Desktop</code>.</p></div>
+    <div class="os" data-os="win"><p>Open the <b class="ui">Start</b> menu and type <code>GitHub Desktop</code>.</p></div>
+    <ol class="do">
+      <li>If it is not there, go to the next step.</li>
+      <li>If it is there, open it and update it. On a Mac, use the <b class="ui">GitHub Desktop</b> menu, then <b class="ui">About GitHub Desktop</b>, then <b class="ui">Check for Updates</b>. On Windows, use <b class="ui">Help</b>, then <b class="ui">About GitHub Desktop</b>.</li>
+      <li>Then skip to step 4 and check the account and the name it is using.</li>
+    </ol>
+  </article>
+
+  <article class="step" id="desktop--install" data-nav="Download and install">
+    <h2>Download and install</h2>
+    <ol class="do">
+      <li>Go to <a href="https://desktop.github.com/download/" target="_blank" rel="noopener">desktop.github.com/download</a>. The page offers the right download for your computer.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/desktop-download.png" width="1600" height="875" alt="The GitHub Desktop download page with one large download button, and smaller links for Intel Macs and for Windows." loading="lazy">
+      <figcaption>On a Mac with an Intel chip, use the smaller link instead of the big button.</figcaption>
+    </figure>
+    <div class="os" data-os="mac"><ol class="do">
+      <li>Open the downloaded zip file. It unpacks to <b>GitHub Desktop</b>.</li>
+      <li>Drag it into your <b class="ui">Applications</b> folder and open it from there.</li>
+    </ol></div>
+    <div class="os" data-os="win"><ol class="do">
+      <li>Run the downloaded <code>GitHubDesktopSetup</code> file. It installs and opens by itself.</li>
+    </ol></div>
+  </article>
+
+  <article class="step" id="desktop--sign-in" data-nav="Sign in">
+    <h2>Sign in to GitHub</h2>
+    <ol class="do">
+      <li>On the welcome screen, click <b class="ui">Sign in to GitHub.com</b>.</li>
+      <li>Your browser opens. Sign in if asked, check the username, and click <b class="ui">Authorize desktop</b>.</li>
+      <li>Your browser asks to open GitHub Desktop. Allow it.</li>
+    </ol>
+    <p class="needs-shot">desktop-welcome.png. The GitHub Desktop welcome screen with "Sign in to GitHub.com". Needs a first run of the app.</p>
+  </article>
+
+  <article class="step" id="desktop--configure" data-nav="Let it set your name and email">
+    <h2>Let it set your name and email</h2>
+    <p>Git writes a name and an email on every version you save. GitHub Desktop now offers to fill those in from your GitHub account.</p>
+    <ol class="do">
+      <li>On the <b>Configure Git</b> screen, leave <b class="ui">Use my GitHub account name and email address</b> selected.</li>
+      <li>Click <b class="ui">Finish</b>.</li>
+    </ol>
+    <p>That is all GitHub Desktop needs to do for now. You can close it. VS Code and every other tool on your computer will use the same name and email.</p>
+    <h3>If you already had GitHub Desktop</h3>
+    <div class="os" data-os="mac"><p>Open <b class="ui">GitHub Desktop</b>, then <b class="ui">Settings</b>.</p></div>
+    <div class="os" data-os="win"><p>Open <b class="ui">File</b>, then <b class="ui">Options</b>.</p></div>
+    <ol class="do">
+      <li>Under <b class="ui">Accounts</b>, check that it is signed in to the GitHub account you are using for this course.</li>
+      <li>Under <b class="ui">Git</b>, check the name and email. Fix them if they are from an old account, then click <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="needs-shot">desktop-configure-git.png. The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app.</p>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>GitHub Desktop opens and shows your GitHub account.</li>
+    <li>Its Git settings show your name and email.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ VS CODE ============================ -->
+<section class="topic" id="vscode" data-group="Workflow 1 · Code to phone" data-core data-nav="Install VS Code and sign in">
+  <header>
+    <h1>Install VS Code and sign in</h1>
+    <p class="lede">Visual Studio Code is a free code editor. It is where you will write your sketches. Signing in with GitHub connects the editor to your account, so it can copy your projects down and push your changes up.</p>
+    <ul class="chips"><li>About 10 minutes</li></ul>
+    <aside class="note"><span class="label">Check the name</span><p>You want <b>Visual Studio Code</b>, with the blue icon. <b>Visual Studio</b>, with the purple icon, is a different program.</p></aside>
+  </header>
+
+  <article class="step" id="vscode--already" data-nav="Already have VS Code?" data-optional>
+    <h2>Already have VS Code? Start here</h2>
+    <p>If VS Code is already on your computer, do not install it again. Bring it up to date and check three things. If you have never installed it, skip this step.</p>
+
+    <h3>1. Update it</h3>
+    <p>VS Code now updates every week, and a lot has changed in a year. Copilot used to be an extension. It is now built in. This guide needs version <b>1.125</b> or newer.</p>
+    <div class="os" data-os="mac"><ol class="do">
+      <li>Open the <b class="ui">Code</b> menu and choose <b class="ui">About Visual Studio Code</b> to see your version.</li>
+      <li>Open the <b class="ui">Code</b> menu again and choose <b class="ui">Check for Updates...</b></li>
+      <li>If it finds one, click <b class="ui">Restart to Update</b>.</li>
+    </ol></div>
+    <div class="os" data-os="win"><ol class="do">
+      <li>Open the <b class="ui">Help</b> menu and choose <b class="ui">About</b> to see your version.</li>
+      <li>Open the <b class="ui">Help</b> menu again and choose <b class="ui">Check for Updates...</b></li>
+      <li>If it finds one, click <b class="ui">Restart to Update</b>.</li>
+    </ol></div>
+    <div class="os" data-os="mac"><aside class="tip"><span class="label">No "Check for Updates" in the menu?</span><p>VS Code is probably running from your Downloads folder. Quit it, drag it into Applications, and open it from there.</p></aside></div>
+
+    <h3>2. Check which account is signed in</h3>
+    <ol class="do">
+      <li>Click the <b class="ui">Accounts</b> icon at the bottom left.</li>
+      <li>If it shows the GitHub username you want to use for this course, followed by <b>(GitHub)</b>, you are signed in. You can skip steps 2 to 5 of this part.</li>
+      <li>If it shows a different account, such as an old GitHub account or a Microsoft account, click the account name, then <b class="ui">Sign Out</b>. Then sign in with the right one in step 3.</li>
+      <li>If it shows no account, carry on with step 3.</li>
+    </ol>
+
+    <h3>3. Look at your old extensions</h3>
+    <p>Click the <b class="ui">Extensions</b> icon and look under <b class="ui">Installed</b>. Nothing here will break the setup, but some of it is no longer needed.</p>
+    <table class="simple"><thead><tr><th>If you have</th><th>What to do</th></tr></thead><tbody>
+      <tr><td>GitLens, GitHub Actions, P5 Project Creator, p5js Snippets</td><td>Used in last year's version of this course. Not needed now. Leave them or uninstall them.</td></tr>
+      <tr><td>p5.vscode</td><td>Disable it. It suggests p5.js 1 code, which clashes with p5.js 2.</td></tr>
+      <tr><td>GitHub Copilot, GitHub Copilot Chat</td><td>Now built in. After you update VS Code these look after themselves.</td></tr>
+      <tr><td>Live Server</td><td>Keep it. It is one of the two you need.</td></tr>
+    </tbody></table>
+
+    <details class="more"><summary>My VS Code is full of settings and extensions from other courses</summary>
+      <p>You do not need to remove anything. VS Code has <b>profiles</b>. A profile is a separate set of extensions and settings. Make a clean one for this course and switch between them whenever you like.</p>
+      <ol class="do">
+        <li>Click the gear icon at the bottom left, then <b class="ui">Profiles</b>.</li>
+        <li>Create a new profile. Call it something like <code>Atelier</code>.</li>
+        <li>VS Code switches to it. It looks like a fresh install, and your old setup is untouched in the <b class="ui">Default</b> profile.</li>
+      </ol>
+      <figure class="shot medium">
+      <img src="img/vscode-profiles.png" width="1120" height="680" alt="The gear menu at the bottom left of VS Code with Profiles highlighted." loading="lazy">
+    </figure>
+    </details>
+
+    <aside class="note"><span class="label">Then check everything at once</span><p>When you have done this step, go to <a href="#check"><span data-part="check">part 10</span>, How do I know everything is set up?</a> It tells you which other parts you can skip and which you still need.</p></aside>
+  </article>
+
+  <article class="step" id="vscode--download" data-nav="Download and install">
+    <h2>Download and install VS Code</h2>
+    <ol class="do">
+      <li>Go to <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">code.visualstudio.com/download</a>.</li>
+      <li>Click the big button for your computer.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/vscode-download.png" width="1600" height="667" alt="The VS Code download page with large Windows and Mac buttons." loading="lazy">
+      <figcaption>Use the large <b>Windows</b> or <b>Mac</b> button. You do not need the smaller links underneath.</figcaption>
+    </figure>
+    <div class="os" data-os="mac">
+      <ol class="do">
+        <li>Open the downloaded file. If it is a zip, double-click it to unpack it.</li>
+        <li>Drag <b class="ui">Visual Studio Code</b> into your <b class="ui">Applications</b> folder.</li>
+        <li>Open it from Applications. The first time, macOS asks if you are sure. Click <b class="ui">Open</b>.</li>
+      </ol>
+      <aside class="warn"><span class="label">Move it to Applications</span><p>If you run VS Code from the Downloads folder it cannot update itself, and some features fail in confusing ways.</p></aside>
     </div>
-
-    <h2>Browser Tools</h2>
-    <p>Master essential browser developer tools for debugging and testing your web applications.</p>
-
-    <div class="guide-grid">
-        <div class="guide-card">
-            <h3>Chrome Developer Tools</h3>
-            <p>Learn to use Chrome's developer console, device simulation, and debugging tools for mobile web development.</p>
-            <a href="chromeTools.html" class="guide-link">View Guide →</a>
-        </div>
+    <div class="os" data-os="win">
+      <ol class="do">
+        <li>Run the installer you downloaded. It is called something like <code>VSCodeUserSetup-x64.exe</code>.</li>
+        <li>Accept the agreement and keep clicking <b class="ui">Next</b>.</li>
+        <li>On the <b class="ui">Select Additional Tasks</b> screen, tick both <b class="ui">Add "Open with Code" action</b> boxes. Leave <b class="ui">Add to PATH</b> ticked.</li>
+        <li>Click <b class="ui">Install</b>, then <b class="ui">Finish</b>.</li>
+      </ol>
+      <p class="needs-shot">vscode-install-windows.png. The Windows installer's "Select Additional Tasks" screen with the "Open with Code" boxes ticked. Needs a Windows machine.</p>
     </div>
+  </article>
 
-    <h2>Verify Your Setup</h2>
-    <p>After completing the setup guides, verify everything is working correctly with an automated verification tool.</p>
+  <article class="step" id="vscode--sign-in" data-nav="Sign in with GitHub">
+    <h2>Open VS Code and sign in with GitHub</h2>
+    <h3>If this is a new install</h3>
+    <p>The first time VS Code opens, it shows a welcome window that asks you to sign in.</p>
+    <ol class="do">
+      <li>Click <b class="ui">Continue with GitHub</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/vscode-first-run-sign-in.png" width="1600" height="976" alt="The Welcome to VS Code window with a highlighted Continue with GitHub button." loading="lazy">
+      <figcaption>The first window you see. Choose GitHub, not Google or Apple, so everything in this course uses one account.</figcaption>
+    </figure>
+    <h3>If you have used VS Code before, or you closed that window</h3>
+    <p>You will not see the welcome window. There are two other ways to sign in. They do the same thing.</p>
+    <ol class="do">
+      <li>Click the blue <b class="ui">Sign In</b> button at the top right of the VS Code window.</li>
+    </ol>
+    <figure class="shot medium"><img src="img/signin-title-bar.png" width="740" height="240" alt="The top right of the VS Code window with the Sign In button highlighted." loading="lazy"></figure>
+    <ol class="do" style="counter-reset: do 1">
+      <li>Or click the <b class="ui">Accounts</b> icon at the bottom left, then <b class="ui">Sign in to use GitHub Copilot...</b></li>
+    </ol>
+    <figure class="shot medium"><img src="img/signin-accounts-menu.png" width="640" height="300" alt="The Accounts menu at the bottom left of VS Code with Sign in to use GitHub Copilot highlighted." loading="lazy"></figure>
+    <ol class="do" style="counter-reset: do 2">
+      <li>Either way you get this small window. Click <b class="ui">Continue with GitHub</b>.</li>
+    </ol>
+    <figure class="shot small"><img src="img/signin-dialog.png" width="480" height="460" alt="The Sign in to use GitHub Copilot window with Continue with GitHub highlighted." loading="lazy"></figure>
+    <aside class="tip"><span class="label">No Sign In button?</span><p>Then you are already signed in. Click the <b class="ui">Accounts</b> icon to see which account it is.</p></aside>
+  </article>
 
-    <div class="guide-grid">
-        <div class="guide-card">
-            <h3>Setup Verification Guide</h3>
-            <p>Learn how to open VS Code's terminal and run a one-line command that checks your entire development environment: Node.js, VS Code, extensions, Git configuration, and more!</p>
-            <a href="checkSetup.html" class="guide-link">View Guide →</a>
-        </div>
+  <article class="step" id="vscode--authorize" data-nav="Approve it in your browser">
+    <h2>Approve it in your browser</h2>
+    <p>VS Code opens your web browser to finish signing in.</p>
+    <ol class="do">
+      <li>If GitHub asks you to sign in, sign in. It may ask for your 2FA code.</li>
+      <li>Check that it shows <b>your</b> username, then click <b class="ui">Continue</b>.</li>
+      <li>If GitHub shows a list of permissions, click <b class="ui">Authorize Visual-Studio-Code</b>.</li>
+      <li>Your browser asks to open Visual Studio Code. Click <b class="ui">Open</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/signin-browser-authorize.png" width="700" height="500" alt="A GitHub page asking you to select the user to authorize Visual Studio Code, with a Continue button." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>GitHub asks which account to connect. Check the username before you continue.</figcaption>
+    </figure>
+    <aside class="tip"><span class="label">On a shared or lab computer</span><p>Check whose GitHub account the browser is signed in to before you click Continue. If it is someone else's, choose <b class="ui">Use a different account</b>.</p></aside>
+  </article>
+
+  <article class="step" id="vscode--theme" data-nav="Pick a theme">
+    <h2>Pick a theme and get started</h2>
+    <p>On a new install, the welcome window now asks what it should look like. If you have used VS Code before, you will not see this. Skip to the next step.</p>
+    <ol class="do">
+      <li>Pick any colour theme. You can change it later.</li>
+      <li>Click <b class="ui">Get Started</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/vscode-first-run-theme.png" width="1600" height="976" alt="The Make It Yours window showing six colour themes and a highlighted Get Started button." loading="lazy">
+      <figcaption>The screenshots in this guide use the dark theme. A light theme works the same way.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="vscode--tour" data-nav="Find your way around">
+    <h2>Find your way around</h2>
+    <p>You will use six places in the VS Code window. Find each one now.</p>
+    <figure class="shot">
+      <img src="img/vscode-tour.png" width="1440" height="900" alt="The VS Code window with six labelled areas: Explorer, Source Control, Extensions, Accounts, Sign In and Chat." loading="lazy">
+      <figcaption>The icons down the left edge are called the Activity Bar.</figcaption>
+    </figure>
+    <table class="simple">
+      <tbody>
+        <tr><td><b>1 Explorer</b></td><td>The files in your project.</td></tr>
+        <tr><td><b>2 Source Control</b></td><td>Saves versions of your work and sends them to GitHub.</td></tr>
+        <tr><td><b>3 Extensions</b></td><td>Add-ons for VS Code. You install two in <span data-part="extensions">part 6</span>.</td></tr>
+        <tr><td><b>4 Accounts</b></td><td>Shows which GitHub account is signed in.</td></tr>
+        <tr><td><b>5 Sign In</b></td><td>Only shows while you are signed out.</td></tr>
+        <tr><td><b>6 Chat</b></td><td>GitHub Copilot. <span data-part="copilot">Part 12</span> covers it. Close it with the X if you want more room.</td></tr>
+      </tbody>
+    </table>
+    <h3>Two shortcuts worth learning today</h3>
+    <div class="os" data-os="mac"><ul class="plain">
+      <li><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> opens the <b>Command Palette</b>. Type what you want to do and VS Code finds the command.</li>
+      <li><kbd>Ctrl</kbd> + <kbd>`</kbd> opens the <b>Terminal</b> at the bottom of the window. The <kbd>`</kbd> key is above Tab.</li>
+    </ul></div>
+    <div class="os" data-os="win"><ul class="plain">
+      <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> opens the <b>Command Palette</b>. Type what you want to do and VS Code finds the command.</li>
+      <li><kbd>Ctrl</kbd> + <kbd>`</kbd> opens the <b>Terminal</b> at the bottom of the window. The <kbd>`</kbd> key is above Tab.</li>
+    </ul></div>
+  </article>
+
+  <article class="step" id="vscode--check" data-nav="Check you are signed in">
+    <h2>Check you are signed in</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Accounts</b> icon at the bottom left.</li>
+      <li>You should see your GitHub username with <b>(GitHub)</b> after it.</li>
+      <li>The blue <b class="ui">Sign In</b> button at the top right should be gone.</li>
+    </ol>
+    <p class="needs-shot">signin-accounts-signed-in.png. The Accounts menu after signing in, showing "username (GitHub)" at the top. Needs a signed-in VS Code.</p>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>VS Code opens from your Applications folder or Start menu.</li>
+    <li>The Accounts menu shows your GitHub username.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ GIT ============================ -->
+<section class="topic" id="git" data-group="Workflow 1 · Code to phone" data-core data-nav="Install Git">
+  <header>
+    <h1>Install Git</h1>
+    <p class="lede">Git is the program that records versions of your files. GitHub is the website that stores them online. VS Code uses Git behind its buttons, but Git does not come with VS Code. GitHub Desktop has its own private copy that VS Code cannot use. So you install Git once, for everything.</p>
+    <ul class="chips"><li>5 to 15 minutes</li><li>Uses the Terminal, briefly</li></ul>
+  </header>
+
+  <article class="step" id="git--check" data-nav="Check if you have Git">
+    <h2>Check if you already have Git</h2>
+    <ol class="do">
+      <li>In VS Code, open the Terminal. Use the menu <b class="ui">Terminal</b>, then <b class="ui">New Terminal</b>.</li>
+      <li>Type this and press <kbd>Enter</kbd>.</li>
+    </ol>
+    <div class="cmd"><pre><code>git --version</code></pre></div>
+    <p>If it answers with a version number, such as <code>git version 2.50.1</code>, you have Git. Skip the next step.</p>
+  </article>
+
+  <article class="step" id="git--install" data-nav="Install Git">
+    <h2>Install Git</h2>
+    <div class="os" data-os="mac">
+      <p>On a Mac, Git comes with Apple's Command Line Developer Tools. When you ran <code>git --version</code>, macOS should have offered to install them.</p>
+      <ol class="do">
+        <li>In the window that appeared, click <b class="ui">Install</b>, then <b class="ui">Agree</b>.</li>
+        <li>Wait. The download is large and can take 5 to 15 minutes.</li>
+        <li>When it finishes, close the Terminal panel in VS Code and open a new one.</li>
+        <li>Run <code>git --version</code> again. You should now see a version number.</li>
+      </ol>
+      <p>If no window appeared, run this command to ask for the tools.</p>
+      <div class="cmd"><pre><code>xcode-select --install</code></pre></div>
+      <p class="needs-shot">git-mac-tools.png. The macOS window that offers to install the command line developer tools. Only appears on a Mac that does not have them yet.</p>
     </div>
-
-    <hr>
-
-    <div class="footer">
-        <p>OCAD University - Digital Futures - Mobile Development</p>
-        <p>For questions or issues, please contact your instructor.</p>
+    <div class="os" data-os="win">
+      <ol class="do">
+        <li>Go to <a href="https://git-scm.com/install/windows" target="_blank" rel="noopener">git-scm.com/install/windows</a> and click <b class="ui">Click here to download</b>.</li>
+        <li>Run the installer. It asks many questions. Keep every default and click <b class="ui">Next</b> each time.</li>
+        <li>One exception. When it asks for the default editor, choose <b class="ui">Use Visual Studio Code as Git's default editor</b>.</li>
+        <li>When it finishes, close VS Code completely and open it again.</li>
+        <li>Open a new Terminal and run <code>git --version</code>. You should now see a version number.</li>
+      </ol>
+      <figure class="shot">
+        <img src="img/git-windows.png" width="1600" height="1126" alt="The Git for Windows install page with a Click here to download link at the top." loading="lazy">
+        <figcaption>Use the first link, <b>Click here to download</b>.</figcaption>
+      </figure>
+      <aside class="tip"><span class="label">Good to know</span><p>Git for Windows includes a helper that remembers your GitHub sign-in for every program on your computer, not only VS Code.</p></aside>
     </div>
+  </article>
 
+  <article class="step" id="git--identity" data-nav="Check Git knows who you are">
+    <h2>Check Git knows who you are</h2>
+    <p>Git writes your name and email on every version you save, and refuses to save anything without them. GitHub Desktop set them for you in <span data-part="desktop">part 3</span>. Check that it worked.</p>
+    <ol class="do">
+      <li>Run this in the Terminal.</li>
+    </ol>
+    <div class="cmd"><pre><code>git config --global --list</code></pre></div>
+    <ol class="do" style="counter-reset: do 1">
+      <li>Look for two lines that start with <code>user.name=</code> and <code>user.email=</code>. If both are there, you are done.</li>
+    </ol>
+    <details class="more"><summary>One or both are missing</summary>
+      <p>The simplest fix is in GitHub Desktop. Open its settings, choose <b class="ui">Git</b>, fill in your name and email, and click <b class="ui">Save</b>. On a Mac the settings are under the <b class="ui">GitHub Desktop</b> menu. On Windows they are under <b class="ui">File</b>, then <b class="ui">Options</b>.</p>
+      <p>Or set them with two commands. Change the name and the email inside the quotes to your own. Use the same email as your GitHub account.</p>
+      <div class="cmd"><pre><code>git config --global user.name "Your Name"</code></pre></div>
+      <div class="cmd"><pre><code>git config --global user.email "you@ocadu.ca"</code></pre></div>
+    </details>
+    <aside class="tip"><span class="label">An email that ends in users.noreply.github.com?</span><p>That is fine. It is a private address GitHub gives you when your email is set to hidden. Your commits still link to your account.</p></aside>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li><code>git --version</code> prints a version number.</li>
+    <li><code>git config --global --list</code> shows your name and email.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ EXTENSIONS ============================ -->
+<section class="topic" id="extensions" data-group="Workflow 1 · Code to phone" data-core data-nav="Add two extensions">
+  <header>
+    <h1>Add two extensions</h1>
+    <p class="lede">Extensions add features to VS Code. A few years ago a setup like this needed a long list of them. Now most of what you need is built in, including Git, GitHub sign-in and Copilot. You add two.</p>
+    <ul class="chips"><li>About 5 minutes</li></ul>
+    <table class="simple">
+      <thead><tr><th>Extension</th><th>By</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><b>p5.js 2.x Project Generator</b></td><td>IrtizaNasar</td><td>Code suggestions for p5.js 2. It is the one the p5.js website recommends.</td></tr>
+        <tr><td><b>Live Server</b></td><td>Ritwick Dey</td><td>Runs your sketch in a browser and reloads it every time you save.</td></tr>
+      </tbody>
+    </table>
+    <aside class="tip"><span class="label">Shortcut</span><p>The starter project in the next part knows about these two. When you open it, VS Code offers to install them both with one click. If you would rather wait for that, skip to <span data-part="project">part 7</span> and come back here only if the offer does not appear.</p></aside>
+  </header>
+
+  <article class="step" id="extensions--p5" data-nav="p5.js 2.x Project Generator">
+    <h2>Install p5.js 2.x Project Generator</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Extensions</b> icon in the Activity Bar. It looks like four squares.</li>
+      <li>In the search box, type <code>p5.js 2.x Project Generator</code>.</li>
+      <li>Find the one by <b>IrtizaNasar</b>. Click its blue <b class="ui">Install</b> button.</li>
+      <li>If VS Code asks whether you trust the publisher, click <b class="ui">Trust Publisher &amp; Install</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ext-p5.png" width="760" height="460" alt="The Extensions search results with p5.js 2.x Project Generator by IrtizaNasar at the top and an Install button." loading="lazy">
+      <figcaption>Check the author name under the title. Several extensions have similar names.</figcaption>
+    </figure>
+    <aside class="note"><span class="label">Two for one</span><p>This extension brings Live Server with it. After it installs, check whether Live Server is already in your list before doing the next step.</p></aside>
+  </article>
+
+  <article class="step" id="extensions--live-server" data-nav="Live Server">
+    <h2>Install Live Server</h2>
+    <ol class="do">
+      <li>In the Extensions search box, type <code>Live Server</code>.</li>
+      <li>Find the one by <b>Ritwick Dey</b>. It has tens of millions of installs.</li>
+      <li>If it shows a gear icon instead of <b class="ui">Install</b>, you already have it.</li>
+      <li>If not, click <b class="ui">Install</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ext-live-server.png" width="760" height="460" alt="The Extensions search results with Live Server by Ritwick Dey at the top." loading="lazy">
+      <figcaption>Live Server by Ritwick Dey is the first result. The others are different tools.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="extensions--check" data-nav="Check your list">
+    <h2>Check your list</h2>
+    <ol class="do">
+      <li>In the Extensions search box, type <code>@installed</code>.</li>
+      <li>You should see both. Extensions you had before will be listed too.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ext-installed.png" width="840" height="462" alt="The Extensions panel filtered to installed extensions, listing Live Server and p5.js 2.x Project Generator." loading="lazy">
+      <figcaption>Typing <code>@installed</code> in the search box shows only what you have.</figcaption>
+    </figure>
+    <details class="more"><summary>Install both from the Terminal instead</summary>
+      <p>This does the same thing as the steps above. Paste it into the Terminal in VS Code and press <kbd>Enter</kbd>.</p>
+      <div class="cmd wrap"><pre><code>code --install-extension Irti.p5js-project-generator --install-extension ritwickdey.LiveServer</code></pre></div>
+    </details>
+  </article>
+</section>
+
+<!-- ============================ PROJECT ============================ -->
+<section class="topic" id="project" data-group="Workflow 1 · Code to phone" data-core data-nav="Get the starter project">
+  <header>
+    <h1>Get the starter project</h1>
+    <p class="lede">The starter is the same setup you know from the web editor. An <code>index.html</code> that links p5.js and p5-phone, and a blank <code>sketch.js</code> with only <code>setup()</code> and <code>draw()</code>. You make your own copy on GitHub, switch on its web page, then bring it down to your laptop.</p>
+    <ul class="chips"><li>About 10 minutes</li></ul>
+    <aside class="note"><span class="label">Words you will see</span><p>A <b>repository</b>, or repo, is a project folder that Git keeps track of. A <b>template</b> is a repo made for copying. To <b>clone</b> a repo is to download it in a way that stays connected to GitHub.</p></aside>
+  </header>
+
+  <article class="step" id="project--template" data-nav="Make your copy">
+    <h2>Make your own copy of the template</h2>
+    <ol class="do">
+      <li>Make sure you are signed in to github.com in your browser.</li>
+      <li>Open the template: <a href="https://github.com/DigitalFuturesOCADU/atelier1-f26-simpleStart-p5" target="_blank" rel="noopener">github.com/DigitalFuturesOCADU/atelier1-f26-simpleStart-p5</a>.</li>
+      <li>Click the green <b class="ui">Use this template</b> button, then <b class="ui">Create a new repository</b>.</li>
+      <li>Under <b class="ui">Owner</b>, choose your own account.</li>
+      <li>Type a <b class="ui">Repository name</b>. Keep it short, lowercase, with hyphens instead of spaces. For example <code>my-phone-sketch</code>.</li>
+      <li>Leave it set to <b class="ui">Public</b>. Leave <b class="ui">Include all branches</b> off, and ignore the Copilot box at the bottom.</li>
+      <li>Click <b class="ui">Create repository</b>.</li>
+    </ol>
+    <aside class="warn"><span class="label">Keep it public</span><p>On a free GitHub account, only public repos can be published as a web page.</p></aside>
+    <figure class="shot">
+      <img src="img/template-use-button.png" width="1130" height="440" alt="The template repo on GitHub with a highlighted green Use this template button at the top right." loading="lazy">
+      <figcaption>The button only shows when you are signed in to GitHub.</figcaption>
+    </figure>
+    <figure class="shot medium">
+      <img src="img/template-create-form.png" width="730" height="990" alt="GitHub's Create a new repository form, started from the template. Owner and Repository name, the Public setting and the Create repository button are highlighted." loading="lazy">
+      <figcaption>Three things matter: the owner and name, Public, and Create repository. Leave everything else as it is.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="project--pages" data-nav="Switch on GitHub Pages">
+    <h2>Switch on GitHub Pages</h2>
+    <p>GitHub Pages is the free web hosting that comes with GitHub. The template already contains the instructions for publishing. You only need to flip the switch. You do this once for each new repo.</p>
+    <ol class="do">
+      <li>In your new repo, click <b class="ui">Settings</b> in the row of tabs at the top.</li>
+      <li>Click <b class="ui">Pages</b> in the list on the left.</li>
+      <li>Under <b class="ui">Build and deployment</b>, open the <b class="ui">Source</b> menu and choose <b class="ui">GitHub Actions</b>.</li>
+      <li>That is all. Do <b>not</b> click either <b class="ui">Configure</b> button that appears below.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/pages-source.png" width="1600" height="1131" alt="A GitHub repo's Settings page with three numbered highlights: the Settings tab, Pages in the left list, and GitHub Actions in the Source menu." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>1 Settings. 2 Pages. 3 Set Source to GitHub Actions.</figcaption>
+    </figure>
+    <aside class="note"><span class="label">A red X is normal here</span><p>If you look at the <b class="ui">Actions</b> tab of your repo now, you will see one failed run with a red X. GitHub tried to publish the moment you made the copy, before Pages was on. Your first push in <span data-part="publish">part 9</span> publishes properly.</p></aside>
+  </article>
+
+  <article class="step" id="project--clone" data-nav="Clone it to your laptop">
+    <h2>Clone it to your laptop</h2>
+    <p>There are two ways to do this. They give exactly the same result, a folder on your laptop that stays connected to GitHub. Use whichever you know. If you learned Git with GitHub Desktop, use option B.</p>
+
+    <aside class="note"><span class="label">Keep all your repos in one place</span>
+      <p>Make one folder for every repo you ever clone, and always use it. The usual choice is a folder called <code>GitHub</code> inside <b>Documents</b>, so a project lives at <code>Documents/GitHub/my-phone-sketch</code>. GitHub Desktop suggests this folder by default. You will always know where your work is, and so will anyone helping you.</p>
+      <p>Avoid the Desktop, Downloads, and any folder that syncs with iCloud or OneDrive. Syncing services and Git both try to manage the files, and they get in each other's way.</p>
+    </aside>
+
+    <h3>Option A: clone in VS Code</h3>
+    <ol class="do">
+      <li>In VS Code, click the <b class="ui">Source Control</b> icon in the Activity Bar.</li>
+      <li>Click <b class="ui">Clone Repository</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/clone-button.png" width="1400" height="540" alt="The Source Control panel with Open Folder and a highlighted Clone Repository button." loading="lazy">
+      <figcaption>If you do not see these buttons, a folder is already open. Use <b>File</b>, then <b>New Window</b>.</figcaption>
+    </figure>
+    <ol class="do" style="counter-reset: do 2">
+      <li>At the top of the window, click <b class="ui">Clone from GitHub</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/clone-from-github.png" width="1500" height="300" alt="A box at the top of the VS Code window with one choice highlighted: Clone from GitHub." loading="lazy">
+    </figure>
+    <ol class="do" style="counter-reset: do 3">
+      <li>If VS Code says <b>The extension 'GitHub' wants to sign in using GitHub</b>, click <b class="ui">Allow</b> and approve it in your browser, as you did before.</li>
+      <li>A list of your repos appears. Choose the one you just made. It looks like <code>your-username/my-phone-sketch</code>.</li>
+      <li>Choose where to keep it. Select your <code>Documents/GitHub</code> folder. Make it first if it does not exist. Click <b class="ui">Select as Repository Destination</b>.</li>
+      <li>When VS Code asks <b>Would you like to open the cloned repository?</b>, click <b class="ui">Open</b>.</li>
+    </ol>
+    <p class="needs-shot">clone-pick-repo.png. The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code.</p>
+
+    <h3>Option B: clone with GitHub Desktop</h3>
+    <ol class="do">
+      <li>On your repo's page on github.com, click the green <b class="ui">Code</b> button, then <b class="ui">Open with GitHub Desktop</b>. Your browser asks to open GitHub Desktop. Allow it.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/clone-desktop-button.png" width="1266" height="960" alt="A GitHub repo page with the green Code button open and Open with GitHub Desktop highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>You can also start inside GitHub Desktop with <b>File</b>, then <b>Clone Repository</b>, and pick the repo from the GitHub.com tab.</figcaption>
+    </figure>
+    <ol class="do" style="counter-reset: do 1">
+      <li>GitHub Desktop opens a <b>Clone a Repository</b> window. Check the <b class="ui">Local Path</b>. It should end in <code>Documents/GitHub/</code> followed by your repo's name. Use <b class="ui">Choose...</b> if it does not.</li>
+      <li>Click <b class="ui">Clone</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/clone-desktop-dialog.png" width="1120" height="720" alt="GitHub Desktop's Clone a Repository window. The Local Path ends in Documents, GitHub and the repo name. The Clone button is highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>The Local Path is where the project will live on your laptop.</figcaption>
+    </figure>
+    <ol class="do" style="counter-reset: do 3">
+      <li>Now open that folder in VS Code. In GitHub Desktop, use the <b class="ui">Repository</b> menu, then <b class="ui">Open in Visual Studio Code</b>. Or in VS Code, use <b class="ui">File</b>, then <b class="ui">Open Folder</b>, and choose the folder inside <code>Documents/GitHub</code>.</li>
+    </ol>
+    <aside class="tip"><span class="label">The menu says a different editor?</span><p>In GitHub Desktop's settings, under <b class="ui">Integrations</b>, set <b>External editor</b> to Visual Studio Code.</p></aside>
+    <p>From here on the guide uses VS Code to commit and sync. GitHub Desktop can do both as well, and you can mix them. They are two windows onto the same folder.</p>
+  </article>
+
+  <article class="step" id="project--trust" data-nav="Trust the folder">
+    <h2>Trust the folder</h2>
+    <p>VS Code is careful with folders it has not seen before. Until you say you trust a folder, it opens in <b>Restricted Mode</b>, where Git and your extensions are switched off. This is your own project, so trust it.</p>
+    <ol class="do">
+      <li>If VS Code asks <b>Do you trust the authors of the files in this folder?</b>, click <b class="ui">Yes, I trust the authors</b>. You are done.</li>
+      <li>If you see a bar across the top that says <b>Restricted Mode</b> instead, click <b class="ui">Manage</b> in that bar.</li>
+    </ol>
+    <figure class="shot"><img src="img/trust-restricted-banner.png" width="1440" height="260" alt="A bar across the top of VS Code reading Restricted Mode, with a Manage link." loading="lazy"></figure>
+    <ol class="do" style="counter-reset: do 2">
+      <li>Click <b class="ui">Trust</b>.</li>
+    </ol>
+    <figure class="shot"><img src="img/trust-editor.png" width="1180" height="660" alt="The Workspace Trust page with a highlighted Trust button." loading="lazy"></figure>
+    <p>You can tell it worked when the bar is gone and the bottom left corner shows a branch name, usually <code>main</code>.</p>
+  </article>
+
+  <article class="step" id="project--recommended" data-nav="Accept the recommended extensions">
+    <h2>Accept the recommended extensions</h2>
+    <p>If you skipped <span data-part="extensions">part 6</span>, VS Code shows a message at the bottom right: <b>Do you want to install the recommended extensions from Ritwick Dey and IrtizaNasar for this repository?</b></p>
+    <ol class="do">
+      <li>Click <b class="ui">Install</b>. VS Code installs both.</li>
+      <li>The message hides itself after a few seconds. To get it back, click the bell at the right end of the bottom bar.</li>
+      <li>If there is no message at all, you already have both extensions.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ext-recommended.png" width="1120" height="520" alt="A notification asking whether to install the recommended extensions for this repository, with a highlighted Install button and the bell icon highlighted below it." loading="lazy">
+      <figcaption>The starter project lists the two extensions it needs, so VS Code can offer them.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="project--look" data-nav="Look at what you have">
+    <h2>Look at what you have</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Explorer</b> icon at the top of the Activity Bar.</li>
+      <li>Click <code>sketch.js</code> to open it. Then click <code>index.html</code>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/project-open.png" width="1600" height="1000" alt="VS Code with the starter project open. The Explorer lists index.html and sketch.js. The editor shows the blank sketch, with only setup and draw." loading="lazy">
+      <figcaption>The same two files you know from the web editor. Ignore the folders that start with a dot for now.</figcaption>
+    </figure>
+    <table class="simple"><tbody>
+      <tr><td><code>index.html</code></td><td>The web page. It links p5.js, p5-phone and your sketch.</td></tr>
+      <tr><td><code>sketch.js</code></td><td>Your sketch. It starts blank, as in the web editor. This is the file you will change.</td></tr>
+      <tr><td><code>README.md</code></td><td>The description shown on the repo's GitHub page.</td></tr>
+      <tr><td><code>.github</code></td><td>The publishing instructions for GitHub Pages. Leave it alone.</td></tr>
+      <tr><td><code>.vscode</code></td><td>The list of recommended extensions. Leave it alone.</td></tr>
+    </tbody></table>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>Your repo exists at <code>github.com/your-username/your-repo-name</code>.</li>
+    <li>Its Pages setting says the source is GitHub Actions.</li>
+    <li>The project is in your <code>Documents/GitHub</code> folder, it is open in VS Code, and you can see <code>sketch.js</code>.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ RUN ============================ -->
+<section class="topic" id="run" data-group="Workflow 1 · Code to phone" data-core data-nav="Run it on your laptop">
+  <header>
+    <h1>Run it on your laptop</h1>
+    <p class="lede">The web editor had a play button. Here, Live Server does that job. It opens your sketch in a browser and reloads it every time you save.</p>
+    <ul class="chips"><li>About 5 minutes</li></ul>
+  </header>
+
+  <article class="step" id="run--go-live" data-nav="Start Live Server">
+    <h2>Start Live Server</h2>
+    <ol class="do">
+      <li>In the Explorer, right-click <code>index.html</code>.</li>
+      <li>Choose <b class="ui">Open with Live Server</b>.</li>
+      <li>Your browser opens at an address like <code>127.0.0.1:5500</code>.</li>
+      <li>You should see a grey square on a dark page. That is the blank canvas, the same as a new sketch in the web editor.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/liveserver-open-with.png" width="1042" height="640" alt="The right-click menu on index.html with Open with Live Server highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>Right-click <code>index.html</code>, then Open with Live Server.</figcaption>
+    </figure>
+    <p>You can also click <b class="ui">Go Live</b> at the right end of the bar along the bottom of the window. While it is running, that button shows <b class="ui">Port: 5500</b>. Click it again to stop.</p>
+    <div class="os" data-os="win"><aside class="tip"><span class="label">Windows firewall</span><p>The first time, Windows may ask whether to allow access. Click <b class="ui">Allow</b>.</p></aside></div>
+    <figure class="shot">
+      <img src="img/liveserver-go-live.png" width="1600" height="160" alt="The right end of the bar along the bottom of VS Code with the Go Live button highlighted." loading="lazy">
+      <figcaption>Go Live sits at the right end of the bottom bar.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="img/run-browser.png" width="1100" height="624" alt="A browser showing a grey square at the top left of a dark page." loading="lazy">
+      <figcaption>The blank starter sketch. A 400 by 400 grey canvas, exactly like a new sketch in the web editor.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="run--console" data-nav="Open the console">
+    <h2>Open the browser console</h2>
+    <p>In the web editor, errors and <code>print()</code> messages appeared below your code. Now they appear in the browser's console.</p>
+    <div class="os" data-os="mac"><p>In Chrome, press <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>J</kbd>.</p></div>
+    <div class="os" data-os="win"><p>In Chrome, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>.</p></div>
+    <p>Or use the menu. Click the three dots at the top right of Chrome, then <b class="ui">More Tools</b>, then <b class="ui">Developer Tools</b>, and choose the <b class="ui">Console</b> tab.</p>
+    <figure class="shot">
+      <img src="img/devtools-open.png" width="1600" height="788" alt="Chrome's three-dot menu open, with More Tools and Developer Tools highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>The menu route to the Developer Tools.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="img/devtools-console.png" width="1600" height="878" alt="VS Code on the left and Chrome on the right with the Console panel open beside the sketch." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>A good working layout. Code on one side, the sketch and its console on the other.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="run--change" data-nav="Change something">
+    <h2>Change something and save</h2>
+    <ol class="do">
+      <li>In <code>sketch.js</code>, find the line <code>background(220);</code></li>
+      <li>Change it to a colour. For example <code>background(237, 34, 93);</code></li>
+      <li>Save with <kbd>Cmd</kbd> + <kbd>S</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>S</kbd> on Windows.</li>
+      <li>Look at the browser. The page reloads and the square changes colour.</li>
+    </ol>
+    <aside class="tip"><span class="label">Nothing changed?</span><p>A white dot on the file's tab means it is not saved yet. Live Server only reloads when you save.</p></aside>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>The sketch runs in your browser from VS Code.</li>
+    <li>Saving a change reloads the page.</li>
+    <li>You can find the console.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ PUBLISH ============================ -->
+<section class="topic" id="publish" data-group="Workflow 1 · Code to phone" data-core data-nav="Publish it to your phone">
+  <header>
+    <h1>Publish it to your phone</h1>
+    <p class="lede">There is no Save As here, and no <code>sketch-final-v3.js</code>. You save a version with a short message. That is a <b>commit</b>. Then you send your commits to GitHub. That is a <b>push</b>. Each push publishes your page again.</p>
+    <ul class="chips"><li>About 10 minutes</li><li class="req">Needs your phone</li></ul>
+  </header>
+
+  <article class="step" id="publish--commit" data-nav="Commit your change">
+    <h2>Commit your change</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Source Control</b> icon. It shows a number, which is how many files have changed.</li>
+      <li>Under <b class="ui">Changes</b> you see <code>sketch.js</code>. Click it if you want to see exactly what changed.</li>
+      <li>Type a short message in the box that describes the change. For example <code>Change the background colour</code>.</li>
+      <li>Click <b class="ui">Commit</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/commit-message.png" width="1500" height="380" alt="The Source Control panel with a message typed in the box, the Commit button below it, and sketch.js listed under Changes." loading="lazy">
+      <figcaption>Write the message for yourself in three weeks. Say what changed.</figcaption>
+    </figure>
+    <p>The first time, VS Code asks about staging. Click <b class="ui">Always</b>. It will then include all your changes every time without asking.</p>
+    <figure class="shot medium">
+      <img src="img/commit-stage-dialog.png" width="1160" height="430" alt="A window reading There are no staged changes to commit. Would you like to stage all your changes and commit them directly? The Always button is highlighted." loading="lazy">
+    </figure>
+  </article>
+
+  <article class="step" id="publish--sync" data-nav="Sync with GitHub">
+    <h2>Sync with GitHub</h2>
+    <p>The commit is saved on your laptop only. The button now reads <b class="ui">Sync Changes</b> with a small number and an up arrow. That is how many commits are waiting to go up.</p>
+    <ol class="do">
+      <li>Click <b class="ui">Sync Changes</b>.</li>
+      <li>The first time, VS Code explains that this will pull and push. Click <b class="ui">OK</b>. To skip this message in future, click <b class="ui">OK, Don't Show Again</b> instead.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/sync-changes.png" width="1500" height="380" alt="The Source Control panel with a highlighted Sync Changes button showing one commit to send." loading="lazy">
+    </figure>
+    <figure class="shot medium">
+      <img src="img/sync-dialog.png" width="1160" height="360" alt="A window reading This action will pull and push commits from and to origin/main, with OK, Don't Show Again, Cancel and OK buttons." loading="lazy">
+    </figure>
+  </article>
+
+  <article class="step" id="publish--action" data-nav="Watch it publish">
+    <h2>Watch it publish</h2>
+    <ol class="do">
+      <li>Open your repo on github.com and click the <b class="ui">Actions</b> tab.</li>
+      <li>The top row is the run your push just started. A yellow dot means it is working.</li>
+      <li>Wait for a green tick. It usually takes under a minute.</li>
+    </ol>
+    <aside class="note"><span class="label">Red X on the newest run?</span><p>Pages is probably not switched on. Go back to <a href="#project--pages">Switch on GitHub Pages</a>. Then open the failed run and click <b class="ui">Re-run all jobs</b>.</p></aside>
+    <p class="needs-shot">actions-run-green.png. The repo's Actions tab with the first failed run (red X) below a successful run (green tick).</p>
+  </article>
+
+  <article class="step" id="publish--url" data-nav="Find your web address">
+    <h2>Find your web address</h2>
+    <p>Every repo published with Pages gets an address in this pattern.</p>
+    <div class="cmd"><pre><code>https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/</code></pre></div>
+    <ol class="do">
+      <li>To see yours, go to <b class="ui">Settings</b>, then <b class="ui">Pages</b> in your repo. The address is at the top with a <b class="ui">Visit site</b> button.</li>
+      <li>Open it on your laptop first to check it works.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/pages-live.png" width="1600" height="934" alt="The Pages settings showing Your site is live at, followed by the address and a Visit site button." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>Settings, then Pages, shows the live address.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="publish--phone" data-nav="Open it on your phone">
+    <h2>Open it on your phone</h2>
+    <p>Typing a long address on a phone is slow. Chrome can make a QR code for any page.</p>
+    <ol class="do">
+      <li>With your page open in Chrome on your laptop, click the three dots at the top right.</li>
+      <li>Choose <b class="ui">Cast, save, and share</b>, then <b class="ui">Create QR Code</b>.</li>
+      <li>Point your phone's camera at the code and tap the link.</li>
+      <li>You should see the same sketch you saw on your laptop, with your change in it.</li>
+      <li>Add the page to your phone's home screen or bookmarks. The address never changes, so you only do this once per project.</li>
+    </ol>
+    <figure class="shot small">
+      <img src="img/qr-code.png" width="1100" height="1922" alt="Chrome's menu open to Cast, save, and share, with Create QR Code highlighted at the bottom." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>Chrome's built-in QR code maker.</figcaption>
+    </figure>
+    <aside class="tip"><span class="label">Still seeing the old version?</span><p>Give it a minute, then pull down to refresh. Phones hold on to old copies of pages. If it will not update, open the page in a private tab.</p></aside>
+  </article>
+
+  <article class="step" id="publish--loop" data-nav="The loop from now on">
+    <h2>The loop from now on</h2>
+    <p>This is the whole cycle. You will do it many times a day.</p>
+    <ol class="do">
+      <li>Change your code and save. Check it in the browser on your laptop.</li>
+      <li>When something works, <b>commit</b> with a message.</li>
+      <li><b>Sync</b> to push it to GitHub.</li>
+      <li>Wait about a minute and refresh the page on your phone.</li>
+    </ol>
+    <aside class="note"><span class="label">Or ask an agent to do it</span><p>Once Copilot is set up in <span data-part="copilot">part 12</span>, you can type a request like <i>commit my changes with a clear message and push</i> into the chat in Agent mode. It runs the same Git commands for you and asks before each one. Do it by hand first, so you know what you are approving.</p></aside>
+  </article>
+
+  <div class="finish"><h2>Workflow 1 is working when</h2><ul>
+    <li>Your sketch runs on your phone from your <code>github.io</code> address.</li>
+    <li>A change you make on your laptop shows up on your phone after commit and sync.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ CHECK ============================ -->
+<section class="topic" id="check" data-group="Workflow 1 · Code to phone" data-core data-nav="How do I know it is all set up?">
+  <header>
+    <h1>How do I know everything is set up?</h1>
+    <p class="lede">Four ways to find out, from the quickest to the most thorough. If you set things up a while ago, or you already had VS Code, start here. Each check that fails points you to the part that fixes it.</p>
+    <ul class="chips"><li>5 to 10 minutes</li></ul>
+  </header>
+
+  <article class="step" id="check--real-test" data-nav="The real test">
+    <h2>The real test: laptop to phone</h2>
+    <p>If this works, workflow 1 is right, whatever else is going on. It uses every piece once.</p>
+    <ol class="do">
+      <li>Open your project in VS Code. Change a colour or a size in <code>sketch.js</code> and save.</li>
+      <li>In <b class="ui">Source Control</b>, type a message and click <b class="ui">Commit</b>, then <b class="ui">Sync Changes</b>.</li>
+      <li>Wait a minute. Open your <code>github.io</code> address on your phone and refresh.</li>
+      <li>Your change is there.</li>
+    </ol>
+    <table class="simple"><thead><tr><th>If it stops at</th><th>Go to</th></tr></thead><tbody>
+      <tr><td>There is no project to open</td><td><a href="#project"><span data-part="project">Part 7</span>, Get the starter project</a></td></tr>
+      <tr><td>Commit shows an error about user.name</td><td><a href="#git--identity">Check Git knows who you are</a></td></tr>
+      <tr><td>Sync asks you to sign in, or fails</td><td><a href="#vscode--sign-in">Sign in with GitHub</a>, then <a href="#fix--push-rejected">Sync fails</a></td></tr>
+      <tr><td>The phone shows a 404 page</td><td><a href="#fix--404">My web address shows 404</a></td></tr>
+      <tr><td>The phone shows the old version</td><td>Wait one more minute. Check the <b>Actions</b> tab of your repo for a green tick.</td></tr>
+    </tbody></table>
+  </article>
+
+  <article class="step" id="check--look" data-nav="Check by looking">
+    <h2>Check by looking</h2>
+    <p>No commands. Look in each place and compare.</p>
+    <h3>In VS Code</h3>
+    <table class="simple"><thead><tr><th>Look here</th><th>You should see</th><th>If not</th></tr></thead><tbody>
+      <tr><td><b>Help</b>, then <b>About</b>. On a Mac, <b>Code</b>, then <b>About Visual Studio Code</b></td><td>Version 1.125 or newer</td><td><a href="#vscode--already">Update it</a></td></tr>
+      <tr><td><b>Accounts</b> icon, bottom left</td><td>Your GitHub username followed by (GitHub)</td><td><a href="#vscode--sign-in">Sign in</a></td></tr>
+      <tr><td><b>Extensions</b>, under Installed</td><td>p5.js 2.x Project Generator and Live Server. Also OpenCode for Copilot Chat if you have started workflow 2</td><td><a href="#extensions"><span data-part="extensions">Part 6</span></a></td></tr>
+      <tr><td><b>Source Control</b> icon, with your project open</td><td>A message box and a Commit button</td><td>A button to download Git means <a href="#git"><span data-part="git">part 5</span></a></td></tr>
+      <tr><td>Bottom bar, left end</td><td>A branch name, usually <code>main</code></td><td>The folder is not a Git project. <a href="#project--clone">Clone it again</a> into <code>Documents/GitHub</code></td></tr>
+      <tr><td>Bottom bar, right end</td><td>A <b>Go Live</b> button</td><td><a href="#fix--go-live-missing">No Go Live button</a></td></tr>
+    </tbody></table>
+    <h3>In GitHub Desktop</h3>
+    <table class="simple"><thead><tr><th>Look here</th><th>You should see</th><th>If not</th></tr></thead><tbody>
+      <tr><td>Settings, or Options on Windows. Then <b>Accounts</b></td><td>Your GitHub username</td><td><a href="#desktop--sign-in">Sign in</a></td></tr>
+      <tr><td>The same window, under <b>Git</b></td><td>Your name and email</td><td>Type them in and click Save</td></tr>
+    </tbody></table>
+    <h3>On github.com</h3>
+    <table class="simple"><thead><tr><th>Look here</th><th>You should see</th><th>If not</th></tr></thead><tbody>
+      <tr><td><a href="https://github.com/settings/security" target="_blank" rel="noopener">Settings, Password and authentication</a></td><td>Two-factor authentication: <b>Enabled</b></td><td><a href="#github-account--2fa">Turn it on</a></td></tr>
+      <tr><td><a href="https://github.com/settings/emails" target="_blank" rel="noopener">Settings, Emails</a></td><td>Your OCAD U address, verified</td><td>Add it on that page</td></tr>
+      <tr><td>Your repo, <b>Settings</b>, then <b>Pages</b></td><td>Source: GitHub Actions, and "Your site is live at"</td><td><a href="#project--pages">Switch on Pages</a></td></tr>
+      <tr><td>Your repo, <b>Actions</b> tab</td><td>A green tick on the newest run</td><td><a href="#publish--action">Watch it publish</a></td></tr>
+      <tr><td><a href="https://github.com/settings/copilot" target="_blank" rel="noopener">Settings, Copilot</a></td><td>Your plan. Copilot Free, or Copilot Student once approved</td><td><a href="#student"><span data-part="student">Part 13</span></a></td></tr>
+    </tbody></table>
+    <h3>On your phone</h3>
+    <table class="simple"><tbody>
+      <tr><td>Your <code>github.io</code> address</td><td>Your sketch, with your latest change</td><td><a href="#fix--404">My web address shows 404</a></td></tr>
+    </tbody></table>
+  </article>
+
+  <article class="step" id="check--agent" data-nav="Ask the agent to check" data-optional>
+    <h2>Ask the agent to check</h2>
+    <p>Copilot can run the checks for you and explain the results. Open your project in VS Code. Set the Chat to <b class="ui">Agent</b> and paste this. It asks permission before each command. None of them change anything.</p>
+    <div class="cmd wrap"><pre><code>Check my setup for this course. Run these commands in the terminal one at a time: git --version, git config --global user.name, git config --global user.email, git remote -v, git status -sb, code --version, code --list-extensions, gh auth status. Do not change or install anything. Then give me a short checklist in plain language of what passed and what is missing. I need Git installed, a git name and email set, VS Code 1.125 or newer, a GitHub remote on this folder, and these two extensions: Irti.p5js-project-generator and ritwickdey.LiveServer. The extension ltmoerdani.opencode-copilot-chat and the gh command are optional, so report them but do not count them as failures.</code></pre></div>
+    <aside class="tip"><span class="label">This uses some of your monthly allowance</span><p>It is a small request. If the Chat is not set up yet, use one of the other checks.</p></aside>
+  </article>
+
+  <article class="step" id="check--script" data-nav="Run the check script" data-optional>
+    <h2>Run the check script</h2>
+    <p>One command that inspects your computer and prints a report. It only reads. It never installs or changes anything. It needs <b>Node.js</b>, which you will also need later in the course.</p>
+    <ol class="do">
+      <li>Open your project in VS Code and open the Terminal.</li>
+      <li>See if you have Node.js. Run <code>node --version</code>. A version number means yes.</li>
+      <li>If not, install the <b>LTS</b> version from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>, then close VS Code and open it again.</li>
+      <li>Run the check.</li>
+    </ol>
+    <div class="os" data-os="mac">
+      <div class="cmd"><pre><code>npx ocadu-vscode-setup@2</code></pre></div>
+    </div>
+    <div class="os" data-os="win">
+      <p>On Windows, type <code>npx.cmd</code>, not <code>npx</code>. The VS Code Terminal on Windows is PowerShell, and PowerShell blocks plain <code>npx</code> with an error that says <i>running scripts is disabled on this system</i>.</p>
+      <div class="cmd"><pre><code>npx.cmd ocadu-vscode-setup@2</code></pre></div>
+    </div>
+    <p>The first time, it asks <code>Ok to proceed?</code> Press <kbd>Enter</kbd>. The report looks like this.</p>
+    <div class="cmd"><pre><code>Git
+  ✓ git version 2.50.1
+  ✓ Name: Sam Student
+  ✗ Git does not know your email  MUST
+      Run: git config --global user.email "you@ocadu.ca"
+
+Extensions
+  ✓ Live Server
+  ! p5.js 2.x Project Generator is not installed  SHOULD
+
+This folder
+  ✓ Connected to GitHub: sam-student/my-phone-sketch
+  ✓ Publish workflow: static.yml
+  · Your page: https://sam-student.github.io/my-phone-sketch/</code></pre></div>
+    <table class="simple"><tbody>
+      <tr><td><b>MUST</b></td><td>The core setup will not work until this is fixed. Each one prints the fix and a link to the step in this guide.</td></tr>
+      <tr><td><b>SHOULD</b></td><td>Recommended. Things mostly work without it.</td></tr>
+      <tr><td><b>LATER</b></td><td>Optional, or only needed for the later parts.</td></tr>
+    </tbody></table>
+    <p>If you have the GitHub CLI signed in, the script also asks GitHub whether Pages is switched on for your repo.</p>
+  </article>
+</section>
+
+<!-- ============================ MODELS ============================ -->
+<section class="topic" id="models" data-group="Workflow 2 · Agents and models (optional)" data-nav="Add models to the Chat">
+  <header>
+    <h1>Add models to the Chat</h1>
+    <p class="lede">VS Code has a Chat built in. An extension can plug other models into it. This part installs that extension and connects it to OpenCode Go, a subscription that gives one key access to a set of strong open coding models. You choose the model yourself, and these requests do not use your Copilot credits.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 15 minutes</li><li class="optional">Go costs 10 US dollars a month</li></ul>
+    <aside class="note"><span class="label">This workflow is optional</span><p>Workflow 1 is all you need for now. I will show this one in class. Try it on your own between Tuesday and Thursday if you want to.</p></aside>
+    <aside class="warn"><span class="label">About paying</span><p>Steps 1 to 3 are free. Step 4 is a paid subscription, and it is your choice. You can cancel Go at any time.</p></aside>
+    <aside class="note"><span class="label">What about OpenCode's free models?</span><p>OpenCode also lists a few free models, under the name Zen. Since September 17, 2026, those only answer inside the OpenCode app. In VS Code they show up in the list and then reply with an error. That is why this guide sets up Go here and leaves the free models for when we use OpenCode itself.</p></aside>
+  </header>
+
+  <article class="step" id="models--how" data-nav="How it works: one key">
+    <h2>How it works: all you need is a key</h2>
+    <p>Three pieces connect. The <b>Chat</b> is already in VS Code. An <b>extension</b> teaches the Chat how to talk to OpenCode. An <b>API key</b> proves the requests are yours.</p>
+    <p>An API key is a long code that starts with <code>sk-</code>. For Go models it is the only thing a tool needs. There is no sign-in inside VS Code. You paste the key once and the models appear.</p>
+    <ul class="plain">
+      <li><b>Anyone who has your key can use your account.</b> Their requests count against your subscription. Treat a key like a password. Never put it in your code, a commit, a screenshot or a chat message.</li>
+      <li><b>Make one key for each place you use it.</b> One called <code>vscode</code>, another for OpenCode later. If one leaks, you delete that one and nothing else breaks.</li>
+      <li><b>You can share on purpose.</b> If you and a collaborator want to share one subscription, make a separate key, name it after them, and give it to them privately. Their use comes out of the same limits as yours. Delete the key when the project ends.</li>
+      <li><b>A lost key cannot be shown again.</b> Delete it and make a new one. It takes ten seconds.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="models--extension" data-nav="Install the extension">
+    <h2>Install the OpenCode for Copilot Chat extension</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Extensions</b> icon in the Activity Bar.</li>
+      <li>In the search box, type <code>OpenCode for Copilot Chat</code>.</li>
+      <li>Find the one by <b>Laksmana Tri Moerdani</b>. Click <b class="ui">Install</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ext-opencode.png" width="760" height="460" alt="The Extensions search results with OpenCode for Copilot Chat by Laksmana Tri Moerdani at the top." loading="lazy">
+      <figcaption>Check the author name. Several extensions have similar names.</figcaption>
+    </figure>
+  </article>
+
+
+  <article class="step" id="models--account" data-nav="Sign in to OpenCode">
+    <h2>Sign in to OpenCode with GitHub</h2>
+    <ol class="do">
+      <li>Go to <a href="https://opencode.ai/auth" target="_blank" rel="noopener">opencode.ai/auth</a>.</li>
+      <li>Click <b class="ui">Continue with GitHub</b>.</li>
+      <li>GitHub asks you to authorize OpenCode. Check the username and approve.</li>
+      <li>The OpenCode Console opens. It has a row of tabs along the top. You will use <b class="ui">Go</b> and <b class="ui">Keys</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/opencode-auth.png" width="1040" height="480" alt="The OpenCode sign-in page with two buttons: Continue with GitHub and Continue with Google." loading="lazy">
+      <figcaption>Use GitHub, so this is one less password to keep track of.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="models--subscribe" data-nav="Subscribe to Go">
+    <h2>Subscribe to Go</h2>
+    <ol class="do">
+      <li>In the OpenCode Console, click the <b class="ui">Go</b> tab.</li>
+      <li>Subscribe. It is 10 US dollars a month, paid by card.</li>
+      <li>When you are subscribed, the Go tab shows three usage bars. Go has limits that reset every five hours, every week and every month. This is where you see how much you have used.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/opencode-go-console.png" width="1296" height="485" alt="The Go tab of the OpenCode Console for a subscribed account, showing rolling, weekly and monthly usage bars, and a list that begins Get your API key, under Keys." loading="lazy">
+      <figcaption>The Go tab once you are subscribed. It points you to <b>Keys</b> for the next step.</figcaption>
+    </figure>
+    <p><a href="https://opencode.ai/go" target="_blank" rel="noopener">opencode.ai/go</a> lists the models and limits that come with the subscription.</p>
+    <p class="needs-shot">opencode-go-subscribe.png. The Go tab for an account that has not subscribed yet, showing the subscribe button. Needs an account without Go.</p>
+  </article>
+
+  <article class="step" id="models--key" data-nav="Make an API key">
+    <h2>Make an API key</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Keys</b> tab.</li>
+      <li>Under <b>Service Accounts</b> there is one entry with your email address. Click it.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/opencode-keys-list.png" width="1296" height="320" alt="The Keys tab of the OpenCode Console. One service account is listed, named with an email address." loading="lazy">
+      <figcaption>A service account is a holder for keys. You get one automatically.</figcaption>
+    </figure>
+    <ol class="do" style="counter-reset: do 2">
+      <li>Click <b class="ui">Add API Key</b>.</li>
+      <li>Name it after where you will use it. Type <code>vscode</code>.</li>
+      <li>Copy the key when it is shown. Keep the page open until you have pasted it into VS Code in the next step.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/opencode-add-key.png" width="1296" height="547" alt="A service account page in the OpenCode Console with a highlighted Add API Key button above a table of keys." loading="lazy">
+      <figcaption>Each key has a name, so you can tell them apart and delete one without touching the others.</figcaption>
+    </figure>
+    <p class="needs-shot">opencode-key-created.png. The window that appears after Add API Key, with the name field filled in as "vscode". Capture it before the key is shown, or with the key painted out.</p>
+  </article>
+
+  <article class="step" id="models--add" data-nav="Add OpenCode Go in VS Code">
+    <h2>Add OpenCode Go in VS Code</h2>
+    <ol class="do">
+      <li>Open the Command Palette. Type <code>Chat: Manage Language Models</code> and press <kbd>Enter</kbd>. You can also get here from the model menu under the chat box, with <b class="ui">Manage Models...</b></li>
+      <li>Click <b class="ui">Add Models</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/models-manage.png" width="1600" height="308" alt="The Language Models window with a highlighted Add Models button at the top right." loading="lazy">
+    </figure>
+    <ol class="do" style="counter-reset: do 2">
+      <li>Choose <b class="ui">OpenCode Go</b> from the list. It is there because of the extension you installed in step 2. Do not choose OpenCode Zen.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/models-add-list-opencode.png" width="1220" height="820" alt="The Add Models list with OpenCode Go highlighted, above OpenCode Zen." loading="lazy">
+    </figure>
+    <ol class="do" style="counter-reset: do 3">
+      <li>VS Code asks for a name for this group of models. Press <kbd>Enter</kbd> to accept <code>OpenCode Go</code>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/models-go-name.png" width="1230" height="240" alt="A box titled Group Name, already filled in with OpenCode Go." loading="lazy">
+    </figure>
+    <ol class="do" style="counter-reset: do 4">
+      <li>Paste your key and press <kbd>Enter</kbd>. It shows as dots.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/models-go-key.png" width="1230" height="240" alt="A box titled OpenCode Go API Key with an empty field." loading="lazy">
+    </figure>
+    <ol class="do" style="counter-reset: do 5">
+      <li>Tick the models you want to see in the Chat, then confirm.</li>
+    </ol>
+    <p class="needs-shot">models-go-select.png. The list of OpenCode Go models with tick boxes.</p>
+  </article>
+
+  <article class="step" id="models--pick" data-nav="Find the models in the Chat">
+    <h2>Find the models in the Chat</h2>
+    <ol class="do">
+      <li>Open the Chat. It is the panel on the right side of VS Code. If it is closed, press <kbd>Ctrl</kbd> + <kbd>Cmd</kbd> + <kbd>I</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd> on Windows.</li>
+      <li>Click the model menu under the chat box.</li>
+      <li>The models you ticked are listed under <b>OpenCode Go</b>.</li>
+      <li>If one is missing, go back to <b class="ui">Manage Models...</b> and click the eye icon beside it to show it.</li>
+    </ol>
+    <p class="needs-shot">models-picker-go.png. The model menu open in the Chat with the OpenCode Go models listed.</p>
+  </article>
+
+  <article class="step" id="models--test" data-nav="Send a test message">
+    <h2>Send a test message</h2>
+    <p>Seeing a model in the list only proves that your key was accepted. Check that it answers.</p>
+    <ol class="do">
+      <li>Choose one of the OpenCode Go models.</li>
+      <li>Set the mode to <b class="ui">Ask</b>, type <code>Say hello in five words</code> and press <kbd>Enter</kbd>.</li>
+    </ol>
+    <table class="simple"><thead><tr><th>You get</th><th>It means</th></tr></thead><tbody>
+      <tr><td>A reply</td><td>It works. These models also work in Agent mode.</td></tr>
+      <tr><td>An error about an invalid or missing key</td><td>Make a new key and repeat step 6.</td></tr>
+      <tr><td>An error that mentions the free tier</td><td>You added OpenCode Zen instead of OpenCode Go. Remove it in <b class="ui">Manage Models...</b> and add Go.</td></tr>
+      <tr><td>An error about a usage limit</td><td>You have reached one of Go's limits. The <b class="ui">Go</b> tab of the OpenCode Console shows when it resets.</td></tr>
+    </tbody></table>
+    <p class="needs-shot">models-go-test.png. The Chat showing a reply from an OpenCode Go model.</p>
+  </article>
+
+  <article class="step" id="models--why-pay" data-nav="Why pay if there are free models?" data-optional>
+    <h2>Why should I pay for models if I can use free ones?</h2>
+    <p>You have free options. Copilot gives you a monthly allowance, and OpenCode has free models inside its own app. Free models can handle many tasks, and it is possible to complete the work in this course that way. There are trade-offs.</p>
+    <ul class="plain">
+      <li><b>A much smaller selection.</b> Free lists are short and change without notice. The most capable free model on OpenCode right now is <b>Muse Spark 1.3</b>. Copilot's free and student plans pick the model for you.</li>
+      <li><b>Slower and less reliable.</b> Free models are shared by everyone. Expect slow replies at busy times, daily limits, and sometimes no access at all.</li>
+      <li><b>Limited in where they run.</b> OpenCode's free models only answer inside the OpenCode app.</li>
+      <li><b>Your prompts may be used for training.</b> Several free models say so in their terms. Do not send them anything private.</li>
+      <li><b>You can combine them.</b> A workflow does not need one model for everything. Use a free or cheap model for small edits and explanations, and save a stronger one for planning and for the problems the cheap one could not solve.</li>
+    </ul>
+    <aside class="tip"><span class="label">A way to think about it</span><p>Picking a model is a design decision, like picking a material. Try the same request on two models and compare what comes back before you decide that one is worth paying for.</p></aside>
+  </article>
+</section>
+
+<!-- ============================ COPILOT ============================ -->
+<section class="topic" id="copilot" data-group="Workflow 2 · Agents and models (optional)" data-nav="Use Copilot Chat">
+  <header>
+    <h1>Use Copilot Chat in VS Code</h1>
+    <p class="lede">The Chat is built into VS Code, and GitHub Copilot powers it. There is nothing to install. Because you signed in with GitHub, you are already on the free plan. If you added OpenCode Go models in the last part, you can use those here too.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 10 minutes</li></ul>
+  </header>
+
+  <article class="step" id="copilot--open" data-nav="Open the Chat">
+    <h2>Open the Chat</h2>
+    <p>The Chat panel sits on the right side of the window. If you closed it, open it again.</p>
+    <div class="os" data-os="mac"><p>Press <kbd>Ctrl</kbd> + <kbd>Cmd</kbd> + <kbd>I</kbd>, or click the chat icon next to the search box at the top of the window.</p></div>
+    <div class="os" data-os="win"><p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd>, or click the chat icon next to the search box at the top of the window.</p></div>
+    <p class="needs-shot">copilot-chat-signed-in.png. The Chat panel when signed in, showing the input box with the agent picker and the model picker.</p>
+  </article>
+
+  <article class="step" id="copilot--modes" data-nav="Ask, Plan and Agent">
+    <h2>Know the three modes</h2>
+    <p>The first menu under the chat box sets how much the chat is allowed to do.</p>
+    <table class="simple"><tbody>
+      <tr><td><b>Ask</b></td><td>Answers questions. It does not change your files. Start here.</td></tr>
+      <tr><td><b>Plan</b></td><td>Writes a step by step plan for a change and waits for you to approve it.</td></tr>
+      <tr><td><b>Agent</b></td><td>Edits files and runs commands to get a task done. It asks before it runs anything.</td></tr>
+    </tbody></table>
+    <p class="needs-shot">copilot-modes.png. The agent picker open, showing Agent, Ask and Plan. Needs a signed-in VS Code.</p>
+  </article>
+
+  <article class="step" id="copilot--try-ask" data-nav="Try Ask">
+    <h2>Try Ask</h2>
+    <ol class="do">
+      <li>Open <code>sketch.js</code> so the chat can see it.</li>
+      <li>Set the mode to <b class="ui">Ask</b>.</li>
+      <li>Type a question and press <kbd>Enter</kbd>. For example:</li>
+    </ol>
+    <div class="cmd wrap"><pre><code>Explain what setup and draw do in this sketch, and how often each one runs. Use plain language.</code></pre></div>
+  </article>
+
+  <article class="step" id="copilot--try-agent" data-nav="Try Agent and read the change">
+    <h2>Try Agent, and read what it changed</h2>
+    <ol class="do">
+      <li>Set the mode to <b class="ui">Agent</b>.</li>
+      <li>Ask for one small change. For example:</li>
+    </ol>
+    <div class="cmd wrap"><pre><code>In sketch.js, draw a circle that follows the mouse. Change as little as possible.</code></pre></div>
+    <ol class="do" style="counter-reset: do 2">
+      <li>The changed lines are marked in the editor. Green lines were added. Red lines were removed. Read them.</li>
+      <li>Check the result in your browser.</li>
+      <li>Click <b class="ui">Keep</b> if it is what you wanted, or <b class="ui">Undo</b> if it is not.</li>
+    </ol>
+    <aside class="warn"><span class="label">You are the author</span><p>Do not keep a change you have not read. If you cannot tell what a line does, switch to Ask and get it explained before you decide.</p></aside>
+    <p class="needs-shot">copilot-keep-undo.png. An agent edit in sketch.js showing green and red lines with the Keep and Undo buttons.</p>
+  </article>
+
+  <article class="step" id="copilot--limits" data-nav="Know the limits">
+    <h2>Know the limits of the free plan</h2>
+    <ul class="plain">
+      <li>Copilot Free gives you 2,000 code suggestions a month and a small monthly allowance of AI Credits for Chat and Agent.</li>
+      <li>Agent mode uses credits much faster than Ask, because it reads files and works in many steps.</li>
+      <li>The free and student plans choose the model for you. The model menu shows <b class="ui">Auto</b>.</li>
+      <li>When the credits run out, the Chat stops until next month. Code suggestions as you type keep working.</li>
+      <li><a href="#models"><span data-part="models">Part 11</span></a> adds other models with your own key. <a href="#student"><span data-part="student">Part 13</span></a> gets you the student plan and explains exactly what it includes.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- ============================ STUDENT ============================ -->
+<section class="topic" id="student" data-group="Workflow 2 · Agents and models (optional)" data-nav="Get student access">
+  <header>
+    <h1>Get GitHub student access</h1>
+    <p class="lede">Verified students get GitHub Education benefits for free. That includes the <b>GitHub Copilot Student</b> plan. Approval takes a few days, so apply early.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 15 minutes, then a wait of a few days</li><li class="req">Needs your student ID card</li></ul>
+  </header>
+
+  <article class="step" id="student--what" data-nav="What the student plan gives you">
+    <h2>What the student plan gives you</h2>
+    <p>This changed during 2026. Students used to get Copilot Pro. There is now a separate student plan. This is what it includes, as of September 2026.</p>
+    <table class="simple"><thead><tr><th></th><th>Copilot Free</th><th>Copilot Student</th></tr></thead><tbody>
+      <tr><td><b>Code suggestions as you type</b></td><td>2,000 a month</td><td>Unlimited</td></tr>
+      <tr><td><b>Chat and Agent</b></td><td>A small monthly allowance of AI Credits</td><td><b>200 AI Credits</b> a month</td></tr>
+      <tr><td><b>Choosing the model</b></td><td>Auto only</td><td><b>Auto only.</b> Copilot picks the model for each request. You cannot choose one yourself</td></tr>
+      <tr><td><b>Agent mode, MCP</b></td><td>Yes</td><td>Yes</td></tr>
+      <tr><td><b>Cloud agent, full code review</b></td><td>No</td><td>Yes</td></tr>
+      <tr><td><b>Third-party agents</b></td><td>No</td><td>No</td></tr>
+    </tbody></table>
+    <ul class="plain">
+      <li><b>Credits are spent by use, not by message.</b> A short question in Ask costs very little. A long Agent session that reads many files and runs many steps costs a lot. Some students report using a month of credits in a few days of Agent work.</li>
+      <li><b>When the credits run out,</b> Chat and Agent stop until the monthly reset. Code suggestions as you type keep working.</li>
+      <li><b>Models you add with your own key</b> in <a href="#models"><span data-part="models">part 11</span></a> do not use these credits. They are billed by whoever you got the key from.</li>
+    </ul>
+    <p>Read it from GitHub, since this keeps changing:</p>
+    <ul class="plain">
+      <li><a href="https://docs.github.com/en/copilot/get-started/plans" target="_blank" rel="noopener">Plans for GitHub Copilot</a>. The official comparison table.</li>
+      <li><a href="https://github.com/orgs/community/discussions/189268" target="_blank" rel="noopener">Updates to GitHub Copilot for students</a>. GitHub's running post on the student plan, including the move to 200 credits and Auto only.</li>
+      <li><a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" target="_blank" rel="noopener">Setting up Copilot as a student</a>. The official steps.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="student--prepare" data-nav="Get your account ready">
+    <h2>Get your account ready</h2>
+    <p>Most failed applications come from one of these. Check them all before you apply.</p>
+    <ol class="do">
+      <li><b>School email.</b> Your OCAD U address is added and verified in <a href="https://github.com/settings/emails" target="_blank" rel="noopener">Settings, Emails</a>.</li>
+      <li><b>Two-factor authentication</b> is on. You did this in <span data-part="github-account">part 2</span>.</li>
+      <li><b>Billing name.</b> Go to <a href="https://github.com/settings/billing/payment_information" target="_blank" rel="noopener">Settings, Billing, Payment information</a>. Edit <b class="ui">Billing information</b> and enter your name exactly as it appears on your student ID. If you have a single legal name, enter it as both first and last name. You do <b>not</b> need to add a payment method.</li>
+      <li><b>Location.</b> Turn off any VPN. Allow your browser to use your location when GitHub asks.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/edu-billing.png" width="1221" height="640" alt="GitHub's payment information page with the Billing information section and its Edit button highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>Only the name in Billing information matters. Leave the payment method empty.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="student--apply" data-nav="Apply">
+    <h2>Apply</h2>
+    <ol class="do">
+      <li>Go to <a href="https://github.com/settings/education/benefits" target="_blank" rel="noopener">github.com/settings/education/benefits</a>.</li>
+      <li>Click <b class="ui">Start an application</b>.</li>
+      <li>Choose <b>Student</b>. Select OCAD University and your OCAD U email.</li>
+      <li>For proof, take a <b>new photo of your student ID</b> with your camera when the form asks. A live photo is approved more often than an uploaded file. Your name, the school name and a date must be readable.</li>
+      <li>Click <b class="ui">Submit application</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/edu-verify.png" width="1100" height="640" alt="The Education benefits page in GitHub settings with a highlighted button to start the application." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>The Education benefits page. The button wording has changed since this was taken.</figcaption>
+    </figure>
+    <aside class="tip"><span class="label">If it is rejected</span><p>The rejection email gives a reason. It is almost always the billing name not matching the ID, a VPN, or an unreadable photo. Fix that one thing, sign out of GitHub, sign back in, and apply again.</p></aside>
+  </article>
+
+  <article class="step" id="student--claim" data-nav="Switch on Copilot Student">
+    <h2>Switch on Copilot Student once you are approved</h2>
+    <p>GitHub emails you when you are approved. Being approved and getting Copilot Student are two separate things. The benefits can take a few more days to apply, and you then switch Copilot on yourself.</p>
+    <ol class="do">
+      <li>Go back to <a href="https://github.com/settings/education/benefits" target="_blank" rel="noopener">github.com/settings/education/benefits</a>.</li>
+      <li>Under <b>Free GitHub developer resources for students and teachers</b>, click <b class="ui">Learn more</b>.</li>
+      <li>Follow the prompts to activate <b>Copilot Student</b>.</li>
+      <li>If you cannot find it, try <a href="https://github.com/github-copilot/free_signup" target="_blank" rel="noopener">github.com/github-copilot/free_signup</a>.</li>
+      <li>Check <a href="https://github.com/settings/copilot" target="_blank" rel="noopener">Settings, Copilot</a>. It should name your plan as Copilot Student.</li>
+      <li>Restart VS Code so it picks up the new plan.</li>
+    </ol>
+  </article>
+</section>
+
+<!-- ============================ GITHUB CLI ============================ -->
+<section class="topic" id="github-cli" data-group="Optional tools" data-nav="GitHub CLI">
+  <header>
+    <h1>GitHub CLI</h1>
+    <p class="lede"><code>gh</code> is GitHub as a Terminal command. You do not need it for anything in the core setup. It becomes useful when a coding agent runs in a Terminal outside VS Code, because signing in with <code>gh</code> lets that agent push to GitHub as you.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 10 minutes</li><li>Install Git first</li></ul>
+  </header>
+
+  <article class="step" id="github-cli--install" data-nav="Install it" data-optional>
+    <h2>Install it</h2>
+    <div class="os" data-os="mac">
+      <p>If you have Homebrew, run this in the Terminal.</p>
+      <div class="cmd"><pre><code>brew install gh</code></pre></div>
+      <p>If you do not have Homebrew, download the macOS installer from <a href="https://cli.github.com" target="_blank" rel="noopener">cli.github.com</a>. macOS may block it the first time. Open <b class="ui">System Settings</b>, then <b class="ui">Privacy &amp; Security</b>, scroll down and click <b class="ui">Open Anyway</b>.</p>
+    </div>
+    <div class="os" data-os="win">
+      <p>Run this in the Terminal. Then close VS Code and open it again.</p>
+      <div class="cmd"><pre><code>winget install --id GitHub.cli --source winget</code></pre></div>
+    </div>
+    <figure class="shot">
+      <img src="img/gh-cli.png" width="1440" height="920" alt="The GitHub CLI home page with an install command and a Copy button." loading="lazy">
+      <figcaption>cli.github.com has installers for every system.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="github-cli--login" data-nav="Sign in" data-optional>
+    <h2>Sign in</h2>
+    <ol class="do">
+      <li>Run the command below. It asks a few questions. Use the arrow keys and <kbd>Enter</kbd> to answer.</li>
+    </ol>
+    <div class="cmd"><pre><code>gh auth login</code></pre></div>
+    <table class="simple"><thead><tr><th>Question</th><th>Answer</th></tr></thead><tbody>
+      <tr><td>Where do you use GitHub?</td><td><b>GitHub.com</b></td></tr>
+      <tr><td>Preferred protocol</td><td><b>HTTPS</b></td></tr>
+      <tr><td>Authenticate Git with your GitHub credentials?</td><td><b>Yes</b>. This is the part that lets agents push.</td></tr>
+      <tr><td>How would you like to authenticate?</td><td><b>Login with a web browser</b></td></tr>
+    </tbody></table>
+    <ol class="do" style="counter-reset: do 1">
+      <li>It shows a short code. Copy it and press <kbd>Enter</kbd>. Your browser opens.</li>
+      <li>Paste the code, check the username, and click <b class="ui">Authorize github</b>.</li>
+      <li>Check it worked with the command below.</li>
+    </ol>
+    <div class="cmd"><pre><code>gh auth status</code></pre></div>
+  </article>
+
+  <article class="step" id="github-cli--new-project" data-nav="Start a project in one go" data-optional>
+    <h2>Start a new project in one go</h2>
+    <p>These three commands do everything in <span data-part="project">part 7</span>. They copy the template, clone it, and switch on Pages. Change <code>my-next-sketch</code> to your project's name. Run them one at a time from your <code>Documents/GitHub</code> folder, so the new project lands beside your others.</p>
+    <div class="cmd wrap"><pre><code>gh repo create my-next-sketch --template DigitalFuturesOCADU/atelier1-f26-simpleStart-p5 --public --clone</code></pre></div>
+    <div class="cmd"><pre><code>cd my-next-sketch</code></pre></div>
+    <div class="cmd wrap"><pre><code>gh api -X POST "repos/{owner}/{repo}/pages" -f build_type=workflow</code></pre></div>
+    <p>Then open the folder in VS Code with <code>code .</code> and carry on from <a href="#run"><span data-part="run">part 8</span></a>.</p>
+  </article>
+</section>
+
+<!-- ============================ PORTS ============================ -->
+<section class="topic" id="ports" data-group="Optional tools" data-nav="Phone testing without publishing">
+  <header>
+    <h1>Test on your phone without publishing</h1>
+    <p class="lede">Publishing takes about a minute per change. VS Code can also give your phone a temporary secure address straight to Live Server on your laptop, so a save shows up on the phone in a second. It is called port forwarding. It needs nothing installed.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 5 minutes</li></ul>
+    <aside class="note"><span class="label">Why not just use the Wi-Fi address?</span><p>Phones only allow motion sensors, the camera and the microphone on secure <code>https</code> pages. Live Server by itself is plain <code>http</code>. The forwarded address is <code>https</code>, so the sensors work.</p></aside>
+  </header>
+
+  <article class="step" id="ports--forward" data-nav="Forward the port" data-optional>
+    <h2>Forward Live Server's port</h2>
+    <ol class="do">
+      <li>Start Live Server and note the port number at the bottom right. It is usually <b>5500</b>.</li>
+      <li>Open the bottom panel with <b class="ui">View</b>, then <b class="ui">Terminal</b>. Click the <b class="ui">Ports</b> tab.</li>
+      <li>Click <b class="ui">Forward a Port</b>, type <code>5500</code> and press <kbd>Enter</kbd>.</li>
+      <li>If VS Code asks to sign in with GitHub, click <b class="ui">Allow</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ports-tab.png" width="893" height="941" alt="The Ports tab in the bottom panel of VS Code with a highlighted Forward a Port button." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>The Ports tab sits beside Terminal.</figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="ports--public" data-nav="Make it public" data-optional>
+    <h2>Make it public</h2>
+    <p>A forwarded port starts out private, which means only you, signed in to GitHub, can open it. A phone is simpler with a public address.</p>
+    <ol class="do">
+      <li>Right-click the row for port 5500.</li>
+      <li>Choose <b class="ui">Port Visibility</b>, then <b class="ui">Public</b>.</li>
+      <li>VS Code warns you that anyone with the address can open it. Click <b class="ui">Continue</b>.</li>
+    </ol>
+    <figure class="shot medium">
+      <img src="img/ports-public.png" width="1053" height="1010" alt="The right-click menu on a forwarded port with Port Visibility and Public highlighted." loading="lazy">
+      <figcaption><span class="old">2025 capture</span>Right-click the port to change its visibility.</figcaption>
+    </figure>
+    <figure class="shot small">
+      <img src="img/ports-warning.png" width="770" height="500" alt="A warning window about making a port public, with Continue and Don't show again buttons." loading="lazy">
+      <figcaption><span class="old">2025 capture</span></figcaption>
+    </figure>
+  </article>
+
+  <article class="step" id="ports--open" data-nav="Open it on your phone" data-optional>
+    <h2>Open it on your phone</h2>
+    <ol class="do">
+      <li>In the Ports tab, hover over the forwarded address and click the globe icon to open it in Chrome.</li>
+      <li>Make a QR code for it, as in <a href="#publish--phone"><span data-part="publish">part 9</span></a>, and scan it with your phone.</li>
+      <li>The first visit shows a Microsoft page that asks you to confirm. Tap <b class="ui">Continue</b>.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/ports-qr.png" width="1100" height="640" alt="VS Code beside Chrome, where a QR code for the forwarded address is shown." loading="lazy">
+      <figcaption><span class="old">2025 capture</span></figcaption>
+    </figure>
+    <aside class="warn"><span class="label">It is temporary</span><p>The address stops working when you close VS Code or stop Live Server. For anything you hand in or show, use your published <code>github.io</code> address.</p></aside>
+  </article>
+</section>
+
+<!-- ============================ FIX ============================ -->
+<section class="topic" id="fix" data-group="Help" data-nav="Fix common problems">
+  <header>
+    <h1>Fix common problems</h1>
+    <p class="lede">Find the message you are seeing in the list of steps. If yours is not here, copy the exact wording and bring it to class.</p>
+  </header>
+
+  <article class="step" id="fix--git-missing" data-nav="Source Control says to install Git" data-optional>
+    <h2>Source Control says Git is not installed</h2>
+    <p>The panel shows a <b class="ui">Download Git</b> button instead of your files. Do <a href="#git"><span data-part="git">part 5</span></a>. Then close VS Code completely and open it again. VS Code only looks for Git when it starts.</p>
+  </article>
+
+  <article class="step" id="fix--identity" data-nav="Make sure you configure user.name" data-optional>
+    <h2>"Make sure you configure your user.name and user.email in git"</h2>
+    <p>Git does not know who you are yet. Open GitHub Desktop, go to its settings, choose <b class="ui">Git</b>, and fill in your name and email. Or use the two commands in <a href="#git--identity">Check Git knows who you are</a>. Then click Commit again.</p>
+  </article>
+
+  <article class="step" id="fix--404" data-nav="My web address shows 404" data-optional>
+    <h2>My github.io address shows a 404 page</h2>
+    <ul class="plain">
+      <li>Check the address. It needs your exact username and your exact repo name. Capital letters matter in the repo name.</li>
+      <li>Check <b class="ui">Settings</b>, then <b class="ui">Pages</b>. The source must be <b>GitHub Actions</b>.</li>
+      <li>Check the <b class="ui">Actions</b> tab. The newest run needs a green tick. If it has a red X, open it and click <b class="ui">Re-run all jobs</b>.</li>
+      <li>Check the repo is <b>Public</b>. It says so beside the repo's name.</li>
+      <li>A brand new site can take a few minutes to appear the first time.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="fix--push-rejected" data-nav="Sync fails or push is rejected" data-optional>
+    <h2>Sync fails, or the push is rejected</h2>
+    <p>This happens when GitHub has a change your laptop does not, for example if you edited a file on github.com. Click <b class="ui">Sync Changes</b> again. Sync pulls before it pushes, which usually fixes it. If VS Code reports a merge conflict, stop there and ask for help. Your work is safe.</p>
+  </article>
+
+  <article class="step" id="fix--wrong-account" data-nav="Signed in as the wrong person" data-optional>
+    <h2>VS Code is signed in as the wrong person</h2>
+    <p>Click <b class="ui">Accounts</b>, then the username, then <b class="ui">Sign Out</b>. Before you sign in again, open github.com in your browser and check which account is signed in there. VS Code connects to whichever account the browser is using.</p>
+  </article>
+
+  <article class="step" id="fix--browser-loop" data-nav="The browser does not return to VS Code" data-optional>
+    <h2>The browser never returns to VS Code after I approve</h2>
+    <p>Your browser blocked the link that opens VS Code. Look for a small prompt near the address bar asking to open Visual Studio Code, and allow it. If there is none, go back to VS Code, cancel the sign-in, and start again. Chrome is the most reliable browser for this step.</p>
+  </article>
+
+  <article class="step" id="fix--go-live-missing" data-nav="There is no Go Live button" data-optional>
+    <h2>There is no Go Live button</h2>
+    <ul class="plain">
+      <li>Live Server is not installed. See <a href="#extensions--live-server">Install Live Server</a>.</li>
+      <li>Or no folder is open. Go Live only appears when a project folder is open, not a single file.</li>
+      <li>Or the window is in Restricted Mode. Look for a bar across the top. See <a href="#project--trust">Trust the folder</a>.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="fix--port-busy" data-nav="Live Server opens the wrong project" data-optional>
+    <h2>Live Server shows a different project, or will not start</h2>
+    <p>Another VS Code window is already using port 5500. Find that window, click <b class="ui">Port: 5500</b> in its bottom bar to stop it, then click Go Live in the window you want.</p>
+  </article>
+
+  <article class="step" id="fix--sensors" data-nav="Motion does nothing on my phone" data-optional>
+    <h2>My sketch uses motion, but tilting the phone does nothing</h2>
+    <ul class="plain">
+      <li>Tap the screen once. Phones only give a page motion data after a tap and your permission.</li>
+      <li>The address must start with <code>https</code>. Your <code>github.io</code> address does.</li>
+      <li>On an iPhone, if you tapped Deny earlier, close the tab completely and open the page again to be asked once more.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="fix--scripts-disabled" data-nav="Running scripts is disabled" data-optional>
+    <h2>Windows says "running scripts is disabled on this system"</h2>
+    <p>You typed a command such as <code>npx</code> or <code>npm</code> in the VS Code Terminal on Windows. That Terminal is PowerShell. By default, PowerShell refuses to run the small script files that Node.js uses for these commands.</p>
+    <p><b>Quick fix for one command.</b> Add <code>.cmd</code> to the command name. For example <code>npx.cmd ocadu-vscode-setup@2</code> or <code>npm.cmd install</code>.</p>
+    <p><b>Fix it for good.</b> Run this once in the Terminal. It lets PowerShell run scripts you created on your own computer, and scripts from the internet only if they are signed. It only changes the setting for your Windows account.</p>
+    <div class="cmd"><pre><code>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</code></pre></div>
+    <p>If it asks you to confirm, type <code>Y</code> and press <kbd>Enter</kbd>. Then close the Terminal, open a new one, and run your command again.</p>
+    <p><b>Or use Command Prompt instead of PowerShell.</b> In the Terminal panel, click the small arrow next to the <b class="ui">+</b> and choose <b class="ui">Command Prompt</b>. Plain <code>npx</code> works there.</p>
+  </article>
+
+  <article class="step" id="fix--code-command" data-nav="'code' is not recognized" data-optional>
+    <h2>The Terminal says "code" is not found</h2>
+    <p>Inside VS Code's own Terminal, <code>code</code> always works. In a separate Terminal app it needs one more step.</p>
+    <div class="os" data-os="mac"><p>Open the Command Palette, type <code>Shell Command: Install 'code' command in PATH</code> and press <kbd>Enter</kbd>.</p></div>
+    <div class="os" data-os="win"><p>Close every Terminal window and open a new one. If it still fails, run the VS Code installer again and leave <b class="ui">Add to PATH</b> ticked.</p></div>
+  </article>
+</section>
+
+<p class="foot">OCAD University · Digital Futures. Screenshots show VS Code 1.138, September 2026. VS Code updates every week, so a button may move or be reworded. If something here no longer matches what you see, tell your instructor.</p>
+
+</div></main>
+</div>
+
+<script src="assets/guide.js"></script>
 </body>
 </html>
