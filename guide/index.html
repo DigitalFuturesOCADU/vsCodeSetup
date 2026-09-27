@@ -76,13 +76,14 @@
     <li>Click any screenshot to make it bigger.</li>
   </ul>
 
-  <h2 style="font-size:24px;font-weight:500;margin-top:28px">Two workflows</h2>
+  <h2 style="font-size:24px;font-weight:500;margin-top:28px">Three workflows</h2>
   <table class="simple">
     <thead><tr><th>Workflow</th><th>Where</th><th>When</th></tr></thead>
     <tbody>
       <tr><td><b>1. Code to phone.</b> GitHub, GitHub Desktop, VS Code and GitHub Pages. Clone the starter project, change it, push it, open it on your phone, and check it all works.</td><td>Parts 2 to 10</td><td>This is the one that matters. Finish it first.</td></tr>
       <tr><td><b>2. Agents and models.</b> Optional. Add models to the Chat in VS Code, learn its modes, and apply for student access.</td><td>Parts 11 to 13</td><td>I will show it in class, but we will not work through it together. Give it a try on your own between Tuesday and Thursday.</td></tr>
-      <tr><td><b>Optional tools.</b> GitHub CLI and testing on your phone without publishing.</td><td>Parts 14 and 15</td><td>Later, if you want them.</td></tr>
+      <tr><td><b>3. OpenCode.</b> Install OpenCode and the GitHub CLI, open your project, test it with one prompt, learn the screen and the words, and add OpenCode Go if you want it.</td><td>Parts 14 to 20</td><td>We work through this together in class. Finish workflow 1 first.</td></tr>
+      <tr><td><b>Optional tools.</b> Testing on your phone without publishing.</td><td>Part 21</td><td>Later, if you want it.</td></tr>
     </tbody>
   </table>
 
@@ -987,7 +988,7 @@ This folder
     <ul class="chips"><li class="optional">Optional</li><li>About 15 minutes</li><li class="optional">Go costs 10 US dollars a month</li></ul>
     <aside class="note"><span class="label">This workflow is optional</span><p>Workflow 1 is all you need for now. I will show this one in class. Try it on your own between Tuesday and Thursday if you want to.</p></aside>
     <aside class="warn"><span class="label">About paying</span><p>Steps 1 to 3 are free. Step 4 is a paid subscription, and it is your choice. You can cancel Go at any time.</p></aside>
-    <aside class="note"><span class="label">What about OpenCode's free models?</span><p>OpenCode also lists a few free models, under the name Zen. Since September 17, 2026, those only answer inside the OpenCode app. In VS Code they show up in the list and then reply with an error. That is why this guide sets up Go here and leaves the free models for when we use OpenCode itself.</p></aside>
+    <aside class="note"><span class="label">What about OpenCode's free models?</span><p>OpenCode also lists a few free models, under the name Zen. Since September 17, 2026, those only answer inside the OpenCode app. In VS Code they show up in the list and then reply with an error. That is why this guide sets up Go here and leaves the free models for <a href="#opencode-setup--model">OpenCode itself</a>.</p></aside>
   </header>
 
   <article class="step" id="models--how" data-nav="How it works: one key">
@@ -1284,14 +1285,71 @@ This folder
 </section>
 
 <!-- ============================ GITHUB CLI ============================ -->
-<section class="topic" id="github-cli" data-group="Optional tools" data-nav="GitHub CLI">
+<!-- ============================ OPENCODE ============================ -->
+<section class="topic" id="opencode" data-group="Workflow 3 · OpenCode" data-nav="Install OpenCode">
   <header>
-    <h1>GitHub CLI</h1>
-    <p class="lede"><code>gh</code> is GitHub as a Terminal command. You do not need it for anything in the core setup. It becomes useful when a coding agent runs in a Terminal outside VS Code, because signing in with <code>gh</code> lets that agent push to GitHub as you.</p>
-    <ul class="chips"><li class="optional">Optional</li><li>About 10 minutes</li><li>Install Git first</li></ul>
+    <h1>Install OpenCode</h1>
+    <p class="lede">OpenCode is a coding agent. It works in the same project folder as VS Code. You describe a change, it reads and edits your files and runs commands, and you check the result. The app is free. You only pay if you choose a paid model.</p>
+    <ul class="chips"><li>About 15 minutes</li><li>Install Git first</li></ul>
+    <aside class="note"><span class="label">Two versions of the help pages</span><p>The app you download is OpenCode 2. Its help pages are at <a href="https://opencode.ai/v2/docs/" target="_blank" rel="noopener">opencode.ai/v2/docs</a>. Search results often lead to opencode.ai/docs instead. Those pages describe version 1, and some of it no longer matches the app. For example, pressing Tab does not switch to Plan.</p></aside>
   </header>
 
-  <article class="step" id="github-cli--install" data-nav="Install it" data-optional>
+  <article class="step" id="opencode--check" data-nav="Check if you have it">
+    <h2>Check if you already have it</h2>
+    <div class="os" data-os="mac"><p>Look for <b>OpenCode</b> in your Applications folder.</p></div>
+    <div class="os" data-os="win"><p>Look for <b>OpenCode</b> in the Start menu.</p></div>
+    <ol class="do">
+      <li>If it is there, open it.</li>
+      <li>Open Settings. Press <kbd>Cmd</kbd> + <kbd>,</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>,</kbd> on Windows.</li>
+      <li>Click <b class="ui">About</b>. The version should start with 2. If it starts with 1, install the new app in the next step.</li>
+    </ol>
+  </article>
+
+  <article class="step" id="opencode--download" data-nav="Download and install">
+    <h2>Download and install</h2>
+    <ol class="do">
+      <li>Go to <a href="https://opencode.ai/download" target="_blank" rel="noopener">opencode.ai/download</a>.</li>
+    </ol>
+    <div class="os" data-os="mac">
+      <ol class="do" style="counter-reset: do 1">
+        <li>Check your chip. Open the Apple menu, then <b class="ui">About This Mac</b>. If the chip starts with Apple, choose <b class="ui">macOS (Apple Silicon)</b>. If it says Intel, choose <b class="ui">macOS (Intel)</b>.</li>
+        <li>Open the downloaded file. Drag <b>OpenCode</b> into the Applications folder.</li>
+      </ol>
+      <p>Use the download page, not Homebrew. <code>brew install --cask opencode-desktop</code> still installs version 1.</p>
+    </div>
+    <div class="os" data-os="win">
+      <ol class="do" style="counter-reset: do 1">
+        <li>Choose <b class="ui">Windows (x64)</b>. Most Windows laptops need this one.</li>
+        <li>Open the downloaded file. It installs for your user account only.</li>
+      </ol>
+    </div>
+    <p>The download is about 230 MB. Do it at home, not on the class Wi-Fi.</p>
+    <p class="needs-shot">opencode-download.png. The download page at opencode.ai/download with the desktop buttons: macOS (Apple Silicon), macOS (Intel), Windows (x64), Linux.</p>
+  </article>
+
+  <article class="step" id="opencode--first-run" data-nav="Open it the first time">
+    <h2>Open it the first time</h2>
+    <ol class="do">
+      <li>Open OpenCode. On a Mac, if it asks whether you want to open an app downloaded from the internet, click <b class="ui">Open</b>.</li>
+      <li>It opens a project called <b>Default Project</b>, a new empty folder in Documents. Leave it. You add your own project in <a href="#opencode-project"><span data-part="opencode-project">part 16</span></a>.</li>
+      <li>Nothing else to set up yet. OpenCode comes with a few free models, so it works without an account.</li>
+    </ol>
+    <p class="needs-shot">opencode-first-run.png. OpenCode on first launch: the tab bar, the Default Project, and the empty prompt box.</p>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>OpenCode opens, and Settings, <b class="ui">About</b> shows a version that starts with 2.</li>
+  </ul></div>
+</section>
+
+<section class="topic" id="github-cli" data-group="Workflow 3 · OpenCode" data-nav="Sign in with the GitHub CLI">
+  <header>
+    <h1>Sign in with the GitHub CLI</h1>
+    <p class="lede"><code>gh</code> is GitHub as a Terminal command. OpenCode runs commands in its own Terminal, which does not share the sign-in of VS Code or GitHub Desktop. Signing in with <code>gh</code> gives that Terminal your GitHub login, so the agent can push to GitHub as you.</p>
+    <ul class="chips"><li>About 10 minutes</li><li>Install Git first</li></ul>
+  </header>
+
+  <article class="step" id="github-cli--install" data-nav="Install it">
     <h2>Install it</h2>
     <div class="os" data-os="mac">
       <p>If you have Homebrew, run this in the Terminal.</p>
@@ -1308,7 +1366,7 @@ This folder
     </figure>
   </article>
 
-  <article class="step" id="github-cli--login" data-nav="Sign in" data-optional>
+  <article class="step" id="github-cli--login" data-nav="Sign in">
     <h2>Sign in</h2>
     <ol class="do">
       <li>Run the command below. It asks a few questions. Use the arrow keys and <kbd>Enter</kbd> to answer.</li>
@@ -1336,9 +1394,276 @@ This folder
     <div class="cmd wrap"><pre><code>gh api -X POST "repos/{owner}/{repo}/pages" -f build_type=workflow</code></pre></div>
     <p>Then open the folder in VS Code with <code>code .</code> and carry on from <a href="#run"><span data-part="run">part 8</span></a>.</p>
   </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li><code>gh auth status</code> says you are logged in to github.com with your own account.</li>
+  </ul></div>
 </section>
 
 <!-- ============================ PORTS ============================ -->
+<!-- ============================ OPENCODE PROJECT ============================ -->
+<section class="topic" id="opencode-project" data-group="Workflow 3 · OpenCode" data-nav="Open your project">
+  <header>
+    <h1>Open your project in OpenCode</h1>
+    <p class="lede">OpenCode works on one folder at a time. That folder is the project. Open the same repo you cloned in <a href="#project"><span data-part="project">part 7</span></a>, and OpenCode and VS Code work on the same files.</p>
+    <ul class="chips"><li>About 5 minutes</li></ul>
+  </header>
+
+  <article class="step" id="opencode-project--add" data-nav="Add your project">
+    <h2>Add your project</h2>
+    <ol class="do">
+      <li>Click the <b class="ui">Home</b> tab, the first tab at the top.</li>
+      <li>Click <b class="ui">Add project</b>. You can also use the <b class="ui">File</b> menu, then <b class="ui">Open Project</b>.</li>
+      <li>Go to your <code>Documents/GitHub</code> folder and choose your repo's folder. Choose the folder itself, not a file inside it.</li>
+    </ol>
+    <p class="needs-shot">opencode-add-project.png. The Home tab with Projects on the left and the Add project button.</p>
+  </article>
+
+  <article class="step" id="opencode-project--git" data-nav="Check it found Git">
+    <h2>Check it found Git</h2>
+    <ol class="do">
+      <li>Start a new session in your project.</li>
+      <li>Look under the prompt box. Next to the project name it shows a branch name, usually <code>main</code>.</li>
+    </ol>
+    <p>If it says <b>No Git</b> instead, you chose the wrong folder, or Git is not installed. See <a href="#fix--opencode-no-git">OpenCode says No Git</a>.</p>
+    <p class="needs-shot">opencode-branch.png. The prompt box of a new session with the project name and the branch name main underneath.</p>
+    <aside class="note"><span class="label">Why Git matters here</span><p>Git is how you see what the agent changed and how you undo it. Without Git, OpenCode can undo the conversation but not the changes to your files.</p></aside>
+  </article>
+
+  <article class="step" id="opencode-project--both" data-nav="Use it next to VS Code">
+    <h2>Use it next to VS Code</h2>
+    <p>Keep VS Code open on the same folder. The agent's changes show up in VS Code and in GitHub Desktop, because all three look at the same files.</p>
+    <ul class="plain">
+      <li><b>Save in VS Code before you send a prompt.</b> If a file has unsaved changes and the agent changes it too, VS Code asks which version to keep.</li>
+      <li><b>Commit before you ask for a change.</b> Then every change the agent makes is easy to see in Source Control, and easy to undo.</li>
+      <li><b>Leave Live Server running.</b> It reloads the page when the agent saves a file, so you watch the change arrive.</li>
+    </ul>
+    <aside class="tip"><span class="label">One repo, one folder</span><p>OpenCode treats the nearest folder with Git as the project. Keep every repo in its own folder in <code>Documents/GitHub</code>, side by side. Never put one repo inside another.</p></aside>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>Your repo is listed under Projects on the Home tab.</li>
+    <li>A new session in it shows a branch name, not No Git.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ OPENCODE SETUP ============================ -->
+<section class="topic" id="opencode-setup" data-group="Workflow 3 · OpenCode" data-nav="Set it up and test it">
+  <header>
+    <h1>Set it up and test it</h1>
+    <p class="lede">One setting, one model, and one test prompt. The test checks every piece of the setup at once.</p>
+    <ul class="chips"><li>About 10 minutes</li></ul>
+  </header>
+
+  <article class="step" id="opencode-setup--agent" data-nav="Show the agent menu">
+    <h2>Show the agent menu</h2>
+    <p>OpenCode has two main agents, <b>Plan</b> and <b>Build</b>. The menu to switch between them is hidden until you turn it on. Until then everything runs as Build.</p>
+    <ol class="do">
+      <li>Open Settings with <kbd>Cmd</kbd> + <kbd>,</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>,</kbd> on Windows.</li>
+      <li>Click <b class="ui">Preferences</b>.</li>
+      <li>Turn on <b class="ui">Show agent</b>.</li>
+    </ol>
+    <p>An agent menu now appears under the prompt box, next to the model menu.</p>
+    <p class="needs-shot">opencode-show-agent.png. Settings, Preferences, with the Show agent switch turned on.</p>
+  </article>
+
+  <article class="step" id="opencode-setup--model" data-nav="Choose a free model">
+    <h2>Choose a free model</h2>
+    <ol class="do">
+      <li>Click the model menu under the prompt box.</li>
+      <li>Under <b>Free models provided by OpenCode</b>, choose <b>Space Bunny Free</b>. It can read images, and it does not keep your data.</li>
+    </ol>
+    <p>The free models change often. If Space Bunny Free is gone, choose <b>LongCat 2.5 Preview Free</b>, or any free model whose details say it allows images. Hover over a model to see its details.</p>
+    <p class="needs-shot">opencode-free-models.png. The model menu open, showing the list of free models provided by OpenCode.</p>
+  </article>
+
+  <article class="step" id="opencode-setup--test" data-nav="Send the test prompt">
+    <h2>Send the test prompt</h2>
+    <ol class="do">
+      <li>In the agent menu, choose <b class="ui">Plan</b>. Plan reads and explains. It does not change your files.</li>
+      <li>Paste this and press <kbd>Enter</kbd>.</li>
+    </ol>
+    <div class="cmd wrap"><pre><code>Check that this project is set up. Tell me: which folder you are working in, what files are here, which versions of p5.js and p5-phone index.html loads, whether this folder is a Git repository and where it pushes to, and which GitHub account gh auth status reports. Do not change anything.</code></pre></div>
+    <ol class="do" style="counter-reset: do 2">
+      <li>It asks permission to run <code>git</code> and <code>gh</code>. Read what it wants to run, then click <b class="ui">Allow once</b>.</li>
+    </ol>
+    <table class="simple"><thead><tr><th>If the answer includes</th><th>Then this works</th></tr></thead><tbody>
+      <tr><td>Anything at all</td><td>The model is connected.</td></tr>
+      <tr><td>Your repo's folder, with <code>index.html</code>, <code>sketch.js</code> and <code>README.md</code></td><td>The project is your repo, not Default Project.</td></tr>
+      <tr><td>p5.js 2.3.2 and p5-phone 1.15.0</td><td>It can read your files.</td></tr>
+      <tr><td>An address like <code>github.com/your-username/your-repo</code></td><td>Git is installed and the repo is connected to GitHub.</td></tr>
+      <tr><td>Your GitHub username</td><td>The GitHub CLI is installed and signed in.</td></tr>
+    </tbody></table>
+    <p>If one line is missing, the table tells you which part to go back to.</p>
+    <p class="needs-shot">opencode-test-reply.png. A Plan session with the test prompt and its reply, showing the folder, the files, the versions, the remote and the GitHub account.</p>
+  </article>
+
+  <div class="finish"><h2>You are done with this part when</h2><ul>
+    <li>The agent menu shows Plan and Build.</li>
+    <li>The test prompt got an answer with every line in the table.</li>
+  </ul></div>
+</section>
+
+<!-- ============================ OPENCODE TOUR ============================ -->
+<section class="topic" id="opencode-tour" data-group="Workflow 3 · OpenCode" data-nav="Find your way around">
+  <header>
+    <h1>Find your way around OpenCode</h1>
+    <p class="lede">What is on the screen, the commands worth knowing, and the settings. Shortcuts are shown for a Mac. On Windows, use <kbd>Ctrl</kbd> where it says <kbd>Cmd</kbd>.</p>
+    <ul class="chips"><li>About 10 minutes</li></ul>
+  </header>
+
+  <article class="step" id="opencode-tour--screen" data-nav="The screen">
+    <h2>The screen</h2>
+    <table class="simple"><thead><tr><th>Where</th><th>What it is</th><th>Shortcut</th></tr></thead><tbody>
+      <tr><td>Tabs along the top</td><td>Like a browser. <b class="ui">Home</b> is the first tab. Each session opens in its own tab.</td><td><kbd>Cmd</kbd> + <kbd>T</kbd> new tab</td></tr>
+      <tr><td>Home</td><td>Projects on the left. Sessions on the right, grouped Today, Yesterday and Older.</td><td></td></tr>
+      <tr><td>The prompt box</td><td>Where you write. Type <code>/</code> for commands and <code>@</code> to point at a file. Start with <code>!</code> to run a Terminal command. You can drop an image or a file on it.</td><td></td></tr>
+      <tr><td>Agent menu</td><td>Plan or Build.</td><td><kbd>Cmd</kbd> + <kbd>.</kbd></td></tr>
+      <tr><td>Model menu</td><td>Which model answers. You can change it in the middle of a session.</td><td><kbd>Cmd</kbd> + <kbd>'</kbd></td></tr>
+      <tr><td>Effort menu</td><td>How long the model thinks before it answers. Only appears when the model has more than one level.</td><td><kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>D</kbd></td></tr>
+      <tr><td>The timeline</td><td>What the agent did: what it thought, the files it read, the commands it ran, the edits it made.</td><td></td></tr>
+      <tr><td>Review and files</td><td>A side panel. <b class="ui">Review</b> shows every change as a diff: green lines added, red lines removed.</td><td><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></td></tr>
+      <tr><td>Context meter</td><td>How full the session's memory is, in tokens, and what it has cost. Click it for the details.</td><td></td></tr>
+      <tr><td>Permission request</td><td>Appears when the agent wants to do something it needs to ask about. <b class="ui">Allow once</b>, <b class="ui">Allow always</b> or <b class="ui">Deny</b>.</td><td></td></tr>
+      <tr><td>Terminal</td><td>A Terminal inside OpenCode, in the project folder.</td><td><kbd>Ctrl</kbd> + <kbd>`</kbd></td></tr>
+    </tbody></table>
+    <p class="needs-shot">opencode-session.png. A session after one small edit, with the Review panel open beside it showing the diff.</p>
+  </article>
+
+  <article class="step" id="opencode-tour--commands" data-nav="Commands to know">
+    <h2>Commands to know</h2>
+    <p>Type these in the prompt box.</p>
+    <table class="simple"><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+      <tr><td><code>/new</code></td><td>Starts a new session. New task, new session.</td></tr>
+      <tr><td><code>/undo</code> and <code>/redo</code></td><td>Takes back the last message, and the file changes it made. Needs Git.</td></tr>
+      <tr><td><code>/model</code></td><td>Changes the model.</td></tr>
+      <tr><td><code>/agent</code></td><td>Changes the agent.</td></tr>
+      <tr><td><code>/connect</code></td><td>Connects a model provider, such as OpenCode Go.</td></tr>
+      <tr><td><code>/init</code></td><td>Writes an <code>AGENTS.md</code> file that describes your project for future sessions. It creates a file, so commit first.</td></tr>
+      <tr><td><code>/compact</code></td><td>Summarizes a long session to free up its memory. Details get lost. A new session is often better.</td></tr>
+    </tbody></table>
+  </article>
+
+  <article class="step" id="opencode-tour--review" data-nav="Read and undo a change">
+    <h2>Read and undo a change</h2>
+    <p><b>Build</b> changes your files without asking first. That is why you commit before each request. After it finishes:</p>
+    <ol class="do">
+      <li>Open <b class="ui">Review</b>, or look at Source Control in VS Code. Read every change.</li>
+      <li>Look at the result in Live Server, or on your phone.</li>
+      <li>If you want to keep it, commit it. That is your "accept".</li>
+      <li>If you do not, type <code>/undo</code>. In VS Code you can also use <b class="ui">Discard Changes</b> in Source Control.</li>
+    </ol>
+    <aside class="note"><span class="label">You are the author</span><p>Do not keep a change you have not read. If you cannot tell what a line does, switch to Plan and ask.</p></aside>
+  </article>
+
+  <article class="step" id="opencode-tour--settings" data-nav="The settings page">
+    <h2>The settings page</h2>
+    <p>Open it with <kbd>Cmd</kbd> + <kbd>,</kbd>. These are the pages you will use.</p>
+    <table class="simple"><thead><tr><th>Page</th><th>What is there</th></tr></thead><tbody>
+      <tr><td>Preferences</td><td><b class="ui">Show agent</b>. <b class="ui">Auto-accept permissions</b>: leave it off. How much detail the timeline shows. Check for updates.</td></tr>
+      <tr><td>Appearance</td><td>Light or dark, and the theme.</td></tr>
+      <tr><td>Notifications</td><td>A sound or a notice when the agent finishes or needs you.</td></tr>
+      <tr><td>Shortcuts</td><td>Every keyboard shortcut. You can change them.</td></tr>
+      <tr><td>Providers</td><td>Where you connect model providers, such as OpenCode Go.</td></tr>
+      <tr><td>Models</td><td>Which models appear in the model menu. Hide the ones you do not use.</td></tr>
+      <tr><td>Extensions</td><td>Skills, MCP servers and plugins.</td></tr>
+      <tr><td>About</td><td>The version number. Include it when you ask for help.</td></tr>
+    </tbody></table>
+    <p class="needs-shot">opencode-settings.png. The settings page on Preferences, with the list of pages on the left.</p>
+  </article>
+</section>
+
+<!-- ============================ OPENCODE WORDS ============================ -->
+<section class="topic" id="opencode-words" data-group="Workflow 3 · OpenCode" data-nav="Words you will see">
+  <header>
+    <h1>Words you will see</h1>
+    <p class="lede">Six words for the things on the screen, and six more that come up soon. You do not need to learn them all today.</p>
+    <ul class="chips"><li>About 5 minutes</li></ul>
+  </header>
+
+  <article class="step" id="opencode-words--six" data-nav="The six on the screen">
+    <h2>The six on the screen</h2>
+    <table class="simple"><thead><tr><th>Word</th><th>What it means</th><th>Where you see it</th></tr></thead><tbody>
+      <tr><td><b>Harness</b></td><td>The program around the model. It builds each request, runs the tools the model asks for, checks permissions and keeps the sessions. The model thinks. The harness acts.</td><td>OpenCode itself. The Chat in VS Code is another harness.</td></tr>
+      <tr><td><b>Project</b></td><td>The folder the agent works in. It only sees this folder.</td><td>Projects on the Home tab. The branch name under the prompt.</td></tr>
+      <tr><td><b>Session</b></td><td>One conversation, with its own memory. New task, new session. Your files are the memory that lasts.</td><td>Sessions on the Home tab. Each opens in a tab.</td></tr>
+      <tr><td><b>Agent</b></td><td>A role with its own permissions. <b>Build</b> reads, edits and runs commands. <b>Plan</b> reads and plans, and does not edit your files.</td><td>The agent menu.</td></tr>
+      <tr><td><b>Model</b></td><td>The AI that does the thinking. Models come from different makers, cost different amounts, and some can read images.</td><td>The model menu. Hover for details.</td></tr>
+      <tr><td><b>Effort</b></td><td>How long the model thinks before it answers. OpenCode calls the levels variants. Higher is slower and uses more of your allowance, and it helps on hard problems.</td><td>The effort menu, next to the model.</td></tr>
+    </tbody></table>
+  </article>
+
+  <article class="step" id="opencode-words--soon" data-nav="Six more, soon" data-optional>
+    <h2>Six more, soon</h2>
+    <table class="simple"><tbody>
+      <tr><td><b>Provider</b></td><td>Who supplies the model. OpenCode Go is one. There are more than 75.</td></tr>
+      <tr><td><b>Context</b></td><td>The session's working memory. Everything the agent reads and writes fills it. A full context thinks worse.</td></tr>
+      <tr><td><b>Compaction</b></td><td>The summary OpenCode makes when the context is full. Details blur.</td></tr>
+      <tr><td><b>AGENTS.md</b></td><td>A file of standing instructions, read at the start of every session.</td></tr>
+      <tr><td><b>Skill</b></td><td>A folder of notes the agent reads when it needs them. Your starter project has two, in <code>.agents/skills</code>: one for p5.js 2.x and one for p5-phone.</td></tr>
+      <tr><td><b>Permission</b></td><td>What the agent may do without asking you first.</td></tr>
+    </tbody></table>
+  </article>
+</section>
+
+<!-- ============================ OPENCODE GO ============================ -->
+<section class="topic" id="opencode-go" data-group="Workflow 3 · OpenCode" data-nav="Add OpenCode Go">
+  <header>
+    <h1>Add OpenCode Go</h1>
+    <p class="lede">OpenCode Go is a subscription to a set of stronger models. It is optional. The free models are enough to start.</p>
+    <ul class="chips"><li class="optional">Optional</li><li>About 10 minutes</li><li class="optional">Go costs 10 US dollars a month</li></ul>
+    <aside class="note"><span class="label">Why pay at all?</span><p>Free models are fine for learning. They change without notice, have daily limits and are slow at busy times, and some use your prompts for training. <a href="#models--why-pay">Why pay if there are free models?</a> has the details.</p></aside>
+  </header>
+
+  <article class="step" id="opencode-go--subscribe" data-nav="Subscribe">
+    <h2>Subscribe</h2>
+    <p>If you already subscribed for VS Code in <a href="#models"><span data-part="models">part 11</span></a>, skip this step. It is the same subscription.</p>
+    <ol class="do">
+      <li>Sign in to the OpenCode Console with GitHub, as in <a href="#models--account">Sign in to OpenCode</a>.</li>
+      <li>Subscribe on the <b class="ui">Go</b> tab, as in <a href="#models--subscribe">Subscribe to Go</a>.</li>
+    </ol>
+    <p>Each account has its own subscription. You cannot share one by signing in as someone else.</p>
+  </article>
+
+  <article class="step" id="opencode-go--connect" data-nav="Connect it in OpenCode">
+    <h2>Connect it in OpenCode</h2>
+    <ol class="do">
+      <li>Type <code>/connect</code> in the prompt box. You can also open Settings, then <b class="ui">Providers</b>.</li>
+      <li>Choose <b class="ui">OpenCode Go</b>.</li>
+      <li>Your browser opens. Check that the code in the browser matches the code in OpenCode, then confirm.</li>
+      <li>OpenCode shows <b>Connected to OpenCode Go</b>. Choose a model to start with.</li>
+    </ol>
+    <p>If the browser sign-in does not work, click <b class="ui">Use API key</b> instead. Make a key in the Console as in <a href="#models--key">Make an API key</a>, name it <code>opencode</code>, and paste it. One key for each place you use it.</p>
+    <p class="needs-shot">opencode-connect-go.png. The Connect window for OpenCode Go, showing the device code and the Use API key link.</p>
+  </article>
+
+  <article class="step" id="opencode-go--models" data-nav="Choose a model">
+    <h2>Choose a model</h2>
+    <p>Go has more than 30 models. They are not equal. The scarce ones are stronger, and use up your allowance much faster.</p>
+    <table class="simple"><thead><tr><th>Kind</th><th>Requests every 5 hours, roughly</th><th>Use it for</th><th>Examples in September 2026</th></tr></thead><tbody>
+      <tr><td>Scarce</td><td>100 to 200</td><td>Planning, and problems the others could not solve</td><td>Kimi K3, Qwen3.8 Max, Grok 4.7</td></tr>
+      <tr><td>Strong</td><td>900 to 2,000</td><td>Harder building</td><td>Kimi K2.7 Code, DeepSeek V4 Pro, GLM-5.2</td></tr>
+      <tr><td>Workhorse</td><td>3,000 to 6,500</td><td>Most building</td><td>MiniMax M3, GPT 6 Luna, GLM-5.3-Flash</td></tr>
+      <tr><td>Volume</td><td>11,000 and up</td><td>Small edits and chores</td><td>DeepSeek V4.1 Flash, MiMo-V2.6-Flash</td></tr>
+    </tbody></table>
+    <ul class="plain">
+      <li><b>A good everyday choice:</b> DeepSeek V4.1 Flash. It reads images, holds a lot, and rarely runs out.</li>
+      <li><b>For a plan:</b> Kimi K3. Spend it on the plan, not on small edits.</li>
+      <li><b>One request is not one message.</b> The agent makes a request for every step it takes. One task can use dozens.</li>
+    </ul>
+    <p>The list changes. <a href="https://opencode.ai/go" target="_blank" rel="noopener">opencode.ai/go</a> has the current models and limits. Hide the ones you do not use in Settings, <b class="ui">Models</b>.</p>
+  </article>
+
+  <article class="step" id="opencode-go--limits" data-nav="Know the limits">
+    <h2>Know the limits</h2>
+    <ul class="plain">
+      <li>Limits reset every 5 hours, every week and every month.</li>
+      <li>The <b class="ui">Go</b> tab of the OpenCode Console shows how much you have used.</li>
+      <li>When you reach a limit, OpenCode shows <b>Go limit reached</b>. The free models still work until it resets.</li>
+    </ul>
+  </article>
+</section>
+
 <section class="topic" id="ports" data-group="Optional tools" data-nav="Phone testing without publishing">
   <header>
     <h1>Test on your phone without publishing</h1>
@@ -1475,6 +1800,34 @@ This folder
     <p>Inside VS Code's own Terminal, <code>code</code> always works. In a separate Terminal app it needs one more step.</p>
     <div class="os" data-os="mac"><p>Open the Command Palette, type <code>Shell Command: Install 'code' command in PATH</code> and press <kbd>Enter</kbd>.</p></div>
     <div class="os" data-os="win"><p>Close every Terminal window and open a new one. If it still fails, run the VS Code installer again and leave <b class="ui">Add to PATH</b> ticked.</p></div>
+  </article>
+  <article class="step" id="fix--opencode-no-git" data-nav="OpenCode says No Git" data-optional>
+    <h2>OpenCode says No Git</h2>
+    <p>Under the prompt box it says <b>No Git</b> instead of a branch name, and the Review panel is empty.</p>
+    <ul class="plain">
+      <li>You may have opened the wrong folder, such as Default Project. Add your repo's folder from <code>Documents/GitHub</code> as in <a href="#opencode-project--add">Add your project</a>.</li>
+      <li>Git may not be installed. Do <a href="#git"><span data-part="git">part 5</span></a>, then quit OpenCode completely and open it again.</li>
+    </ul>
+  </article>
+
+  <article class="step" id="fix--opencode-no-plan" data-nav="There is no Plan in OpenCode" data-optional>
+    <h2>There is no Plan in OpenCode</h2>
+    <p>The agent menu is hidden until you turn it on. Open Settings, then <b class="ui">Preferences</b>, and turn on <b class="ui">Show agent</b>. Pressing Tab does not switch agents in the app. That tip comes from the version 1 help pages.</p>
+  </article>
+
+  <article class="step" id="fix--opencode-push" data-nav="The agent cannot push" data-optional>
+    <h2>The agent cannot push to GitHub</h2>
+    <p>You asked the agent to push, and it failed or asked for a username and password. The agent pushes from its own Terminal, which does not share the sign-in of VS Code or GitHub Desktop. Do <a href="#github-cli--login">Sign in</a> in the GitHub CLI part, answer <b>Yes</b> to "Authenticate Git with your GitHub credentials?", then ask again. You can always push yourself with <b class="ui">Sync Changes</b> in VS Code.</p>
+  </article>
+
+  <article class="step" id="fix--opencode-free-limit" data-nav="Free limit reached" data-optional>
+    <h2>OpenCode says Free limit reached</h2>
+    <p>The free models allow about 200 requests a day, counted per internet connection. On a shared network, such as the school Wi-Fi, everyone on it may share that count. It resets once a day. Try another free model, try later, or use <a href="#opencode-go">OpenCode Go</a>.</p>
+  </article>
+
+  <article class="step" id="fix--opencode-docs" data-nav="The OpenCode help does not match" data-optional>
+    <h2>The OpenCode help pages do not match the app</h2>
+    <p>You are probably reading the version 1 pages at opencode.ai/docs. The app is version 2. Use <a href="https://opencode.ai/v2/docs/" target="_blank" rel="noopener">opencode.ai/v2/docs</a>.</p>
   </article>
 </section>
 

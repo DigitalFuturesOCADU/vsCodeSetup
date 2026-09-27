@@ -2,11 +2,17 @@
 
 A step by step setup guide for OCAD University Digital Futures students. It takes someone who
 has only used the p5.js web editor to the point where they write code in VS Code, push it to
-GitHub, and open the result on their phone.
+GitHub, and open the result on their phone. Then it sets up OpenCode, a coding agent, on the
+same project.
+
+Three workflows: 1 Code to phone (parts 2 to 10), 2 Agents and models in VS Code (parts 11 to
+13, optional), 3 OpenCode (parts 14 to 20, including the GitHub CLI). The part numbers in the
+Start page's table are typed by hand, so update them if topics move.
 
 **Live guide:** https://digitalfuturesocadu.github.io/vsCodeSetup/guide/
 
-Updated September 2026 for VS Code 1.138. The October 2025 version is in the Git history.
+Updated September 2026 for VS Code 1.138. Workflow 3 was added on 2026-09-27 for OpenCode 2.0.18.
+The October 2025 version is in the Git history.
 
 ## What is in this repo
 

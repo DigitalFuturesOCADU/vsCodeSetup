@@ -18,7 +18,7 @@ To add a missing screenshot: save it into `guide/img/` with the file name below,
 
 ## Missing. Needs a manual capture
 
-Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-21. 16 to go.
+Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 26 to go.
 
 | File name | Step | What to capture |
 |---|---|---|
@@ -38,6 +38,16 @@ Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-21. 16 to
 | `copilot-chat-signed-in.png` | 12.1 Open the Chat | The Chat panel when signed in, showing the input box with the agent picker and the model picker. |
 | `copilot-modes.png` | 12.2 Ask, Plan and Agent | The agent picker open, showing Agent, Ask and Plan. Needs a signed-in VS Code. |
 | `copilot-keep-undo.png` | 12.4 Try Agent and read the change | An agent edit in sketch.js showing green and red lines with the Keep and Undo buttons. |
+| `opencode-download.png` | 14.2 Download and install | The download page at opencode.ai/download with the desktop buttons: macOS (Apple Silicon), macOS (Intel), Windows (x64), Linux. |
+| `opencode-first-run.png` | 14.3 Open it the first time | OpenCode on first launch: the tab bar, the Default Project, and the empty prompt box. |
+| `opencode-add-project.png` | 16.1 Add your project | The Home tab with Projects on the left and the Add project button. |
+| `opencode-branch.png` | 16.2 Check it found Git | The prompt box of a new session with the project name and the branch name main underneath. |
+| `opencode-show-agent.png` | 17.1 Show the agent menu | Settings, Preferences, with the Show agent switch turned on. |
+| `opencode-free-models.png` | 17.2 Choose a free model | The model menu open, showing the list of free models provided by OpenCode. |
+| `opencode-test-reply.png` | 17.3 Send the test prompt | A Plan session with the test prompt and its reply, showing the folder, the files, the versions, the remote and the GitHub account. |
+| `opencode-session.png` | 18.1 The screen | A session after one small edit, with the Review panel open beside it showing the diff. |
+| `opencode-settings.png` | 18.4 The settings page | The settings page on Preferences, with the list of pages on the left. |
+| `opencode-connect-go.png` | 20.2 Connect it in OpenCode | The Connect window for OpenCode Go, showing the device code and the Use API key link. |
 
 Note on 7.4 (Trust the folder): in VS Code 1.138 the old "Do you trust the authors?" pop-up did not appear, either when opening a
 folder from the command line or through File > Open Folder. The folder opened in Restricted Mode with a bar at the
