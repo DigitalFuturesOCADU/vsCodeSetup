@@ -1611,6 +1611,22 @@ This folder
     <aside class="note"><span class="label">You are the author</span><p>Do not keep a change you have not read. If you cannot tell what a line does, switch to Plan and ask.</p></aside>
   </article>
 
+  <article class="step" id="opencode-tour--browser" data-nav="Let it look at your sketch">
+    <h2>Let it look at your sketch</h2>
+    <p>OpenCode has its own browser, in the panel on the right. The agent can open your sketch there, take a screenshot, and read the console, the same way you would. Nothing to install.</p>
+    <ol class="do">
+      <li>Start Live Server in VS Code, or use your Pages address.</li>
+      <li>Ask: <code>Open http://127.0.0.1:5500 in the browser. Take a screenshot, tell me what you see, and tell me if the console shows any errors. Do not change any files.</code> Use your own address.</li>
+      <li>The page opens in a tab in the right panel. Keep the OpenCode window visible while it works. Screenshots only work on a tab you can see.</li>
+    </ol>
+    <figure class="shot">
+      <img src="img/opencode-browser-check.png" width="1280" height="800" alt="OpenCode with a session on the left, where the agent reports the local preview loaded with no console errors and matches the published page. On the right, a browser tab at 127.0.0.1:5507 shows the magenta square." loading="lazy">
+      <figcaption>The agent opened the local preview in its own browser, compared it with the Pages version, and found no errors.</figcaption>
+    </figure>
+    <p>Add it to your requests: "Then open it in the browser and check it." The agent can now check its own work before you do.</p>
+    <aside class="note"><span class="label">It is not a phone</span><p>The browser cannot tilt, shake, or hear the room. It shows that the page loads, draws and has no errors. Whether the interaction works is still a test on your phone.</p></aside>
+  </article>
+
   <article class="step" id="opencode-tour--settings" data-nav="The settings page">
     <h2>The settings page</h2>
     <p>Open it with <kbd>Cmd</kbd> + <kbd>,</kbd>. These are the pages you will use.</p>
