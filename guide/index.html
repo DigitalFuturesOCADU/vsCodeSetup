@@ -216,6 +216,10 @@
       <li>On the <b>Configure Git</b> screen, leave <b class="ui">Use my GitHub account name and email address</b> selected.</li>
       <li>Click <b class="ui">Finish</b>.</li>
     </ol>
+    <figure class="shot medium">
+      <img src="img/desktop-configure-git.png" width="576" height="590" alt="GitHub Desktop's Configure Git screen. Use my GitHub account name and email address is selected, with the name and email filled in below, a Finish button, and an example commit." loading="lazy">
+      <figcaption>Your name and email come from your GitHub account.</figcaption>
+    </figure>
     <p>That is all GitHub Desktop needs to do for now. You can close it. VS Code and every other tool on your computer will use the same name and email.</p>
     <h3>If you already had GitHub Desktop</h3>
     <div class="os" data-os="mac"><p>Open <b class="ui">GitHub Desktop</b>, then <b class="ui">Settings</b>.</p></div>
@@ -224,7 +228,6 @@
       <li>Under <b class="ui">Accounts</b>, check that it is signed in to the GitHub account you are using for this course.</li>
       <li>Under <b class="ui">Git</b>, check the name and email. Fix them if they are from an old account, then click <b class="ui">Save</b>.</li>
     </ol>
-    <p class="needs-shot">desktop-configure-git.png. The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app.</p>
   </article>
 
   <div class="finish"><h2>You are done with this part when</h2><ul>
@@ -637,7 +640,6 @@
       <li>Choose where to keep it. Select your <code>Documents/GitHub</code> folder. Make it first if it does not exist. Click <b class="ui">Select as Repository Destination</b>.</li>
       <li>When VS Code asks <b>Would you like to open the cloned repository?</b>, click <b class="ui">Open</b>.</li>
     </ol>
-    <p class="needs-shot">clone-pick-repo.png. The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code.</p>
 
     <h3>Option B: clone with GitHub Desktop</h3>
     <ol class="do">
@@ -1116,10 +1118,13 @@ This folder
     <ol class="do">
       <li>Open the Chat. It is the panel on the right side of VS Code. If it is closed, press <kbd>Ctrl</kbd> + <kbd>Cmd</kbd> + <kbd>I</kbd> on a Mac or <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd> on Windows.</li>
       <li>Click the model menu under the chat box.</li>
-      <li>The models you ticked are listed under <b>OpenCode Go</b>.</li>
+      <li>Go models show as <b>OpenCode Go /</b> and the model name. If the one you want is not in the short list, open <b class="ui">Other Models</b>, or type its name in the search box at the top.</li>
       <li>If one is missing, go back to <b class="ui">Manage Models...</b> and click the eye icon beside it to show it.</li>
     </ol>
-    <p class="needs-shot">models-picker-go.png. The model menu open in the Chat with the OpenCode Go models listed.</p>
+    <figure class="shot medium">
+      <img src="img/models-picker-go.png" width="522" height="305" alt="The model menu open above the chat box: a search box, Auto, a few recent models including OpenCode Go / Deepseek V4 Flash Vision Exp with a tick, and Other Models at the bottom." loading="lazy">
+      <figcaption>The rest of the models are under <b>Other Models</b>.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="models--test" data-nav="Send a test message">

@@ -18,18 +18,20 @@ To add a missing screenshot: save it into `guide/img/` with the file name below,
 
 ## Missing. Needs a manual capture
 
-Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 3 to go.
+None. Every `needs-shot` line in `guide/index.html` was placed or dropped on 2026-09-28.
 
-| File name | What to capture |
-|---|---|
-| `desktop-configure-git.png` | The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app. |
-| `clone-pick-repo.png` | The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code. |
-| `models-picker-go.png` | The model menu open in the Chat with the OpenCode Go models listed. |
+Dropped because the step text is enough on its own: `vscode-install-windows.png` (no Windows machine),
+`git-mac-tools.png` (only appears on a Mac without the developer tools), `opencode-go-subscribe.png` (needs an
+account without Go), `opencode-key-created.png`, `models-go-select.png` (VS Code has no tick list at that step:
+the models appear in the Language Models window), and `clone-pick-repo.png` (the repo list after Clone from
+GitHub; worth adding if someone captures it with only a class repo showing).
 
-Dropped on 2026-09-27, because the step text is enough on its own: `vscode-install-windows.png` (no Windows
-machine), `git-mac-tools.png` (only appears on a Mac without the developer tools), `opencode-go-subscribe.png`
-(needs an account without Go), `opencode-key-created.png`, and `models-go-select.png` (VS Code has no tick list
-at that step: the models appear in the Language Models window).
+Some images show a different model from the one the text now names (Space Bunny, DeepSeek V4 Flash Vision Exp).
+The text is right: MiMo-V2.6-Flash Free for free, DeepSeek V4.1 Flash for Go.
+
+The Configure Git capture came from a throwaway GitHub Desktop (`--user-data-dir`), with the welcome flow
+replayed by removing `has-shown-welcome-flow` from its localStorage and clicking Skip this step. The email was
+painted over.
 
 Note on 7.4 (Trust the folder): in VS Code 1.138 the old "Do you trust the authors?" pop-up did not appear, either when opening a
 folder from the command line or through File > Open Folder. The folder opened in Restricted Mode with a bar at the
