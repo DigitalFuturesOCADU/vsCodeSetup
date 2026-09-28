@@ -18,36 +18,19 @@ To add a missing screenshot: save it into `guide/img/` with the file name below,
 
 ## Missing. Needs a manual capture
 
-Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 26 to go.
+Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 9 to go.
 
 | File name | Step | What to capture |
 |---|---|---|
 | `github-signup.png` | 2.1 Sign up | The sign-up form at github.com/signup. GitHub blocks automated browsers on this page, so it needs a manual capture. |
-| `desktop-welcome.png` | 3.3 Sign in | The GitHub Desktop welcome screen with "Sign in to GitHub.com". Needs a first run of the app. |
 | `desktop-configure-git.png` | 3.4 Let it set your name and email | The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app. |
 | `vscode-install-windows.png` | 4.2 Download and install | The Windows installer's "Select Additional Tasks" screen with the "Open with Code" boxes ticked. Needs a Windows machine. |
-| `signin-accounts-signed-in.png` | 4.7 Check you are signed in | The Accounts menu after signing in, showing "username (GitHub)" at the top. Needs a signed-in VS Code. |
 | `git-mac-tools.png` | 5.2 Install Git | The macOS window that offers to install the command line developer tools. Only appears on a Mac that does not have them yet. |
 | `clone-pick-repo.png` | 7.3 Clone it to your laptop | The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code. |
-| `actions-run-green.png` | 9.3 Watch it publish | The repo's Actions tab with the first failed run (red X) below a successful run (green tick). |
 | `opencode-go-subscribe.png` | 11.4 Subscribe to Go | The Go tab for an account that has not subscribed yet, showing the subscribe button. Needs an account without Go. |
-| `opencode-key-created.png` | 11.5 Make an API key | The window that appears after Add API Key, with the name field filled in as "vscode". Capture it before the key is shown, or with the key painted out. |
+| `opencode-key-created.png` | 11.5 Make an API key | The window that appears after Add API Key, with the name field filled in as "vscode" and Permissions set to Inference only. Capture it before clicking Create key. |
 | `models-go-select.png` | 11.6 Add OpenCode Go in VS Code | The list of OpenCode Go models with tick boxes. |
 | `models-picker-go.png` | 11.7 Find the models in the Chat | The model menu open in the Chat with the OpenCode Go models listed. |
-| `models-go-test.png` | 11.8 Send a test message | The Chat showing a reply from an OpenCode Go model. |
-| `copilot-chat-signed-in.png` | 12.1 Open the Chat | The Chat panel when signed in, showing the input box with the agent picker and the model picker. |
-| `copilot-modes.png` | 12.2 Ask, Plan and Agent | The agent picker open, showing Agent, Ask and Plan. Needs a signed-in VS Code. |
-| `copilot-keep-undo.png` | 12.4 Try Agent and read the change | An agent edit in sketch.js showing green and red lines with the Keep and Undo buttons. |
-| `opencode-download.png` | 14.2 Download and install | The download page at opencode.ai/download with the desktop buttons: macOS (Apple Silicon), macOS (Intel), Windows (x64), Linux. |
-| `opencode-first-run.png` | 14.3 Open it the first time | OpenCode on first launch: the tab bar, the Default Project, and the empty prompt box. |
-| `opencode-add-project.png` | 16.1 Add your project | The Home tab with Projects on the left and the Add project button. |
-| `opencode-branch.png` | 16.2 Check it found Git | The prompt box of a new session with the project name and the branch name main underneath. |
-| `opencode-show-agent.png` | 17.1 Show the agent menu | Settings, Preferences, with the Show agent switch turned on. |
-| `opencode-free-models.png` | 17.2 Choose a free model | The model menu open, showing the list of free models provided by OpenCode. |
-| `opencode-test-reply.png` | 17.3 Send the test prompt | A Plan session with the test prompt and its reply, showing the folder, the files, the versions, the remote and the GitHub account. |
-| `opencode-session.png` | 18.1 The screen | A session after one small edit, with the Review panel open beside it showing the diff. |
-| `opencode-settings.png` | 18.4 The settings page | The settings page on Preferences, with the list of pages on the left. |
-| `opencode-connect-go.png` | 20.2 Connect it in OpenCode | The Connect window for OpenCode Go, showing the device code and the Use API key link. |
 
 Note on 7.4 (Trust the folder): in VS Code 1.138 the old "Do you trust the authors?" pop-up did not appear, either when opening a
 folder from the command line or through File > Open Folder. The folder opened in Restricted Mode with a bar at the
@@ -103,3 +86,14 @@ so dialogs and menus are drawn inside the window instead of by macOS.
 The OpenCode Console pages were captured from a signed-in Chrome window with `screencapture -l <window id>`.
 The window has to be on screen, or macOS returns a stale frame. Key prefixes, other key names and the
 account email were painted over in the image files, so none of them are in the repo.
+
+### Overnight captures, 2026-09-27
+
+18 images, made without touching anyone's real OpenCode or GitHub Desktop data:
+
+- OpenCode: a throwaway first-run instance, `OPENCODE_TEST_ONBOARDING=1 /Applications/OpenCode.app/Contents/MacOS/OpenCode --remote-debugging-port=9340`. It keeps everything in a temp folder. Its background service needs its own port (`opencode service set port 49411` with the instance's XDG folders), and `gh` needs its config linked into the instance's config folder. Driven with playwright-core over CDP at 1280 x 800, scale 1.25. The "Add project" folder picker is native, so the picker request (`FilesOpenDirectoryPicker` on the renderer's message port) was answered with the folder path.
+- GitHub Desktop welcome: a second instance with `--user-data-dir=<temp> --remote-debugging-port=9350`.
+- VS Code: the instructor's signed-in VS Code, on a window holding only the demo repo `npuckett/my-phone-sketch`, captured with `screencapture -l`. Chat prompts were sent with `code chat -m ask|agent`.
+- Web pages: headless Chrome. The Actions tab is cropped below the signed-out GitHub header.
+
+Still manual: the model menu in VS Code Chat does not open from the accessibility API, and the Console's Add API Key dialog could only be seen, not saved, through the browser extension.

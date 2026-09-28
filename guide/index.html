@@ -200,7 +200,10 @@
       <li>Your browser opens. Sign in if asked, check the username, and click <b class="ui">Authorize desktop</b>.</li>
       <li>Your browser asks to open GitHub Desktop. Allow it.</li>
     </ol>
-    <p class="needs-shot">desktop-welcome.png. The GitHub Desktop welcome screen with "Sign in to GitHub.com". Needs a first run of the app.</p>
+    <figure class="shot">
+      <img src="img/desktop-welcome.png" width="1440" height="990" alt="GitHub Desktop&#x27;s welcome screen with Sign in to GitHub.com, Sign in to GitHub Enterprise, Create your free account, and Skip this step." loading="lazy">
+      <figcaption>Click <b class="ui">Sign in to GitHub.com</b>.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="desktop--configure" data-nav="Let it set your name and email">
@@ -407,7 +410,10 @@
       <li>You should see your GitHub username with <b>(GitHub)</b> after it.</li>
       <li>The blue <b class="ui">Sign In</b> button at the top right should be gone.</li>
     </ol>
-    <p class="needs-shot">signin-accounts-signed-in.png. The Accounts menu after signing in, showing "username (GitHub)" at the top. Needs a signed-in VS Code.</p>
+    <figure class="shot small">
+      <img src="img/signin-accounts-signed-in.png" width="560" height="276" alt="The Accounts menu in VS Code with npuckett (GitHub) at the top." loading="lazy">
+      <figcaption>Your username, followed by (GitHub).</figcaption>
+    </figure>
   </article>
 
   <div class="finish"><h2>You are done with this part when</h2><ul>
@@ -826,7 +832,10 @@
       <li>Wait for a green tick. It usually takes under a minute.</li>
     </ol>
     <aside class="note"><span class="label">Red X on the newest run?</span><p>Pages is probably not switched on. Go back to <a href="#project--pages">Switch on GitHub Pages</a>. Then open the failed run and click <b class="ui">Re-run all jobs</b>.</p></aside>
-    <p class="needs-shot">actions-run-green.png. The repo's Actions tab with the first failed run (red X) below a successful run (green tick).</p>
+    <figure class="shot">
+      <img src="img/actions-run-green.png" width="1600" height="608" alt="The repo&#x27;s Actions tab with two runs: Change the background colour with a green tick, above Initial commit with a red X." loading="lazy">
+      <figcaption>The red X is the first run, from before Pages was on. The green tick is your push.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="publish--url" data-nav="Find your web address">
@@ -1061,13 +1070,14 @@ This folder
     <ol class="do" style="counter-reset: do 2">
       <li>Click <b class="ui">Add API Key</b>.</li>
       <li>Name it after where you will use it. Type <code>vscode</code>.</li>
+      <li>Set <b class="ui">Permissions</b> to <b>Inference only</b>. The key can then use models and nothing else.</li>
       <li>Copy the key when it is shown. Keep the page open until you have pasted it into VS Code in the next step.</li>
     </ol>
     <figure class="shot">
       <img src="img/opencode-add-key.png" width="1296" height="547" alt="A service account page in the OpenCode Console with a highlighted Add API Key button above a table of keys." loading="lazy">
       <figcaption>Each key has a name, so you can tell them apart and delete one without touching the others.</figcaption>
     </figure>
-    <p class="needs-shot">opencode-key-created.png. The window that appears after Add API Key, with the name field filled in as "vscode". Capture it before the key is shown, or with the key painted out.</p>
+    <p class="needs-shot">opencode-key-created.png. The window that appears after Add API Key, with the name field filled in as "vscode" and Permissions set to Inference only. Capture it before clicking Create key.</p>
   </article>
 
   <article class="step" id="models--add" data-nav="Add OpenCode Go in VS Code">
@@ -1127,7 +1137,10 @@ This folder
       <tr><td>An error that mentions the free tier</td><td>You added OpenCode Zen instead of OpenCode Go. Remove it in <b class="ui">Manage Models...</b> and add Go.</td></tr>
       <tr><td>An error about a usage limit</td><td>You have reached one of Go's limits. The <b class="ui">Go</b> tab of the OpenCode Console shows when it resets.</td></tr>
     </tbody></table>
-    <p class="needs-shot">models-go-test.png. The Chat showing a reply from an OpenCode Go model.</p>
+    <figure class="shot medium">
+      <img src="img/models-go-test.png" width="522" height="463" alt="The Chat in Ask mode: the message Say hello in five words, the reply Hello there, glad you&#x27;re here!, and the OpenCode Go model under the chat box." loading="lazy">
+      <figcaption>A reply means the key and the model both work.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="models--why-pay" data-nav="Why pay if there are free models?" data-optional>
@@ -1157,7 +1170,10 @@ This folder
     <p>The Chat panel sits on the right side of the window. If you closed it, open it again.</p>
     <div class="os" data-os="mac"><p>Press <kbd>Ctrl</kbd> + <kbd>Cmd</kbd> + <kbd>I</kbd>, or click the chat icon next to the search box at the top of the window.</p></div>
     <div class="os" data-os="win"><p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd>, or click the chat icon next to the search box at the top of the window.</p></div>
-    <p class="needs-shot">copilot-chat-signed-in.png. The Chat panel when signed in, showing the input box with the agent picker and the model picker.</p>
+    <figure class="shot medium">
+      <img src="img/copilot-chat-signed-in.png" width="522" height="372" alt="The bottom of the Chat panel: the chat box, and under it the agent menu set to Agent and the model menu." loading="lazy">
+      <figcaption>The agent menu and the model menu sit under the chat box. Yours may say Auto for the model.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="copilot--modes" data-nav="Ask, Plan and Agent">
@@ -1168,7 +1184,10 @@ This folder
       <tr><td><b>Plan</b></td><td>Writes a step by step plan for a change and waits for you to approve it.</td></tr>
       <tr><td><b>Agent</b></td><td>Edits files and runs commands to get a task done. It asks before it runs anything.</td></tr>
     </tbody></table>
-    <p class="needs-shot">copilot-modes.png. The agent picker open, showing Agent, Ask and Plan. Needs a signed-in VS Code.</p>
+    <figure class="shot medium">
+      <img src="img/copilot-modes.png" width="522" height="228" alt="The agent menu open, showing Agent, Ask, Plan, and Configure Custom Agent." loading="lazy">
+      <figcaption>Agent, Ask and Plan.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="copilot--try-ask" data-nav="Try Ask">
@@ -1194,7 +1213,10 @@ This folder
       <li>Click <b class="ui">Keep</b> if it is what you wanted, or <b class="ui">Undo</b> if it is not.</li>
     </ol>
     <aside class="warn"><span class="label">You are the author</span><p>Do not keep a change you have not read. If you cannot tell what a line does, switch to Ask and get it explained before you decide.</p></aside>
-    <p class="needs-shot">copilot-keep-undo.png. An agent edit in sketch.js showing green and red lines with the Keep and Undo buttons.</p>
+    <figure class="shot">
+      <img src="img/copilot-keep-undo.png" width="1650" height="1008" alt="VS Code after an Agent edit: in sketch.js the new ellipse line is green, with Keep and Undo at the bottom of the editor and in the Chat." loading="lazy">
+      <figcaption>Read the green line, check it in the browser, then Keep or Undo.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="copilot--limits" data-nav="Know the limits">
@@ -1326,7 +1348,10 @@ This folder
       </ol>
     </div>
     <p>The download is about 230 MB. Do it at home, not on the class Wi-Fi.</p>
-    <p class="needs-shot">opencode-download.png. The download page at opencode.ai/download with the desktop buttons: macOS (Apple Silicon), macOS (Intel), Windows (x64), Linux.</p>
+    <figure class="shot medium">
+      <img src="img/opencode-download.png" width="785" height="377" alt="The desktop downloads on opencode.ai/download: macOS (Apple Silicon), macOS (Intel), Windows (x64), Linux (.deb) and Linux (.rpm), each with a Download button." loading="lazy">
+      <figcaption>Pick the one for your computer.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode--first-run" data-nav="Open it the first time">
@@ -1336,7 +1361,10 @@ This folder
       <li>It opens a project called <b>Default Project</b>, a new empty folder in Documents. Leave it. You add your own project in <a href="#opencode-project"><span data-part="opencode-project">part 16</span></a>.</li>
       <li>Nothing else to set up yet. OpenCode comes with a few free models, so it works without an account.</li>
     </ol>
-    <p class="needs-shot">opencode-first-run.png. OpenCode on first launch: the tab bar, the Default Project, and the empty prompt box.</p>
+    <figure class="shot">
+      <img src="img/opencode-first-run.png" width="1600" height="1000" alt="OpenCode on first launch: a Session tab, the OpenCode logo, an empty prompt box with Space Bunny Free, and Default Project with No Git underneath." loading="lazy">
+      <figcaption>First launch. Default Project and No Git mean none of your projects is open yet.</figcaption>
+    </figure>
   </article>
 
   <div class="finish"><h2>You are done with this part when</h2><ul>
@@ -1414,11 +1442,14 @@ This folder
   <article class="step" id="opencode-project--add" data-nav="Add your project">
     <h2>Add your project</h2>
     <ol class="do">
-      <li>Click the <b class="ui">Home</b> tab, the first tab at the top.</li>
-      <li>Click <b class="ui">Add project</b>. You can also use the <b class="ui">File</b> menu, then <b class="ui">Open Project</b>.</li>
+      <li>Click <b class="ui">Home</b>, the grid icon at the left end of the tab bar.</li>
+      <li>Next to <b>Projects</b>, click the <b class="ui">Add project</b> button, a small folder with a plus. You can also use the <b class="ui">File</b> menu, then <b class="ui">Open Project</b>.</li>
       <li>Go to your <code>Documents/GitHub</code> folder and choose your repo's folder. Choose the folder itself, not a file inside it.</li>
     </ol>
-    <p class="needs-shot">opencode-add-project.png. The Home tab with Projects on the left and the Add project button.</p>
+    <figure class="shot">
+      <img src="img/opencode-add-project.png" width="1600" height="470" alt="The Home tab with Projects on the left. The Add project button, a folder with a plus, is highlighted next to Projects." loading="lazy">
+      <figcaption>Add project is the small folder icon next to Projects.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode-project--git" data-nav="Check it found Git">
@@ -1428,7 +1459,14 @@ This folder
       <li>Look under the prompt box. Next to the project name it shows a branch name, usually <code>main</code>.</li>
     </ol>
     <p>If it says <b>No Git</b> instead, you chose the wrong folder, or Git is not installed. See <a href="#fix--opencode-no-git">OpenCode says No Git</a>.</p>
-    <p class="needs-shot">opencode-branch.png. The prompt box of a new session with the project name and the branch name main underneath.</p>
+    <figure class="shot medium">
+      <img src="img/opencode-branch.png" width="1142" height="242" alt="The prompt box of a new session. Underneath it: my-phone-sketch, Local, and the branch name main, highlighted." loading="lazy">
+      <figcaption>Set up: your repo is open and the branch name <b>main</b> shows under the prompt box.</figcaption>
+    </figure>
+    <figure class="shot medium">
+      <img src="img/opencode-no-git.png" width="1142" height="242" alt="The same place showing Default Project and No Git, highlighted." loading="lazy">
+      <figcaption>Not set up yet: <b>No Git</b> means the folder is not a Git repo. Here it is Default Project.</figcaption>
+    </figure>
     <aside class="note"><span class="label">Why Git matters here</span><p>Git is how you see what the agent changed and how you undo it. Without Git, OpenCode can undo the conversation but not the changes to your files.</p></aside>
   </article>
 
@@ -1466,7 +1504,10 @@ This folder
       <li>Turn on <b class="ui">Show agent</b>.</li>
     </ol>
     <p>An agent menu now appears under the prompt box, next to the model menu.</p>
-    <p class="needs-shot">opencode-show-agent.png. Settings, Preferences, with the Show agent switch turned on.</p>
+    <figure class="shot medium">
+      <img src="img/opencode-show-agent.png" width="925" height="210" alt="Settings, Preferences, with the Show agent row highlighted and its switch turned on." loading="lazy">
+      <figcaption>Show agent, switched on.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode-setup--model" data-nav="Choose a free model">
@@ -1476,7 +1517,10 @@ This folder
       <li>Under <b>Free models provided by OpenCode</b>, choose <b>Space Bunny Free</b>. It can read images, and it does not keep your data.</li>
     </ol>
     <p>The free models change often. If Space Bunny Free is gone, choose <b>LongCat 2.5 Preview Free</b>, or any free model whose details say it allows images. Hover over a model to see its details.</p>
-    <p class="needs-shot">opencode-free-models.png. The model menu open, showing the list of free models provided by OpenCode.</p>
+    <figure class="shot medium">
+      <img src="img/opencode-free-models.png" width="800" height="804" alt="The Select model window. Free models provided by OpenCode lists LongCat 2.5 Preview, Space Bunny, MiMo-V2.6-Flash, Muse Spark 1.3, Ling 3.0 Flash Fin, Nemotron 3.5 Lightning, Nemotron 3 Ultra and Big Pickle, each tagged Free. Space Bunny is highlighted." loading="lazy">
+      <figcaption>The free models in September 2026. The list changes.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode-setup--test" data-nav="Send the test prompt">
@@ -1487,7 +1531,7 @@ This folder
     </ol>
     <div class="cmd wrap"><pre><code>Check that this project is set up. Tell me: which folder you are working in, what files are here, which versions of p5.js and p5-phone index.html loads, whether this folder is a Git repository and where it pushes to, and which GitHub account gh auth status reports. Do not change anything.</code></pre></div>
     <ol class="do" style="counter-reset: do 2">
-      <li>It asks permission to run <code>git</code> and <code>gh</code>. Read what it wants to run, then click <b class="ui">Allow once</b>.</li>
+      <li>If it asks permission to run a command, read what it wants to run, then click <b class="ui">Allow once</b>. Plan often runs these read-only checks without asking.</li>
     </ol>
     <table class="simple"><thead><tr><th>If the answer includes</th><th>Then this works</th></tr></thead><tbody>
       <tr><td>Anything at all</td><td>The model is connected.</td></tr>
@@ -1497,7 +1541,10 @@ This folder
       <tr><td>Your GitHub username</td><td>The GitHub CLI is installed and signed in.</td></tr>
     </tbody></table>
     <p>If one line is missing, the table tells you which part to go back to.</p>
-    <p class="needs-shot">opencode-test-reply.png. A Plan session with the test prompt and its reply, showing the folder, the files, the versions, the remote and the GitHub account.</p>
+    <figure class="shot">
+      <img src="img/opencode-test-reply.png" width="1240" height="1265" alt="OpenCode&#x27;s answer to the test prompt: the folder Documents/GitHub/my-phone-sketch, a table of the files including .agents/skills, p5.js 2.3.2 and p5-phone 1.15.0, the Git remote on github.com, and gh logged in as npuckett." loading="lazy">
+      <figcaption>A good answer covers every line of the table below. Yours shows your own folder and username.</figcaption>
+    </figure>
   </article>
 
   <div class="finish"><h2>You are done with this part when</h2><ul>
@@ -1517,7 +1564,7 @@ This folder
   <article class="step" id="opencode-tour--screen" data-nav="The screen">
     <h2>The screen</h2>
     <table class="simple"><thead><tr><th>Where</th><th>What it is</th><th>Shortcut</th></tr></thead><tbody>
-      <tr><td>Tabs along the top</td><td>Like a browser. <b class="ui">Home</b> is the first tab. Each session opens in its own tab.</td><td><kbd>Cmd</kbd> + <kbd>T</kbd> new tab</td></tr>
+      <tr><td>Tabs along the top</td><td>Like a browser. <b class="ui">Home</b> is the grid icon at the left. Each session opens in its own tab.</td><td><kbd>Cmd</kbd> + <kbd>T</kbd> new tab</td></tr>
       <tr><td>Home</td><td>Projects on the left. Sessions on the right, grouped Today, Yesterday and Older.</td><td></td></tr>
       <tr><td>The prompt box</td><td>Where you write. Type <code>/</code> for commands and <code>@</code> to point at a file. Start with <code>!</code> to run a Terminal command. You can drop an image or a file on it.</td><td></td></tr>
       <tr><td>Agent menu</td><td>Plan or Build.</td><td><kbd>Cmd</kbd> + <kbd>.</kbd></td></tr>
@@ -1529,7 +1576,10 @@ This folder
       <tr><td>Permission request</td><td>Appears when the agent wants to do something it needs to ask about. <b class="ui">Allow once</b>, <b class="ui">Allow always</b> or <b class="ui">Deny</b>.</td><td></td></tr>
       <tr><td>Terminal</td><td>A Terminal inside OpenCode, in the project folder.</td><td><kbd>Ctrl</kbd> + <kbd>`</kbd></td></tr>
     </tbody></table>
-    <p class="needs-shot">opencode-session.png. A session after one small edit, with the Review panel open beside it showing the diff.</p>
+    <figure class="shot">
+      <img src="img/opencode-session.png" width="1600" height="1000" alt="A Build session on the left that added one line to sketch.js. On the right, the Review panel shows Git changes: sketch.js, with the new ellipse line in green." loading="lazy">
+      <figcaption>The session on the left, the Review panel on the right. Green is the line the agent added.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode-tour--commands" data-nav="Commands to know">
@@ -1571,7 +1621,10 @@ This folder
       <tr><td>Extensions</td><td>Skills, MCP servers and plugins.</td></tr>
       <tr><td>About</td><td>The version number. Include it when you ask for help.</td></tr>
     </tbody></table>
-    <p class="needs-shot">opencode-settings.png. The settings page on Preferences, with the list of pages on the left.</p>
+    <figure class="shot">
+      <img src="img/opencode-settings.png" width="1600" height="1000" alt="The OpenCode settings page. The list on the left: Preferences, Appearance, Notifications, Shortcuts, Pairing, Projects, Worktrees, Providers, Models, Extensions, Server, About. Preferences is open." loading="lazy">
+      <figcaption>The settings page, open on Preferences.</figcaption>
+    </figure>
   </article>
 </section>
 
@@ -1630,13 +1683,16 @@ This folder
   <article class="step" id="opencode-go--connect" data-nav="Connect it in OpenCode">
     <h2>Connect it in OpenCode</h2>
     <ol class="do">
-      <li>Type <code>/connect</code> in the prompt box. You can also open Settings, then <b class="ui">Providers</b>.</li>
+      <li>Type <code>/connect</code> in the prompt box. You can also open the model menu and click <b class="ui">OpenCode Go</b> under <b>Add more models</b>, or open Settings, then <b class="ui">Providers</b>.</li>
       <li>Choose <b class="ui">OpenCode Go</b>.</li>
       <li>Your browser opens. Check that the code in the browser matches the code in OpenCode, then confirm.</li>
       <li>OpenCode shows <b>Connected to OpenCode Go</b>. Choose a model to start with.</li>
     </ol>
     <p>If the browser sign-in does not work, click <b class="ui">Use API key</b> instead. Make a key in the Console as in <a href="#models--key">Make an API key</a>, name it <code>opencode</code>, and paste it. One key for each place you use it.</p>
-    <p class="needs-shot">opencode-connect-go.png. The Connect window for OpenCode Go, showing the device code and the Use API key link.</p>
+    <figure class="shot medium">
+      <img src="img/opencode-connect-go.png" width="800" height="804" alt="The Select model window with OpenCode Go highlighted under Add more models from popular providers." loading="lazy">
+      <figcaption>OpenCode Go is also in the model menu, under Add more models.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="opencode-go--models" data-nav="Choose a model">
