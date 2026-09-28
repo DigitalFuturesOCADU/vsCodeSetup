@@ -110,7 +110,10 @@
       <li>GitHub emails you a code. Enter the code to verify your email.</li>
     </ol>
     <aside class="note"><span class="label">Your username is public</span><p>Your username becomes part of the web address of everything you publish, like <code>your-username.github.io</code>. Pick something short that you are happy to show in a portfolio. Lowercase letters, numbers and hyphens work best.</p></aside>
-    <p class="needs-shot">github-signup.png. The sign-up form at github.com/signup. GitHub blocks automated browsers on this page, so it needs a manual capture.</p>
+    <figure class="shot">
+      <img src="img/github-signup.png" width="1268" height="668" alt="GitHub's sign-up page. On the right: Continue with Google, Continue with Apple, then Email, Password, Username and Your Country/Region." loading="lazy">
+      <figcaption>Use the Email, Password and Username boxes on the right.</figcaption>
+    </figure>
   </article>
 
   <article class="step" id="github-account--2fa" data-nav="Turn on two-factor authentication">
@@ -314,7 +317,6 @@
         <li>On the <b class="ui">Select Additional Tasks</b> screen, tick both <b class="ui">Add "Open with Code" action</b> boxes. Leave <b class="ui">Add to PATH</b> ticked.</li>
         <li>Click <b class="ui">Install</b>, then <b class="ui">Finish</b>.</li>
       </ol>
-      <p class="needs-shot">vscode-install-windows.png. The Windows installer's "Select Additional Tasks" screen with the "Open with Code" boxes ticked. Needs a Windows machine.</p>
     </div>
   </article>
 
@@ -452,7 +454,6 @@
       </ol>
       <p>If no window appeared, run this command to ask for the tools.</p>
       <div class="cmd"><pre><code>xcode-select --install</code></pre></div>
-      <p class="needs-shot">git-mac-tools.png. The macOS window that offers to install the command line developer tools. Only appears on a Mac that does not have them yet.</p>
     </div>
     <div class="os" data-os="win">
       <ol class="do">
@@ -1054,7 +1055,6 @@ This folder
       <figcaption>The Go tab once you are subscribed. It points you to <b>Keys</b> for the next step.</figcaption>
     </figure>
     <p><a href="https://opencode.ai/go" target="_blank" rel="noopener">opencode.ai/go</a> lists the models and limits that come with the subscription.</p>
-    <p class="needs-shot">opencode-go-subscribe.png. The Go tab for an account that has not subscribed yet, showing the subscribe button. Needs an account without Go.</p>
   </article>
 
   <article class="step" id="models--key" data-nav="Make an API key">
@@ -1077,7 +1077,6 @@ This folder
       <img src="img/opencode-add-key.png" width="1296" height="547" alt="A service account page in the OpenCode Console with a highlighted Add API Key button above a table of keys." loading="lazy">
       <figcaption>Each key has a name, so you can tell them apart and delete one without touching the others.</figcaption>
     </figure>
-    <p class="needs-shot">opencode-key-created.png. The window that appears after Add API Key, with the name field filled in as "vscode" and Permissions set to Inference only. Capture it before clicking Create key.</p>
   </article>
 
   <article class="step" id="models--add" data-nav="Add OpenCode Go in VS Code">
@@ -1108,9 +1107,8 @@ This folder
       <img src="img/models-go-key.png" width="1230" height="240" alt="A box titled OpenCode Go API Key with an empty field." loading="lazy">
     </figure>
     <ol class="do" style="counter-reset: do 5">
-      <li>Tick the models you want to see in the Chat, then confirm.</li>
+      <li>The OpenCode Go models are added to the list in this window. Close it.</li>
     </ol>
-    <p class="needs-shot">models-go-select.png. The list of OpenCode Go models with tick boxes.</p>
   </article>
 
   <article class="step" id="models--pick" data-nav="Find the models in the Chat">
@@ -1128,7 +1126,7 @@ This folder
     <h2>Send a test message</h2>
     <p>Seeing a model in the list only proves that your key was accepted. Check that it answers.</p>
     <ol class="do">
-      <li>Choose one of the OpenCode Go models.</li>
+      <li>Choose <b>DeepSeek V4.1 Flash</b>, under <b>OpenCode Go</b>. Any Go model works for this test.</li>
       <li>Set the mode to <b class="ui">Ask</b>, type <code>Say hello in five words</code> and press <kbd>Enter</kbd>.</li>
     </ol>
     <table class="simple"><thead><tr><th>You get</th><th>It means</th></tr></thead><tbody>
@@ -1514,9 +1512,9 @@ This folder
     <h2>Choose a free model</h2>
     <ol class="do">
       <li>Click the model menu under the prompt box.</li>
-      <li>Under <b>Free models provided by OpenCode</b>, choose <b>Space Bunny Free</b>. It can read images, and it does not keep your data.</li>
+      <li>Under <b>Free models provided by OpenCode</b>, choose <b>MiMo-V2.6-Flash Free</b>. It can read images. What you send to it may be used to improve the model, so do not paste anything private.</li>
     </ol>
-    <p>The free models change often. If Space Bunny Free is gone, choose <b>LongCat 2.5 Preview Free</b>, or any free model whose details say it allows images. Hover over a model to see its details.</p>
+    <p>The free models change often. If MiMo-V2.6-Flash Free is gone, choose <b>Space Bunny Free</b> or <b>LongCat 2.5 Preview Free</b>. Those two do not keep your data. Or choose any free model whose details say it allows images. Hover over a model to see its details.</p>
     <figure class="shot medium">
       <img src="img/opencode-free-models.png" width="800" height="804" alt="The Select model window. Free models provided by OpenCode lists LongCat 2.5 Preview, Space Bunny, MiMo-V2.6-Flash, Muse Spark 1.3, Ling 3.0 Flash Fin, Nemotron 3.5 Lightning, Nemotron 3 Ultra and Big Pickle, each tagged Free. Space Bunny is highlighted." loading="lazy">
       <figcaption>The free models in September 2026. The list changes.</figcaption>

@@ -18,19 +18,18 @@ To add a missing screenshot: save it into `guide/img/` with the file name below,
 
 ## Missing. Needs a manual capture
 
-Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 9 to go.
+Generated from the `needs-shot` lines in `guide/index.html` on 2026-09-27. 3 to go.
 
-| File name | Step | What to capture |
-|---|---|---|
-| `github-signup.png` | 2.1 Sign up | The sign-up form at github.com/signup. GitHub blocks automated browsers on this page, so it needs a manual capture. |
-| `desktop-configure-git.png` | 3.4 Let it set your name and email | The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app. |
-| `vscode-install-windows.png` | 4.2 Download and install | The Windows installer's "Select Additional Tasks" screen with the "Open with Code" boxes ticked. Needs a Windows machine. |
-| `git-mac-tools.png` | 5.2 Install Git | The macOS window that offers to install the command line developer tools. Only appears on a Mac that does not have them yet. |
-| `clone-pick-repo.png` | 7.3 Clone it to your laptop | The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code. |
-| `opencode-go-subscribe.png` | 11.4 Subscribe to Go | The Go tab for an account that has not subscribed yet, showing the subscribe button. Needs an account without Go. |
-| `opencode-key-created.png` | 11.5 Make an API key | The window that appears after Add API Key, with the name field filled in as "vscode" and Permissions set to Inference only. Capture it before clicking Create key. |
-| `models-go-select.png` | 11.6 Add OpenCode Go in VS Code | The list of OpenCode Go models with tick boxes. |
-| `models-picker-go.png` | 11.7 Find the models in the Chat | The model menu open in the Chat with the OpenCode Go models listed. |
+| File name | What to capture |
+|---|---|
+| `desktop-configure-git.png` | The Configure Git screen with "Use my GitHub account name and email address" selected. Needs a first run of the app. |
+| `clone-pick-repo.png` | The list of your GitHub repos that appears after choosing Clone from GitHub. Needs a signed-in VS Code. |
+| `models-picker-go.png` | The model menu open in the Chat with the OpenCode Go models listed. |
+
+Dropped on 2026-09-27, because the step text is enough on its own: `vscode-install-windows.png` (no Windows
+machine), `git-mac-tools.png` (only appears on a Mac without the developer tools), `opencode-go-subscribe.png`
+(needs an account without Go), `opencode-key-created.png`, and `models-go-select.png` (VS Code has no tick list
+at that step: the models appear in the Language Models window).
 
 Note on 7.4 (Trust the folder): in VS Code 1.138 the old "Do you trust the authors?" pop-up did not appear, either when opening a
 folder from the command line or through File > Open Folder. The folder opened in Restricted Mode with a bar at the
