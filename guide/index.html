@@ -605,7 +605,7 @@
       <img src="img/pages-source.png" width="1600" height="1131" alt="A GitHub repo's Settings page with three numbered highlights: the Settings tab, Pages in the left list, and GitHub Actions in the Source menu." loading="lazy">
       <figcaption><span class="old">2025 capture</span>1 Settings. 2 Pages. 3 Set Source to GitHub Actions.</figcaption>
     </figure>
-    <aside class="note"><span class="label">A red X is normal here</span><p>If you look at the <b class="ui">Actions</b> tab of your repo now, you will see one failed run with a red X. GitHub tried to publish the moment you made the copy, before Pages was on. Your first push in <span data-part="publish">part 9</span> publishes properly.</p></aside>
+    <aside class="note"><span class="label">A red X is normal here</span><p>If you look at the <b class="ui">Actions</b> tab of your repo now, you will see one failed run with a red X. GitHub tried to publish the moment you made the copy, before Pages was on. Your first push in <span data-part="publish">part 9</span> publishes properly. If it still fails at <b>Setup Pages</b>, see <a href="#fix--pages-off">Pages is not switched on</a>.</p></aside>
   </article>
 
   <article class="step" id="project--clone" data-nav="Clone it to your laptop">
@@ -1817,11 +1817,21 @@ This folder
     <h2>My github.io address shows a 404 page</h2>
     <ul class="plain">
       <li>Check the address. It needs your exact username and your exact repo name. Capital letters matter in the repo name.</li>
-      <li>Check <b class="ui">Settings</b>, then <b class="ui">Pages</b>. The source must be <b>GitHub Actions</b>.</li>
+      <li>Check <b class="ui">Settings</b>, then <b class="ui">Pages</b>. The source must be <b>GitHub Actions</b>. If it is not, see <a href="#fix--pages-off">Pages is not switched on</a>, which has a prompt that does it for you.</li>
       <li>Check the <b class="ui">Actions</b> tab. The newest run needs a green tick. If it has a red X, open it and click <b class="ui">Re-run all jobs</b>.</li>
       <li>Check the repo is <b>Public</b>. It says so beside the repo's name.</li>
       <li>A brand new site can take a few minutes to appear the first time.</li>
     </ul>
+  </article>
+
+  <article class="step" id="fix--pages-off" data-nav="Pages is not switched on" data-optional>
+    <h2>Pages is not switched on</h2>
+    <p>The template has the publishing workflow, but a new copy does not turn Pages on by itself. The run in the <b class="ui">Actions</b> tab fails at <b>Setup Pages</b>, and your github.io address shows a 404.</p>
+    <ul class="plain">
+      <li>By hand: <b class="ui">Settings</b>, then <b class="ui">Pages</b>, then set <b class="ui">Source</b> to <b>GitHub Actions</b>, as in <a href="#project--pages"><span data-part="project">part 7</span></a>. Then re-run the failed run in the <b class="ui">Actions</b> tab.</li>
+      <li>Or ask the agent. In OpenCode, or VS Code's Chat set to <b class="ui">Agent</b>, open your project and paste this. It needs the GitHub CLI signed in, from <a href="#github-cli"><span data-part="github-cli">part 15</span></a>.</li>
+    </ul>
+    <div class="cmd wrap"><pre><code>Turn on GitHub Pages for this repo so it publishes with GitHub Actions. Use the GitHub CLI. Run gh api -X POST "repos/{owner}/{repo}/pages" -f build_type=workflow. If it says Pages already exists, run the same command with -X PUT instead. Then start the Pages workflow again with gh workflow run static.yml. Wait a few seconds, get the new run's ID with gh run list --workflow static.yml --limit 1, and follow it with gh run watch and that ID. When it finishes, tell me the Pages address from gh api "repos/{owner}/{repo}/pages" --jq .html_url. Do not change any files.</code></pre></div>
   </article>
 
   <article class="step" id="fix--push-rejected" data-nav="Sync fails or push is rejected" data-optional>
