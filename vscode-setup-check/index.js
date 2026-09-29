@@ -131,7 +131,7 @@ else {
   // Since 2026-09-29 the template publishes from the main branch: no workflow, plus .nojekyll.
   // Copies made before then carry static.yml, which only works with Pages set to GitHub Actions.
   if (fs.existsSync(path.join(top, '.nojekyll'))) ok('.nojekyll');
-  if (deployers.length === 1) info('Publish workflow from the old setup: ' + deployers[0] + '. It needs Pages set to GitHub Actions.');
+  if (deployers.length === 1) info('Publish workflow from the old setup: ' + deployers[0] + '. It works with either Pages source.');
   else if (deployers.length > 1) bad('should', deployers.length + ' workflows publish to Pages (' + deployers.join(', ') + ')', 'Delete them and publish from the main branch instead', 'fix--pages-off');
   const status = run('git status -sb') || '';
   const dirty = status.split('\n').slice(1).filter(Boolean).length, ahead = (status.match(/ahead (\d+)/) || [])[1];
