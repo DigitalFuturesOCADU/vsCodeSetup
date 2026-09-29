@@ -35,6 +35,8 @@ The exit code is 1 if any MUST check fails, otherwise 0.
 
 ## Versions
 
+- 2.0.3, September 29, 2026. An old workflow next to branch publishing is reported as harmless, not as a problem:
+  tested, both publish.
 - 2.0.2, September 29, 2026. The template now publishes from the main branch. No workflow is needed;
   one left over from the old setup is reported, and Pages is checked for main as the source.
 - 2.0.1, September 2026. The phone check no longer mentions tilt, since the starter sketch is blank.

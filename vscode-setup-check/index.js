@@ -153,7 +153,7 @@ else {
     const fix = 'Repo Settings, Pages, Source: Deploy from a branch, Branch: main, / (root), Save';
     if (pages === 'legacy' && branch === 'main') {
       ok('GitHub Pages is on, publishing from main');
-      if (deployers.length) bad('should', 'The old publish workflow fails on every push now', 'Delete .github/workflows/' + deployers[0] + ', then commit and sync', 'fix--pages-off');
+      if (deployers.length) info('The old workflow ' + deployers[0] + ' also publishes after each push. It does no harm. Delete it to tidy up.');
     } else if (pages === 'legacy') bad('must', 'GitHub Pages publishes from "' + branch + '", not main', fix, 'project--pages');
     else if (pages === 'workflow' && deployers.length) ok('GitHub Pages is on (GitHub Actions, the setup from before September 29)');
     else if (pages === 'workflow') bad('must', 'GitHub Pages is set to GitHub Actions, but there is no publish workflow', fix, 'fix--pages-off');

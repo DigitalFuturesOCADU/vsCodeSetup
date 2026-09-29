@@ -602,7 +602,8 @@
       <li>Under <b class="ui">Branch</b>, choose <b class="ui">main</b>, leave the folder on <b class="ui">/ (root)</b>, and click <b class="ui">Save</b>.</li>
     </ol>
     <p>In about a minute, the top of this page says <b>Your site is live at</b>, with your address. From now on, every push publishes your sketch again.</p>
-    <aside class="note"><span class="label">Made your copy before September 29?</span><p>It has a file called <code>.github/workflows/static.yml</code>, from the old setup. That file only works with <b class="ui">Source</b> set to <b class="ui">GitHub Actions</b>. Either keep both, or delete the file and use <b class="ui">Deploy from a branch</b>. See <a href="#fix--pages-off">Pages is not switched on</a>.</p></aside>
+    <aside class="note"><span class="label">Made your copy before September 29?</span><p>Do the same steps. Your copy has a file from the old setup, <code>.github/workflows/static.yml</code>. It does no harm: it publishes the same files a second time after each push. To tidy up, delete it, or use the prompt in <a href="#fix--pages-off">Pages is not switched on</a>.</p></aside>
+    <aside class="warn"><span class="label">Never click Configure</span><p>If you choose <b class="ui">GitHub Actions</b> in the <b class="ui">Source</b> menu, GitHub offers a workflow with a <b class="ui">Configure</b> button. Do not click it. In a copy made before September 29 it tries to add a file the repo already has, and GitHub says the file already exists.</p></aside>
   </article>
 
   <article class="step" id="project--clone" data-nav="Clone it to your laptop">
@@ -1830,7 +1831,7 @@ This folder
     </ul>
     <div class="cmd wrap"><pre><code>Turn on GitHub Pages for this repo so it publishes from the main branch. Use the GitHub CLI. Run gh api -X POST "repos/{owner}/{repo}/pages" -f "source[branch]=main" -f "source[path]=/". If it says Pages is already enabled, run gh api -X PUT "repos/{owner}/{repo}/pages" -f build_type=legacy -f "source[branch]=main" -f "source[path]=/" instead. If the file .github/workflows/static.yml exists, delete it, then commit and push that change. Then find the newest run with gh run list --limit 1, follow it with gh run watch and its ID, and when it finishes tell me the Pages address from gh api "repos/{owner}/{repo}/pages" --jq .html_url.</code></pre></div>
     <p>In the <b class="ui">Actions</b> tab you may see a run marked cancelled just before the green one. That is normal. The next push replaced it.</p>
-    <aside class="note"><span class="label">Copies made before September 29</span><p>They have <code>.github/workflows/static.yml</code>, and every run fails at <b>Setup Pages</b> until <b class="ui">Source</b> is set to <b class="ui">GitHub Actions</b>. You can do that instead, then open the failed run and click <b class="ui">Re-run all jobs</b>. Or use the prompt above, which deletes the file and switches to the main branch.</p></aside>
+    <aside class="note"><span class="label">Copies made before September 29</span><p>They have <code>.github/workflows/static.yml</code>, and every run fails at <b>Setup Pages</b> while Pages is off. Switch Pages on from the main branch by hand, as above, or use the prompt, which also deletes the old file. Setting <b class="ui">Source</b> to <b class="ui">GitHub Actions</b> works too. If you do that, do not click <b class="ui">Configure</b>: it tries to add a file the repo already has, and GitHub says the file already exists. Then open the failed run and click <b class="ui">Re-run all jobs</b>.</p></aside>
   </article>
 
   <article class="step" id="fix--push-rejected" data-nav="Sync fails or push is rejected" data-optional>
