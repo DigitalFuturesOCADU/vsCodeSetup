@@ -25,7 +25,7 @@ Run it in the VS Code Terminal with your project folder open, so it can check th
 | Extensions | Live Server | MUST |
 | | p5.js 2.x Project Generator | SHOULD |
 | | OpenCode for Copilot Chat (only needed for workflow 2) | LATER |
-| This folder | is a Git project with a GitHub remote, has `index.html` and `sketch.js`, has exactly one Pages workflow | SHOULD |
+| This folder | is a Git project with a GitHub remote, has `index.html` and `sketch.js`, has no leftover Pages workflow (older copies: one, with Pages set to GitHub Actions) | SHOULD |
 | GitHub CLI | installed and signed in. If it is, the script also asks GitHub whether Pages is on for this repo | LATER |
 
 Each failed check prints how to fix it and a link to the matching step of the guide:
@@ -35,6 +35,8 @@ The exit code is 1 if any MUST check fails, otherwise 0.
 
 ## Versions
 
+- 2.0.2, September 29, 2026. The template now publishes from the main branch. No workflow is needed;
+  one left over from the old setup is reported, and Pages is checked for main as the source.
 - 2.0.1, September 2026. The phone check no longer mentions tilt, since the starter sketch is blank.
 - 2.0.0, September 2026. Rewritten for the template workflow. GitLens, GitHub Actions and the
   old p5 extensions are no longer required. Adds the project, Pages and GitHub CLI checks.

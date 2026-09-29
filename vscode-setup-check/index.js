@@ -115,7 +115,7 @@ else {
 // ---------- project folder ----------
 head('This folder');
 const inRepo = gitVersion && run('git rev-parse --is-inside-work-tree') === 'true';
-let owner = null, repo = null;
+let owner = null, repo = null, deployers = [];
 if (!inRepo) info('Not a Git project. Run this again in the VS Code Terminal with your project open to check it too.');
 else {
   const top = run('git rev-parse --show-toplevel') || process.cwd();
@@ -127,10 +127,12 @@ else {
   ['index.html', 'sketch.js'].forEach(f => fs.existsSync(path.join(top, f)) ? ok(f) : bad('should', f + ' is missing from the top of the project', 'Start from the template', 'project--template'));
   const wfDir = path.join(top, '.github', 'workflows');
   const wfs = fs.existsSync(wfDir) ? fs.readdirSync(wfDir).filter(f => /\.ya?ml$/.test(f)) : [];
-  const deployers = wfs.filter(f => /deploy-pages/.test(fs.readFileSync(path.join(wfDir, f), 'utf8')));
-  if (deployers.length === 1) ok('Publish workflow: ' + deployers[0]);
-  else if (!deployers.length) bad('should', 'No GitHub Pages workflow in .github/workflows', 'Start from the template, which includes static.yml', 'project--template');
-  else bad('should', deployers.length + ' workflows publish to Pages (' + deployers.join(', ') + ')', 'Keep one and delete the others. This happens if you click Configure on the Pages settings page.', 'project--pages');
+  deployers = wfs.filter(f => /deploy-pages/.test(fs.readFileSync(path.join(wfDir, f), 'utf8')));
+  // Since 2026-09-29 the template publishes from the main branch: no workflow, plus .nojekyll.
+  // Copies made before then carry static.yml, which only works with Pages set to GitHub Actions.
+  if (fs.existsSync(path.join(top, '.nojekyll'))) ok('.nojekyll');
+  if (deployers.length === 1) info('Publish workflow from the old setup: ' + deployers[0] + '. It needs Pages set to GitHub Actions.');
+  else if (deployers.length > 1) bad('should', deployers.length + ' workflows publish to Pages (' + deployers.join(', ') + ')', 'Delete them and publish from the main branch instead', 'fix--pages-off');
   const status = run('git status -sb') || '';
   const dirty = status.split('\n').slice(1).filter(Boolean).length, ahead = (status.match(/ahead (\d+)/) || [])[1];
   if (dirty) info(dirty + ' changed file(s) not committed yet'); if (ahead) info(ahead + ' commit(s) not pushed yet. Click Sync Changes.');
@@ -147,16 +149,22 @@ else {
   if (authed) ok('Signed in'); else bad('later', 'gh is not signed in', 'Run: gh auth login', 'github-cli--login');
   if (authed && owner) {
     const pages = run(`gh api repos/${owner}/${repo}/pages --jq .build_type`);
-    if (pages === 'workflow') ok('GitHub Pages is on (GitHub Actions)');
-    else if (pages) bad('must', 'GitHub Pages source is "' + pages + '", not GitHub Actions', 'Repo Settings, Pages, Source: GitHub Actions', 'project--pages');
-    else bad('must', 'GitHub Pages is not switched on for ' + owner + '/' + repo, 'Repo Settings, Pages, Source: GitHub Actions', 'project--pages');
+    const branch = pages === 'legacy' ? run(`gh api repos/${owner}/${repo}/pages --jq .source.branch`) : null;
+    const fix = 'Repo Settings, Pages, Source: Deploy from a branch, Branch: main, / (root), Save';
+    if (pages === 'legacy' && branch === 'main') {
+      ok('GitHub Pages is on, publishing from main');
+      if (deployers.length) bad('should', 'The old publish workflow fails on every push now', 'Delete .github/workflows/' + deployers[0] + ', then commit and sync', 'fix--pages-off');
+    } else if (pages === 'legacy') bad('must', 'GitHub Pages publishes from "' + branch + '", not main', fix, 'project--pages');
+    else if (pages === 'workflow' && deployers.length) ok('GitHub Pages is on (GitHub Actions, the setup from before September 29)');
+    else if (pages === 'workflow') bad('must', 'GitHub Pages is set to GitHub Actions, but there is no publish workflow', fix, 'fix--pages-off');
+    else bad('must', 'GitHub Pages is not switched on for ' + owner + '/' + repo, fix, 'project--pages');
   }
 }
 
 // ---------- by eye ----------
 head('Check these yourself');
 ['github.com asks for a code from your phone when you sign in (2FA)', 'The Accounts icon in VS Code shows your GitHub username',
-  'Settings, Pages in your repo says the source is GitHub Actions', 'Your github.io page opens on your phone and shows your latest change'].forEach(t => console.log('  ☐ ' + t));
+  'Settings, Pages in your repo says "Your site is live at"', 'Your github.io page opens on your phone and shows your latest change'].forEach(t => console.log('  ☐ ' + t));
 
 console.log('\n' + bold('Result'));
 console.log('  Node ' + process.version + ' on ' + (isMac ? 'macOS' : isWin ? 'Windows' : process.platform) + dim('  (' + tally.ok + ' checks passed)'));
